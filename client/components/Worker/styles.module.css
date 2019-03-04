@@ -1,0 +1,57 @@
+.Worker {
+  composes: fa-layers from global;
+  composes: fa-fw from global;
+
+  margin: var(--spacing-none);
+  font-size: var(--font-size-5);
+  padding: var(--spacing-small);
+  font-weight: bold;
+  border-radius: var(--border-radius-circle);
+  text-align: center;
+}
+
+.counter {
+  font-weight: bolder;
+  font-size: var(--font-size-4);
+  color: var(--black-80);
+  composes: fa-layers-text fa-fw from global;
+}
+
+.workerGreen {
+  color: var(--workerGreen);
+}
+.workerBlue {
+  color: var(--workerBlue);
+}
+.workerRed {
+  color: var(--workerRed);
+}
+.workerPurple {
+  color: var(--workerPurple);
+}
+.counter {
+  color: var(--near-white);
+}
+
+.unmet {
+  background-color: var(--white-10);
+}
+.met {
+  background-color: var(--black-30);
+}
+
+.bar {
+  & > li > figure {
+    margin: var(--spacing-none);
+    padding: var(--spacing-small);
+
+  }
+}
+
+.spread {
+  composes: flexRow justifyAround itemsCenter from global;
+}
+
+.center {
+  composes: flexRow itemsCenter justifyCenter from global;
+}

@@ -1,0 +1,84 @@
+# frozen_string_literal: true
+
+notification :libnotify,
+             timeout:   5,
+             transient: true,
+             append:    false,
+             urgency:   :critical
+
+directories %w[app lib config spec] \
+  .select { |d| Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist") }
+
+guard :bundler do
+  require 'guard/bundler'
+  require 'guard/bundler/verify'
+  helper = Guard::Bundler::Verify.new
+
+  files = ['Gemfile']
+  files += Dir['*.gemspec'] if files.any? { |f| helper.uses_gemspec?(f) }
+
+  # Assume files are symlinked from somewhere
+  files.each { |file| watch(helper.real_path(file)) }
+end
+
+guard 'spring', bundler: true do
+  watch('Gemfile.lock')
+  watch(%r{^config/})
+  watch(%r{^spec/(support|factories|matchers)/})
+  watch(%r{^spec/factory.rb})
+end
+
+# Guard-Rails supports a lot options with default values:
+# daemon: false                        # runs the server as a daemon.
+# debugger: false                      # enable ruby-debug gem.
+# environment: 'development'           # changes server environment.
+# force_run: false                     # kills any process that's holding the listen port
+#                                          before attempting to (re)start Rails.
+# pid_file: 'tmp/pids/[RAILS_ENV].pid' # specify your pid_file.
+# host: 'localhost'                    # server hostname.
+# port: 3000                           # server port number.
+# root: '/spec/dummy'                  # Rails' root path.
+# server: thin                         # webserver engine.
+# start_on_start: true                 # will start the server when starting Guard.
+# timeout: 30                          # waits untill restarting the Rails server, in seconds.
+# zeus_plan: server                    # custom plan in zeus, only works with `zeus: true`.
+# zeus: false                          # enables zeus gem.
+# CLI: 'rails server'                  # customizes runner command.
+#                                          Omits all options except `pid_file`!
+
+guard 'rails', host: '0.0.0.0', force_run: true do
+  watch('Gemfile.lock')
+  watch(%r{^(config|lib)/.*})
+end
+
+# guard :process, name: 'webpack-dev-server', command: 'bin/webpack-dev-server'
+
+# group :specs do
+#   guard :rspec, cmd: 'spring rspec', all_on_start: true, all_after_pass: true do
+#     require 'guard/rspec/dsl'
+#     dsl = Guard::RSpec::Dsl.new(self)
+#
+#     rspec = dsl.rspec
+#     watch(rspec.spec_helper) { rspec.spec_dir }
+#     watch(rspec.spec_support) { rspec.spec_dir }
+#     watch(rspec.spec_files)
+#
+#     ruby = dsl.ruby
+#     dsl.watch_spec_files_for(ruby.lib_files)
+#
+#     rails = dsl.rails(view_extensions: %w[erb haml slim])
+#     dsl.watch_spec_files_for(rails.app_files)
+#
+#     watch(rails.controllers) do |m|
+#       [
+#         rspec.spec.call("routing/#{m[1]}_routing"),
+#         rspec.spec.call("controllers/#{m[1]}_controller"),
+#       ]
+#     end
+#
+#     # Rails config changes
+#     watch(rails.spec_helper) { rspec.spec_dir }
+#     watch(rails.routes) { "#{rspec.spec_dir}/routing" }
+#     watch(rails.app_controller) { "#{rspec.spec_dir}/controllers" }
+#   end
+# end

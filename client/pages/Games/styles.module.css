@@ -1,0 +1,13 @@
+.GamesPage {
+  composes: grid from global;
+  grid-template-rows: auto 1fr;
+}
+.GameList {
+  padding: var(--spacing-small);
+
+  & > ul {
+    & > li {
+      list-style: none;
+    }
+  }
+}
