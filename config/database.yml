@@ -2,20 +2,20 @@ default: &default
   adapter: postgresql
   encoding: unicode
   timeout: 5000
-#  host: <%#= Rails.application.credentials.db.dig(:cultages, :host) %>
-#  port: <%#= Rails.application.credentials.db.dig(:cultages, :port) %>
-#  username: <%#= Rails.application.credentials.db.dig(:cultages, :user) %>
-#  password: <%#= Rails.application.credentials.db.dig(:cultages, :pass) %>
+#  host: <%#= Rails.application.credentials.db.dig(:cultage, :host) %>
+#  port: <%#= Rails.application.credentials.db.dig(:cultage, :port) %>
+#  username: <%#= Rails.application.credentials.db.dig(:cultage, :user) %>
+#  password: <%#= Rails.application.credentials.db.dig(:cultage, :pass) %>
 
 development:
   <<: *default
-  database: cultages_development
+  database: cultage_development
 
 test:
   <<: *default
-  database: cultages_test
+  database: cultage_test
 
 production:
   <<: *default
-  database: cultages
+  database: cultage
 

@@ -11,7 +11,7 @@ describe CultageSchema do
   # let(:variables) { {} }
   # let(:query_string) { 'query { currentUser { username } }' }
   # let(:result) do
-  #   res = AteEightSchema.execute(
+  #   res = CultageSchema.execute(
   #     query_string,
   #     context: context,
   #     variables: variables
