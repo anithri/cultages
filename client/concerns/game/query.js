@@ -8,9 +8,12 @@ export const GAME_FRAGMENT = gql`
       all: edges {
         player: node {
           playerId: id
+          slug
         }
       }
     }
+    discardsCardCount
+    drawCardCount
   }
 `
 export const GET_GAME = gql`

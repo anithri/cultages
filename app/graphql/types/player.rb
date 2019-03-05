@@ -4,7 +4,8 @@ module Types
     description 'Player'
 
     field :id, ID, null: false
-    field :name, String, null: true
+    field :name, String, null: false
+    field :slug, String, null: false
     field :hand, Types::Card.connection_type, null: false
     field :tableau, Types::Card.connection_type, null: false
   end

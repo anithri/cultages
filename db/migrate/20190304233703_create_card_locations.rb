@@ -5,7 +5,7 @@ class CreateCardLocations < ActiveRecord::Migration[6.0]
       t.references :card, foreign_key: true
       t.references :player, foreign_key: true
 
-      t.integer :sortOrder, default: 0
+      t.integer :sort_order, default: 0
       t.integer :purpose, default: 0
 
       t.timestamps

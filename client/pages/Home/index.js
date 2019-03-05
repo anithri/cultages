@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -14,10 +14,14 @@ class HomePage extends React.Component {
         <nav className="pageNav">
           <ul>
             <li>
-              <Link to="/games">Games</Link>
+              <NavLink to="/games" activeClassName="bg-white">
+                Games
+              </NavLink>
             </li>
             <li>
-              <Link to="/Oops">Oops</Link>
+              <NavLink to="/Oops" activeClassName="bg-white">
+                Oops
+              </NavLink>
             </li>
           </ul>
         </nav>

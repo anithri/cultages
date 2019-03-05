@@ -1,0 +1,23 @@
+.gamePane {
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr);
+
+  & > * {
+    padding-left: var(--spacing-medium);
+    padding-right: var(--spacing-medium);
+  }
+  & > nav {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      flex: 0 1 auto;
+    }
+  }
+
+  & > aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

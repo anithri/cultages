@@ -1,18 +1,23 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Link } from 'react-router-dom'
 import React from 'react'
 import styles from './styles.module.css'
 import { GameContainer, gameShape } from 'concerns/game'
 import PlayerCard from 'panes/PlayerCard'
+import GamePane from 'panes/GamePane'
+
 const GamePage = ({ className, game }) => {
   console.log(game.players)
   const players = game.players.map(player => (
-    <PlayerCard {...player} key={`gamePage-player-${player.playerId}`} />
+    <PlayerCard
+      {...player}
+      key={`gamePage-player-${player.playerId}`}
+      className={styles[player.slug]}
+    />
   ))
   return (
     <main className={cx(className, styles.page)}>
-      <h2>{game.name}</h2>
+      <GamePane game={game} className={styles.game} />
       {players}
     </main>
   )

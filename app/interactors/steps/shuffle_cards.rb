@@ -11,7 +11,7 @@ module Steps
         CardLocation.new(
           card:      card,
           purpose:   :draw,
-          sortOrder: idx
+          sort_order: idx
         )
       end
     end

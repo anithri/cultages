@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
@@ -10,10 +10,10 @@ const MainHeader = ({ className, title }) => (
     <nav>
       <ul className={styles.pageNav}>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/games">Games</Link>
+          <NavLink to="/games">Games</NavLink>
         </li>
       </ul>
     </nav>

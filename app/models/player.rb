@@ -4,7 +4,7 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  name       :string
-#  sortOrder  :integer          default(0)
+#  sort_order :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  game_id    :bigint(8)
@@ -25,5 +25,9 @@ class Player < ApplicationRecord
   has_many :hand, ->{where(purpose: :hand)}, class_name: 'CardLocation'
   has_many :tableau, ->{where(purpose: :tableau)}, class_name: 'CardLocation'
 
-  default_scope ->{order(sortOrder: :asc)}
+  default_scope ->{order(sort_order: :asc)}
+
+  def slug
+    "player#{sort_order}"
+  end
 end

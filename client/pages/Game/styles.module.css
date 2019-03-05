@@ -1,3 +1,26 @@
 .page {
   composes: grid from global;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto repeat(2, 1fr);
+  grid-template-areas:
+    'game game'
+    'player1 player2'
+    'player4 player3';
+}
+
+.game {
+  grid-area: game;
+}
+
+.player1 {
+  grid-area: player1;
+}
+.player2 {
+  grid-area: player2;
+}
+.player3 {
+  grid-area: player3;
+}
+.player4 {
+  grid-area: player4;
 }

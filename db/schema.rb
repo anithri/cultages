@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_233703) do
     t.bigint "game_id"
     t.bigint "card_id"
     t.bigint "player_id"
-    t.integer "sortOrder", default: 0
+    t.integer "sort_order", default: 0
     t.integer "purpose", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_233703) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
-    t.integer "sortOrder", default: 0
+    t.integer "sort_order", default: 0
     t.bigint "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

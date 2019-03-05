@@ -11,7 +11,7 @@ module Steps
       game.players = Array.new(Player::PER_GAME) do |idx|
         Player.new(
           name:      generator.player_name,
-          sortOrder: idx,
+          sort_order: idx + 1,
         )
       end
     end
