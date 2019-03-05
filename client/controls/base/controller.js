@@ -7,7 +7,7 @@ export const createController = args => {
     displayName = 'UnknownControl',
     mutation,
     preMutation = variablesMutation,
-    updateMutation: noOp,
+    updateMutation,
     postMutation = asDoMutation,
     propTypes = {},
   } = args
@@ -16,7 +16,7 @@ export const createController = args => {
     const variables = preMutation(props)
 
     const doMutation = useMutation(mutation, {
-      update: noOp,
+      update: updateMutation(props),
       variables,
     })
 

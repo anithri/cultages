@@ -23,7 +23,7 @@ const Button = ({
 
 Button.propTypes = {
   className: PropTypes.string,
-  control: PropTypes.func,
+  doClick: PropTypes.func,
   iconAfter: PropTypes.string,
   iconBefore: PropTypes.string,
   label: PropTypes.string,

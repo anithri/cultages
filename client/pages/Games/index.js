@@ -6,13 +6,15 @@ import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
+import { SetupTableControl } from 'controls/setupTable'
 
-// const CreateTable = SetupTableControl(Button)
+const SetupTable = SetupTableControl({ Input: Button })
 
-const GamesPage = ({ className, games }) => {
+const GamesPage = ({ className, games, history }) => {
   return (
     <main className={cx(className, styles.GamesPage)}>
       <MainHeader title="Games" />
+      <SetupTable label="New Game" history={history} />
       <GameList games={games} className={styles.GameList} />
     </main>
   )

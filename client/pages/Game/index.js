@@ -18,4 +18,4 @@ GamePage.propTypes = {
   game: gameShape,
 }
 
-export default GameContainer({Display: GamePage})
+export default GameContainer({ Display: GamePage })

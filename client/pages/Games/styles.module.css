@@ -1,6 +1,6 @@
 .GamesPage {
   composes: grid from global;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: repeat(2, auto) 1fr;
 }
 .GameList {
   padding: var(--spacing-small);
