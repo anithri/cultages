@@ -23,4 +23,4 @@ GamesPage.propTypes = {
   games: gameListShape,
 }
 
-export default GameListContainer(GamesPage)
+export default GameListContainer({ Display: GamesPage })

@@ -4,7 +4,6 @@ export const GAME_FRAGMENT = gql`
   fragment gameFragment on Game {
     id
     name
-    slug
   }
 `
 export const GET_GAME = gql`

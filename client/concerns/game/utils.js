@@ -1,1 +1,1 @@
-export const parseGame = gameData => gameData
+export const parseGame = ({game}) => game

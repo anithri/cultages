@@ -2,10 +2,10 @@ import { GET_GAME_LIST } from './query'
 import { parseGameList } from './utils'
 import { createListOfContainer } from 'concerns/base'
 
-export const GameListContainer = Display =>
+export const GameListContainer = args =>
   createListOfContainer({
-    Display,
     concern: 'games',
     parser: parseGameList,
     query: GET_GAME_LIST,
+    ...args,
   })
