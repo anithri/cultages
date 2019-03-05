@@ -8,7 +8,7 @@ module Types
       argument :card_id, ID, required: true, as: :id
     end
     def card(id:)
-      ::Card.locate id
+      ::Card.find id
     end
 
     field :cards, Types::Card.connection_type, null: false
@@ -36,7 +36,7 @@ module Types
       argument :player_id, ID, required: true, as: :id
     end
     def player(id:)
-      ::Player.locate id
+      ::Player.find id
     end
     # endregion
 

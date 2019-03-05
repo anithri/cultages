@@ -4,6 +4,13 @@ export const GAME_FRAGMENT = gql`
   fragment gameFragment on Game {
     id
     name
+    players {
+      all: edges {
+        player: node {
+          playerId: id
+        }
+      }
+    }
   }
 `
 export const GET_GAME = gql`
