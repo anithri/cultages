@@ -9,13 +9,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-20.times do
-  name = Faker::Superhero.name
-  User.find_or_create_by(name: name, email: Faker::Internet.email(name))
+60.times do |idx|
+  Card.find_or_create_by(id: idx + 1000).update(
+    name:     "Card #{idx + 1000}",
+    body:     'A Card',
+    category: Card.categories.keys.sample
+  )
 end
-puts "Users Created: #{User.count}"
 
-10.times do
-  Events::SetupTable.call
+4.times do
+  result = Events::SetupTable.call
+  puts result.errors
 end
-puts "Games Created: #{GameSession.count}"

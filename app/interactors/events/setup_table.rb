@@ -2,12 +2,9 @@ module Events
   class SetupTable
     include Interactor::Organizer
 
-    organize Steps::QuickStart,
+    organize Steps::SetupGame,
              Steps::SeatPlayers,
-             Steps::SetupBoard,
-             Steps::SetupGame,
-             Steps::DealCards,
-             Steps::DrawWorkers,
+             Steps::ShuffleCards,
              Steps::SaveGame
   end
 end

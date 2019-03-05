@@ -38,6 +38,6 @@ module Cultage
       g.javascripts false
     end
 
-    config.autoload_paths << Rails.root.join('app/interactors/validators')
+    config.autoload_paths << Rails.root.join('app/serializers')
   end
 end

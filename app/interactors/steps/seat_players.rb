@@ -1,23 +1,19 @@
+require 'faker'
 module Steps
   class SeatPlayers < Base
+    delegate :game, :generator, to: :context
 
     before do
-      # puts '=' * 30
-      # puts self.class if context.debug
-      unless users
-        context.errors = ["no users"]
-        context.fail!(message: context.errors.first)
-      end
+      context.fail!(message: 'No Game') unless game && generator
     end
 
     def call
-      context.players = Game::Bits::Worker.combinations.zip(users).each_with_index.map do |(combo,
-        user), idx|
-        p = Player.new({user: user, order: idx + 1})
-        p.required_workers = combo
-        p
+      game.players = Array.new(Player::PER_GAME) do |idx|
+        Player.new(
+          name:      generator.player_name,
+          sortOrder: idx,
+        )
       end
     end
-
   end
 end
