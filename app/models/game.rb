@@ -13,6 +13,14 @@
 class Game < ApplicationRecord
   has_many :players
   has_many :card_locations
-  has_many :draw, -> {where(purpose: :draw)}, class_name: 'CardLocation'
-  has_many :discards, -> {where(purpose: :discards)}, class_name: 'CardLocation'
+  has_many :draw_deck, -> {where(purpose: :draw)}, class_name: 'CardLocation'
+  has_many :discard_deck, -> {where(purpose: :discards)}, class_name: 'CardLocation'
+
+  def draw
+    draw_deck.map(&:card)
+  end
+
+  def discards
+    discard_deck.map(&:card)
+  end
 end

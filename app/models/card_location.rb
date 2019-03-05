@@ -29,5 +29,5 @@ class CardLocation < ApplicationRecord
   belongs_to :card
   belongs_to :player, optional: true
 
-  enum purpose: [:discards, :draw, :deck, :tableau]
+  enum purpose: [:discards, :draw, :hand, :tableau]
 end
