@@ -30,4 +30,6 @@ class CardLocation < ApplicationRecord
   belongs_to :player, optional: true
 
   enum purpose: [:discards, :draw, :hand, :tableau]
+
+  default_scope ->{order(sortOrder: :asc)}
 end

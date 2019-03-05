@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Error404 from 'pages/Error404'
-// import Games from 'pages/Games'
+import Games from 'pages/Games'
 import Home from './Home'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -14,7 +14,7 @@ const SiteRouter = props => {
         <Route exact path="/" component={Home} />
         {/*<Route exact path="/games/:gameId/:gameState?" component={Game} />*/}
         {/*<Route strict path="/games/:gameId" component={Game} />*/}
-        {/*<Route strict path="/games" component={Games} />*/}
+        <Route strict path="/games" component={Games} />
 
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />
