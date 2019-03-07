@@ -1,4 +1,4 @@
-.page {
+.gamePage {
   composes: grid from global;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto repeat(2, 1fr);
@@ -24,3 +24,7 @@
 .player4 {
   grid-area: player4;
 }
+.pages {
+
+}
+

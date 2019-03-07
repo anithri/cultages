@@ -1,5 +1,5 @@
 ---
-to: <%= h.src('components', name, `${name}.module.css`) %>
+to: <%= h.src('components', name, `styles.module.css`) %>
 ---
 .<%= name %> {
 

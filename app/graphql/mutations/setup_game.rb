@@ -1,9 +1,9 @@
 module Mutations
-  class SetupTable < BaseMutation
+  class SetupGame < BaseMutation
     field :game, Types::Game, null: true
 
     def resolve
-      r = Events::SetupTable.call
+      r = Events::SetupGame.call
       if r.failure?
         {game: nil, errors: r.error ? [r.error] : []}
       else

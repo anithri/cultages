@@ -4,7 +4,7 @@ to: <%= panePath %>
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './pane.module.css'
+import styles from './styles.module.css'
 import { <%= shapeName %> } from '<%= shapePath %>'
 import <%= containerName %> from '<%= containerPath %>'
 

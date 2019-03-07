@@ -1,5 +1,5 @@
 module Events
-  class SetupTable
+  class SetupGame
     include Interactor::Organizer
 
     organize Steps::SetupGame,

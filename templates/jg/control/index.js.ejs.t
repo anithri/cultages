@@ -4,7 +4,7 @@ to: <%= h.src('components', name, 'index.js') %>
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './<%= name %>.module.css'
+import styles from './styles.module.css'
 
 const <%= name %> = ({className}) => (
   <div className={cx(className, styles.<%= name %>)}>

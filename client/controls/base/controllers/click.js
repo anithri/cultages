@@ -13,11 +13,11 @@ const redirectTo = ({ history }) => {
     proxy,
     {
       data: {
-        setupTable: { game },
+        setupGame: { game },
       },
     },
   ) => {
     console.log('redirectTo - inner', game)
-    history.push(`/games/${game.id}`)
+    history.push(game.url)
   }
 }

@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './QueryError.module.css'
+import styles from './styles.module.css'
 
 const QueryError = ({className}) => (
   <div className={cx(className, styles.QueryError)}>

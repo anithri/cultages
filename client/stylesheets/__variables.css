@@ -4,9 +4,9 @@
  */
 
 :root {
-  --base-link-color: var(--dark-purple);
+  --base-link-color: var(--near-black);
 
-  --base-background-color: var(--light-purple);
+  --base-background-color: var(--light-yellow);
   --background-texture: url('../images/black-linen-2.png');
   --body-background: var(--background-texture), var(--base-background-color);
 

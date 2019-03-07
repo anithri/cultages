@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Backend" pattern="file[cultages]:app//*||file[cultages]:config/environments//*||file[cultages]:config/initializers//*||file[cultages]:config/locales//*||file:config/application.rb||file:config/boot.rb||file:config/cable.yml||file:config/credentials.yml.enc||file:config/database.yml||file:config/environment.rb||file:config/Gemfile||file:config/Gemfile.lock||file:config/Guardfile||file:config/master.key||file:config/puma.rb||file:config/rails_new.txt||file:config/routes.rb||file:config/spring.rb||file[cultages]:db//*||file[cultages]:spec//*||file[cultages]:templates/rg//*" />
+</component>

@@ -11,6 +11,8 @@
 #
 
 class Game < ApplicationRecord
+  include Rules
+
   has_many :players
   has_many :card_locations
   has_many :draw_deck, -> {where(purpose: :draw)}, class_name: 'CardLocation'
@@ -22,5 +24,9 @@ class Game < ApplicationRecord
 
   def discards
     discard_deck.map(&:card)
+  end
+
+  def url
+    "/games/#{id}/#{game_state}"
   end
 end

@@ -21,7 +21,7 @@ module.exports = {
 
     args.panePath = null
     args.simplePath = srcPath('panes', pascal, 'index.js')
-    args.stylesPath = srcPath('panes', pascal, 'pane.module.css')
+    args.stylesPath = srcPath('panes', pascal, 'styles.module.css')
 
     if (args.container) {
       const pascalContainer = cc.pascal(args.container)

@@ -5,6 +5,8 @@ import Home from './Home'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Game from 'pages/Game'
+import GameState from 'pages/Game/GameState'
+
 /* new imports above here - see templates/jg/pages */
 
 const SiteRouter = props => {
@@ -12,8 +14,8 @@ const SiteRouter = props => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        {/*<Route exact path="/games/:gameId/:gameState?" component={Game} />*/}
-        <Route strict path="/games/:gameId" component={Game} />
+        <Route exact path="/games/:gameId/:gameState" component={Game} />
+        <Route exact path="/games/:gameId" component={GameState} />
         <Route strict path="/games" component={Games} />
 
         {/* page routes above here - see templates/jg/pages */}
