@@ -7,7 +7,6 @@ module Steps
 
     def call
       if game.save
-        game.setup_game
         context.errors = []
       else
         context.errors = game.errors.full_messages
