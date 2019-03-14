@@ -42,6 +42,7 @@ class Game < ApplicationRecord
       loc = draw_deck.find(&:draw?)
       loc.player = player
       loc.purpose = :hand
+      loc
     end
   end
 end

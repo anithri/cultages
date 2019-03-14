@@ -6,10 +6,8 @@ module Steps
     end
 
     def call
-      Game::HandSize.times do
-        game.players.each do |player|
-
-        end
+      game.players.each do |player|
+        game.deal(player, Game::HandSize)
       end
     end
   end

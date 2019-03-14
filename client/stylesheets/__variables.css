@@ -24,5 +24,7 @@
   --part-1: minmax(1fr,1fr);
   --part-2: minmax(2fr,2fr);
 
-  --headers-font: var(--body-font);
+  //--headers-font: var(--body-font);
+  --body-font: sans-serif;
+  --headers-font: serif;
 }
