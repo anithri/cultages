@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_233703) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "game_state"
-    t.integer "turn", default: 0
+    t.integer "turn", default: -1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

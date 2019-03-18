@@ -1,9 +1,5 @@
 module Steps
-  class SaveGame < Base
-    delegate :game, to: :context
-    before do
-      context.fail!(message: 'No game present') unless game
-    end
+  class SaveGame < WithGameBase
 
     def call
       if game.save

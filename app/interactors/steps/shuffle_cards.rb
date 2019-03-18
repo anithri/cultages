@@ -1,9 +1,5 @@
 module Steps
-  class ShuffleCards < Base
-    delegate :game, to: :context
-    before do
-      context.fail!(message: 'No game present') unless game
-    end
+  class ShuffleCards < WithGameBase
 
     def call
       cards               = Card.all.shuffle

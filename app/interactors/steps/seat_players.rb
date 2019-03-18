@@ -1,10 +1,10 @@
 require 'faker'
 module Steps
-  class SeatPlayers < Base
-    delegate :game, :generator, to: :context
+  class SeatPlayers < WithGameBase
+    delegate :generator, to: :context
 
     before do
-      context.fail!(message: 'No Game') unless game && generator
+      context.generator ||= Steps::Faker.random
     end
 
     def call

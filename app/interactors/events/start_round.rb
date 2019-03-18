@@ -1,16 +1,14 @@
 module Events
-  class StartGame < Base
+  class StartRound < Base
 
     class DoEvent
       include Interactor::Organizer
-      organize Steps::DealCards,
+      organize Steps::StartRound,
                Steps::SaveGame
     end
 
     def call
       DoEvent.call game: game
-      game.next_round!
-      {game: game}
     end
   end
 end

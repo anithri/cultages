@@ -1,5 +1,11 @@
 module Events
   class Base
-    include Interactor
+    attr_reader :game
+    def initialize(game, args = {})
+      @game = game
+      @args = args
+      warn @args
+    end
   end
 end
+

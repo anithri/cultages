@@ -18,6 +18,4 @@
 end
 
 4.times do
-  result = Events::SetupGame.call
-  puts result.errors
 end

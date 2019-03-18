@@ -7,12 +7,8 @@ module Mutations
     def resolve(id:)
       game = Game.find(id)
       return unless game
-      r = Events::StartGame.call game: game
-      if r.failure?
-        {game: nil, errors: r.error ? [r.error] : []}
-      else
-        {errors: r.errors, game: r.game}
-      end
+      game.start_game!
+      {game: game}
     end
   end
 end

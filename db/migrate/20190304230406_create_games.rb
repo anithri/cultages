@@ -4,7 +4,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.string :name, unique: true
 
       t.string :game_state
-      t.integer :turn, default: 0
+      t.integer :turn, default: -1
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Actions::SetupGame, type: :interactor do
+RSpec.describe Steps::StartTurn, type: :interactor do
   describe '.call' do
     pending "add some examples to (or delete) #{__FILE__}"
   end
