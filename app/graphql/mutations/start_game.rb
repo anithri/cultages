@@ -7,7 +7,9 @@ module Mutations
     def resolve(id:)
       game = Game.find(id)
       return unless game
+
       game.start_game!
+
       {game: game}
     end
   end

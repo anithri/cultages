@@ -3,11 +3,7 @@ module Mutations
     field :game, Types::Game, null: true
 
     def resolve
-      game = Events::CreateGame.call
-
-      return {game: nil, errors: game.errors || []} if game.errors?
-
-      game.setup_game!
+      game = Game.setup
 
       return {game: nil, errors: game.errors || []} if game.errors?
 

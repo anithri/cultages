@@ -8,11 +8,10 @@ module Steps
     end
 
     def call
-      game.players = Array.new(Game::NumberOfPlayers) do |idx|
-        Player.new(
+      game.players.create Array.new(Game::NumberOfPlayers) do |idx|
+        {
           name:      generator.player_name,
-          sort_order: idx + 1,
-        )
+        }
       end
     end
   end

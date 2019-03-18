@@ -1,17 +1,15 @@
 module Events
   class SetupGame < Base
 
-    class DoEvent
+    class Event
       include Interactor::Organizer
-      organize Steps::NewGame,
-               Steps::SeatPlayers,
+      organize Steps::SeatPlayers,
                Steps::ShuffleCards,
                Steps::SaveGame
     end
 
-
     def call
-      DoEvent.call game: game
+      Event.call game: game
     end
   end
 end
