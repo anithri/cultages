@@ -14,6 +14,8 @@ class Game < ApplicationRecord
   include Rules
   include GameState
 
+  validates :game_state, :name, presence: true
+
   has_many :card_locations, autosave: true, dependent: :delete_all
   has_many :players, autosave: true, dependent: :destroy
   has_many :draw_deck, -> { where(purpose: :draw) }, class_name: 'CardLocation', autosave: true
@@ -30,7 +32,11 @@ class Game < ApplicationRecord
   end
 
   def url
-    "/games/#{id}/#{game_state}"
+    if player_turn?
+      "/games/#{id}/player/#{current_player.id}"
+    else
+      "/games/#{id}/#{game_state}"
+    end
   end
 
   def current_player

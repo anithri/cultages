@@ -5,9 +5,9 @@ module Mutations
     def resolve
       game = Game.setup
 
-      return {game: nil, errors: game.errors || []} if game.errors?
+      return {game: nil, errors: game.errors.messages} unless game.errors.blank?
 
-      { game: game}
+      {game: game}
     end
   end
 end

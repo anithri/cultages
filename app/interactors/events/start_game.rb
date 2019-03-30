@@ -9,8 +9,6 @@ module Events
 
     def call
       result = Event.call game: game
-      game.next_round!
-      game.next_player!
       {game: game}
     end
   end

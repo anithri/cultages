@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost'
 
 export const START_GAME = gql`
-  mutation doStartGame {
-    startGame {
+  mutation doStartGame($gameId: ID!) {
+    startGame(gameId: $gameId) {
       game {
         id
         url
