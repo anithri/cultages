@@ -5,6 +5,7 @@ export const GET_PLAYER = gql`
     player(playerId: $playerId) {
       id
       dice
+      money
       name
       slug
       theme

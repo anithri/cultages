@@ -4,6 +4,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import { PlayerContainer, playerShape } from 'concerns/player'
 import Dice from 'components/Dice'
+import Money from './Money'
 
 const PlayerCardPane = ({ className, player, currentPlayer }) => {
   return (
@@ -25,6 +26,7 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
         className={styles.dice}
         size={'3x'}
       />
+      <Money money={player.money} />
     </div>
   )
 }

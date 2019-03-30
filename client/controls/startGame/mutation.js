@@ -6,6 +6,7 @@ export const START_GAME = gql`
       game {
         id
         url
+        currentPlayerId
       }
     }
   }

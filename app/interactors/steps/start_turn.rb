@@ -3,6 +3,8 @@ module Steps
 
     def call
       game.turn += 1
+      player = game.current_player
+
     end
   end
 end

@@ -6,4 +6,5 @@ export const playerShape = PropTypes.shape({
   slug: PropTypes.string.isRequired,
   dice: PropTypes.arrayOf(PropTypes.number).isRequired,
   theme: PropTypes.string.isRequired,
+  money: PropTypes.number.isRequired,
 })

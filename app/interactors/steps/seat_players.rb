@@ -9,7 +9,7 @@ module Steps
 
     def call
       names = Array.new(Game::NumberOfPlayers) do |idx|
-        {name: generator.player_name, sort_order: idx + 1, dice: Array.new(5) { rand(6) + 1 }}
+        {name: generator.player_name, sort_order: idx + 1, dice: Array.new(5) { 0 }}
       end
       game.players.create(names)
     end

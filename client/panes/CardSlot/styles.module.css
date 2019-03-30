@@ -1,7 +1,13 @@
 .cardSlot {
   composes: flexRow alignCenter justifyCenter itemsCenter from global;
-  padding: var(--spacing-medium);
+  padding: var(--spacing-small);
 
+}
+
+.emptySlot {
+  border: thin solid black;
+  border-radius: var(--border-radius-3);
+  composes: flexRow alignCenter justifyCenter itemsCenter from global;
 }
 
 .vertical {
@@ -16,6 +22,10 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(3, 1fr);
     }
+  }
+  & > .emptySlot {
+    width: 10rem;
+    height: 14rem;
   }
 }
 
@@ -33,6 +43,10 @@
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
     }
+  }
+  & > .emptySlot {
+    height: 10rem;
+    width: 14rem;
   }
 }
 
@@ -71,6 +85,7 @@
   & > ul {
     grid-area: dice;
     align-items: center;
+    justify-content: space-between;
     justify-items: center;
   }
 }

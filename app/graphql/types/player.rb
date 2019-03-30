@@ -10,5 +10,6 @@ module Types
     field :tableau, Types::Card.connection_type, null: false
     field :dice, [Integer], null: false
     field :theme, String, null: false
+    field :money, Integer, null: false
   end
 end

@@ -4,6 +4,7 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  dice       :integer          default(["1", "1", "1", "1", "1"]), is an Array
+#  money      :integer          default(0)
 #  name       :string
 #  sort_order :integer          default(0)
 #  created_at :datetime         not null
@@ -18,7 +19,6 @@
 #
 #  fk_rails_...  (game_id => games.id)
 #
-
 
 class Player < ApplicationRecord
   PER_GAME = 4
@@ -36,5 +36,9 @@ class Player < ApplicationRecord
 
   def theme
     THEMES[id % THEMES.length]
+  end
+
+  def roll
+    self.dice = Array.new(self.dice.length){rand(6) + 1}
   end
 end

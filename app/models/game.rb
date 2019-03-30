@@ -43,6 +43,7 @@ class Game < ApplicationRecord
     players[turn % players.length]
   end
   def current_player_id
+    return if turn < 0
     current_player.id
   end
 

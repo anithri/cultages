@@ -15,7 +15,7 @@ const diceName = [
 ]
 
 const Die = ({ className, pips, size }) => (
-  <figure >
+  <figure>
     <FontAwesomeIcon
       icon={diceName[pips]}
       fixedWidth={true}

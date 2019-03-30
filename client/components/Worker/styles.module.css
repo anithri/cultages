@@ -49,9 +49,9 @@
 }
 
 .spread {
-  composes: flexRow justifyAround itemsCenter from global;
+  composes: centeringFlex from global;
 }
 
 .center {
-  composes: flexRow itemsCenter justifyCenter from global;
+  composes: centeringFlex from global;
 }
