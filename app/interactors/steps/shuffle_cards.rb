@@ -7,7 +7,7 @@ module Steps
         {
           card:       card,
           purpose:    :draw,
-          sort_order: idx
+          sort_order: idx + 1
         }
       end
       game.card_locations.create location_data

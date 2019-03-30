@@ -6,18 +6,13 @@ import { GameContainer, gameShape } from 'concerns/game'
 import PlayerCard from 'panes/PlayerCard'
 import GameInfoPane from 'panes/GameInfo'
 import { Redirect } from 'react-router-dom'
+import CardSlot from 'panes/CardSlot'
 
 const GamePage = ({ className, game, match }) => {
   console.log('GamePage', game.url, match.url)
   if (game.url !== match.url) return <Redirect to={game.url} />
 
   const players = game.players.map(player => {
-    console.log(
-      'GamePage.player',
-      player.playerId,
-      game.currentPlayerId,
-      player.playerId === game.currentPlayerId,
-    )
     return (
       <PlayerCard
         {...player}
@@ -31,6 +26,11 @@ const GamePage = ({ className, game, match }) => {
     <main className={cx(className, styles.gamePage)}>
       <GameInfoPane game={game} className={styles.game} />
       {players}
+      <CardSlot slot="slot1" className={styles.slot1} />
+      <CardSlot slot="slot2" className={styles.slot2} />
+      <CardSlot slot="slot3" className={styles.slot3} />
+      <CardSlot slot="slot4" className={styles.slot4} />
+      <CardSlot slot="slot5" className={styles.slot5} />
     </main>
   )
 }

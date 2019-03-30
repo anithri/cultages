@@ -11,13 +11,20 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
       className={cx(
         className,
         styles.playerCard,
+        styles[player.slug],
+        styles[player.theme],
         currentPlayer && styles.currentPlayer,
       )}
     >
       <header>
         <h2>{player.name}</h2>
       </header>
-      <Dice dice={player.dice} theme={player.theme} />
+      <Dice
+        dice={player.dice}
+        theme={player.theme}
+        className={styles.dice}
+        size={'3x'}
+      />
     </div>
   )
 }

@@ -1,0 +1,98 @@
+.cardSlot {
+  composes: flexRow alignCenter justifyCenter itemsCenter from global;
+  padding: var(--spacing-medium);
+
+}
+
+.vertical {
+  & > .Card {
+    width: 10rem;
+    height: 14rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 'header' 'dice' 'reward';
+    & > ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+}
+
+.horizontal {
+  & > .Card {
+    width: 14rem;
+    height: 10rem;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'header dice'
+      'reward dice';
+    & > ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+}
+
+.slot1 {
+  composes: vertical;
+}
+.slot2 {
+  composes: horizontal;
+}
+.slot3 {
+  composes: vertical;
+}
+.slot4 {
+  composes: horizontal;
+}
+.slot5 {
+  composes: horizontal;
+}
+
+.Card {
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  border: thin solid black;
+  padding: var(--spacing-small);
+  border-radius: var(--border-radius-3);
+
+  & > header {
+    grid-area: header;
+  }
+  & > footer {
+    grid-area: reward;
+  }
+  & > ul {
+    grid-area: dice;
+    align-items: center;
+    justify-items: center;
+  }
+}
+
+.spot1 {
+  grid-area: spot1;
+}
+.spot2 {
+  grid-area: spot2;
+}
+.spot3 {
+  grid-area: spot3;
+}
+.spot4 {
+  grid-area: spot4;
+}
+.spot5 {
+  grid-area: spot5;
+}
+.spot6 {
+  grid-area: spot6;
+}
+.reward {
+  grid-area: reward;
+}

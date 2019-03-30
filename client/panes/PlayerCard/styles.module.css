@@ -1,18 +1,128 @@
+
+.blue.playerCard {
+  --highlight-color: var(--blue);
+  color: var(--blue);
+}
+
+.navy.playerCard {
+  color: var(--navy);
+  --highlight-color: var(--navy);
+}
+
+.green.playerCard {
+  color: var(--green);
+  --highlight-color: var(--green);
+}
+
+.pink.playerCard {
+  color: var(--pink);
+  --highlight-color: var(--pink);
+}
+
+.purple.playerCard {
+  color: var(--purple);
+  --highlight-color: var(--purple);
+}
+
+.gold.playerCard {
+  //color: var(--gold);
+  --highlight-color: var(--gold);
+}
+
+.orange.playerCard {
+  color: var(--orange);
+  --highlight-color: var(--orange);
+}
+
+.red.playerCard {
+  color: var(--red);
+  --highlight-color: var(--red);
+}
+
 .playerCard {
   display: grid;
-  grid-template-columns: 1fr auto ;
-  grid-template-rows: 1fr auto;
+  padding: var(--spacing-medium);
 
   & > header {
-    grid-column: 1;
-    grid-row: 1;
+    padding: var(--spacing-medium);
+    grid-area: header;
+
+    & > h2 {
+      font-size: var(--font-size-6);
+      color: var(--near-black);
+      text-align: center;
+    }
   }
   & > .dice {
-    grid-column: 2;
-    grid-row: 1 / span 2;
+    grid-area: dice;
+    border-radius: var(--border-radius-3);
+    background-color: var(--black-40);
   }
+  & > .cards {
+    grid-area: dice;
+  }
+
+  border-color: var(--highlight-color);
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--highlight-color) 0%,
+    transparent 33.3%,
+    transparent 100%
+  );
+  opacity: 50%;
+}
+
+.dice {
+  composes: flexCol alignCenter justifyEnd from global;
 }
 
 .currentPlayer {
   border-width: var(--spacing-medium);
+  padding: var(--none);
+}
+
+.player1 {
+  --gradient-angle: 140deg;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 'cards dice' 'header header';
+  & > header > h2 {
+    text-align: right;
+  }
+  & > .dice {
+    justify-items: flex-end;
+  }
+}
+
+.player2 {
+  --gradient-angle: -140deg;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 'dice cards' 'header header';
+  & > header > h2 {
+    text-align: left;
+  }
+  & > .dice {
+    justify-items: flex-end;
+  }
+}
+
+.player3 {
+  --gradient-angle: -40deg;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 'header header' 'dice cards';
+  & > header > h2 {
+    text-align: left;
+  }
+}
+
+.player4 {
+  --gradient-angle: 40deg;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 'header header' 'cards dice';
+  & > header > h2 {
+    text-align: right;
+  }
 }

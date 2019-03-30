@@ -1,41 +1,44 @@
 .dice {
-  composes: flexCol justifyCenter from global;
   padding: var(--spacing-extra-small);
   height: 100%;
+  & figure {
+    margin: var(--spacing-none);
+    padding: var(--spacing-none);
+  }
 }
 
 .die {
   color: rebeccapurple;
 }
 
-.blue > li > *{
+.blue * {
   color: var(--blue);
 }
 
-.navy > li > *{
+.navy * {
   color: var(--navy);
 }
 
-.green > li > *{
+.green * {
   color: var(--green);
 }
 
-.pink > li > *{
+.pink * {
   color: var(--pink);
 }
 
-.purple > li > *{
+.purple * {
   color: var(--purple);
 }
 
-.gold > li > *{
+.gold * {
   color: var(--gold);
 }
 
-.orange > li > *{
+.orange * {
   color: var(--orange);
 }
 
-.red > li > *{
+.red * {
   color: var(--red);
 }
