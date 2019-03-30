@@ -20,8 +20,8 @@
 }
 
 .purple.playerCard {
-  color: var(--purple);
-  --highlight-color: var(--purple);
+  color: var(--light-purple);
+  --highlight-color: var(--light-purple);
 }
 
 .gold.playerCard {
@@ -44,7 +44,6 @@
   padding: var(--spacing-medium);
 
   & > header {
-    padding: var(--spacing-medium);
     grid-area: header;
 
     & > h2 {
@@ -73,7 +72,7 @@
 }
 
 .dice {
-  composes: flexCol alignCenter justifyEnd from global;
+  composes: flexCol alignCenter from global;
 }
 
 .currentPlayer {
@@ -89,8 +88,8 @@
   & > header > h2 {
     text-align: right;
   }
-  & > .dice {
-    justify-items: flex-end;
+  & .dice {
+    justify-content: flex-end;
   }
 }
 
@@ -102,8 +101,8 @@
   & > header > h2 {
     text-align: left;
   }
-  & > .dice {
-    justify-items: flex-end;
+  & .dice {
+    justify-content: flex-end;
   }
 }
 

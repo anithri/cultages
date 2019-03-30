@@ -28,7 +28,7 @@
 }
 
 .purple * {
-  color: var(--purple);
+  color: var(--light-purple);
 }
 
 .gold * {
