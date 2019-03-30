@@ -1,5 +1,16 @@
 .playerCard {
+  display: grid;
+  grid-template-columns: 1fr auto ;
+  grid-template-rows: 1fr auto;
 
+  & > header {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  & > .dice {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
 }
 
 .currentPlayer {

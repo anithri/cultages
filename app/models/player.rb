@@ -19,16 +19,22 @@
 #  fk_rails_...  (game_id => games.id)
 #
 
+
 class Player < ApplicationRecord
   PER_GAME = 4
+  THEMES = %w{ blue navy green pink purple gold orange red }
 
   belongs_to :game
-  has_many :hand, ->{where(purpose: :hand)}, class_name: 'CardLocation'
-  has_many :tableau, ->{where(purpose: :tableau)}, class_name: 'CardLocation'
+  has_many :hand, -> { where(purpose: :hand) }, class_name: 'CardLocation'
+  has_many :tableau, -> { where(purpose: :tableau) }, class_name: 'CardLocation'
 
-  default_scope ->{order(sort_order: :asc)}
+  default_scope -> { order(sort_order: :asc) }
 
   def slug
     "player#{sort_order}"
+  end
+
+  def theme
+    THEMES[id % THEMES.length]
   end
 end

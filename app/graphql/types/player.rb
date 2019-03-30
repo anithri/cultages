@@ -8,5 +8,7 @@ module Types
     field :slug, String, null: false
     field :hand, Types::Card.connection_type, null: false
     field :tableau, Types::Card.connection_type, null: false
+    field :dice, [Integer], null: false
+    field :theme, String, null: false
   end
 end

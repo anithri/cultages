@@ -1,0 +1,41 @@
+.dice {
+  composes: flexCol justifyCenter from global;
+  padding: var(--spacing-extra-small);
+  height: 100%;
+}
+
+.die {
+  color: rebeccapurple;
+}
+
+.blue > li > *{
+  color: var(--blue);
+}
+
+.navy > li > *{
+  color: var(--navy);
+}
+
+.green > li > *{
+  color: var(--green);
+}
+
+.pink > li > *{
+  color: var(--pink);
+}
+
+.purple > li > *{
+  color: var(--purple);
+}
+
+.gold > li > *{
+  color: var(--gold);
+}
+
+.orange > li > *{
+  color: var(--orange);
+}
+
+.red > li > *{
+  color: var(--red);
+}

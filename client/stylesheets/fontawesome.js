@@ -7,6 +7,13 @@ import {
   faSmile,
   faMeh,
   faFrown,
+  faDiceD6,
+  faDiceOne,
+  faDiceTwo,
+  faDiceThree,
+  faDiceFour,
+  faDiceFive,
+  faDiceSix,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faCheckCircle,
@@ -28,6 +35,13 @@ const setupIcons = () => {
     faHome,
     faUser,
     faUserCheck,
+    faDiceD6,
+    faDiceOne,
+    faDiceTwo,
+    faDiceThree,
+    faDiceFour,
+    faDiceFive,
+    faDiceSix,
   )
 }
 
