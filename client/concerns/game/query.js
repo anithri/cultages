@@ -5,6 +5,7 @@ export const GAME_FRAGMENT = gql`
     id
     name
     url
+    currentPlayerId
     players {
       all: edges {
         player: node {

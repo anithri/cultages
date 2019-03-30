@@ -42,6 +42,9 @@ class Game < ApplicationRecord
   def current_player
     players[turn % players.length]
   end
+  def current_player_id
+    current_player.id
+  end
 
   def advance_turn
     self.turn += 1

@@ -7,7 +7,7 @@ module Types
     field :name, String, null: true
     field :url, String, null: false
     field :players, Types::Player.connection_type, null: false
-
+    field :current_player_id, String, null: true
     field :draw, Types::Card.connection_type, null: false
     field :draw_card_count, Integer, null: false
     def draw_card_count

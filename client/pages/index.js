@@ -14,8 +14,11 @@ const SiteRouter = props => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/games/:gameId/player/:playerId" component={Game} />
-        <Route exact path="/games/:gameId/:gameState" component={Game} />
+        <Route
+          exact
+          path="/games/:gameId/:gameState/:playerId?"
+          component={Game}
+        />
         <Route exact path="/games/:gameId" component={GameState} />
         <Route strict path="/games" component={Games} />
 

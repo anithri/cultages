@@ -11,13 +11,22 @@ const GamePage = ({ className, game, match }) => {
   console.log('GamePage', game.url, match.url)
   if (game.url !== match.url) return <Redirect to={game.url} />
 
-  const players = game.players.map(player => (
-    <PlayerCard
-      {...player}
-      key={`gamePage-player-${player.playerId}`}
-      className={styles[player.slug]}
-    />
-  ))
+  const players = game.players.map(player => {
+    console.log(
+      'GamePage.player',
+      player.playerId,
+      game.currentPlayerId,
+      player.playerId === game.currentPlayerId,
+    )
+    return (
+      <PlayerCard
+        {...player}
+        currentPlayer={player.playerId === game.currentPlayerId}
+        key={`gamePage-player-${player.playerId}`}
+        className={styles[player.slug]}
+      />
+    )
+  })
   return (
     <main className={cx(className, styles.gamePage)}>
       <GameInfoPane game={game} className={styles.game} />
@@ -29,6 +38,13 @@ const GamePage = ({ className, game, match }) => {
 GamePage.propTypes = {
   className: PropTypes.string,
   game: gameShape,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      gameId: PropTypes.string.isRequired,
+      gameState: PropTypes.string.isRequired,
+      playerId: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default GameContainer({ Display: GamePage })

@@ -1,3 +1,7 @@
 .playerCard {
 
 }
+
+.currentPlayer {
+  border-width: var(--spacing-medium);
+}

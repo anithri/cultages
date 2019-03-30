@@ -16,7 +16,7 @@ const GameInfoPane = ({ className, game }) => (
       <h2>{game.name}</h2>
     </header>
     <Route
-      path="/games/:gameId/:gameState"
+      path="/games/:gameId/:gameState/:playerId?"
       children={({ match }) => {
         console.log(match)
         if (match.url.endsWith('ready_to_start'))

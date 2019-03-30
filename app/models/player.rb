@@ -3,6 +3,7 @@
 # Table name: players
 #
 #  id         :bigint(8)        not null, primary key
+#  dice       :integer          default(["1", "1", "1", "1", "1"]), is an Array
 #  name       :string
 #  sort_order :integer          default(0)
 #  created_at :datetime         not null
