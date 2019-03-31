@@ -28,9 +28,13 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: 'header' 'dice' 'reward';
+  background-color: var(--white-40);
 
   & > header {
     grid-area: header;
+    font-size: var(--font-size-3);
+    text-align: center;
+
   }
   & > footer {
     grid-area: reward;

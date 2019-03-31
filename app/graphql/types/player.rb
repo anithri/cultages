@@ -9,9 +9,9 @@ module Types
     field :dice, [Integer], null: false
     field :theme, String, null: false
     field :money, Integer, null: false
-    field :cards, CardSlot, null: false
-    def cards
-
+    field :playerSlot, CardSlot, null: false
+    def player_slot
+      ::CardSlot.new(object.slug, object.cards)
     end
   end
 end

@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom'
 import CardSlot from 'panes/CardSlot'
 
 const GamePage = ({ className, game, match }) => {
-  console.log('GamePage', game.url, match.url)
+  console.log('GamePage', game.url, match.url, game.boardSlots)
   if (game.url !== match.url) return <Redirect to={game.url} />
 
   const players = game.players.map(player => {
@@ -22,15 +22,16 @@ const GamePage = ({ className, game, match }) => {
       />
     )
   })
+
+  const slots = game.boardSlots.map(slot => (
+    <CardSlot key={slot.id} cards={slot.cards} className={styles[slot.id]} />
+  ))
+
   return (
     <main className={cx(className, styles.gamePage)}>
       <GameInfoPane game={game} className={styles.game} />
       {players}
-      <CardSlot cards={[null]} className={styles.slot1} />
-      <CardSlot cards={[null]} className={styles.slot2} />
-      <CardSlot cards={[null]} className={styles.slot3} />
-      <CardSlot cards={[null]} className={styles.slot4} />
-      <CardSlot cards={[null,null]} className={styles.slot5} />
+      {slots}
     </main>
   )
 }

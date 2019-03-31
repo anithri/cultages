@@ -27,10 +27,12 @@ class Player < ApplicationRecord
   enum slug: PLAYERS
 
   belongs_to :game
-  has_many :cards, ->{where(location: slug)}, through: :game
 
   default_scope -> { order(slug: :asc) }
 
+  def cards
+    game.send(slug)
+  end
   def theme
     THEMES[id % THEMES.length]
   end

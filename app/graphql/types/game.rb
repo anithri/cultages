@@ -10,12 +10,12 @@ module Types
     field :current_player_id, String, null: true
     field :draw_card_count, Integer, null: false
     def draw_card_count
-      draw.count
+      object.draw.count
     end
 
     field :discards_card_count, Integer, null: false
     def discards_card_count
-      discards.count
+      object.discards.count
     end
 
     field :board_slots, [CardSlot], null: false

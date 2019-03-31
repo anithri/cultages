@@ -1,4 +1,5 @@
 import { gql } from 'apollo-boost'
+import { CARD_SLOT_FRAGMENT } from 'concerns/cardSlot'
 
 export const GAME_FRAGMENT = gql`
   fragment gameFragment on Game {
@@ -11,6 +12,7 @@ export const GAME_FRAGMENT = gql`
         player: node {
           playerId: id
           slug
+          dice
         }
       }
     }
@@ -22,7 +24,11 @@ export const GET_GAME = gql`
   query($gameId: ID!) {
     game(gameId: $gameId) {
       ...gameFragment
+      boardSlots {
+        ...cardSlotFragment
+      }
     }
   }
   ${GAME_FRAGMENT}
+  ${CARD_SLOT_FRAGMENT}
 `

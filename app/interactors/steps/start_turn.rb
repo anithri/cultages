@@ -3,8 +3,7 @@ module Steps
 
     def call
       game.turn += 1
-      player = game.current_player
-
+      game.current_player.roll
     end
   end
 end
