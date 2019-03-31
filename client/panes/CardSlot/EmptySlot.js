@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 const EmptySlot = ({ className }) => (
   <article className={cx(className, styles.emptySlot)}>
     <header>
-      <h4>Shared Card</h4>
+      <h4>Empty</h4>
     </header>
   </article>
 )

@@ -8,16 +8,22 @@ module Types
     field :url, String, null: false
     field :players, Types::Player.connection_type, null: false
     field :current_player_id, String, null: true
-    field :draw, Types::Card.connection_type, null: false
     field :draw_card_count, Integer, null: false
     def draw_card_count
       draw.count
     end
 
-    field :discards, Types::Card.connection_type, null: false
     field :discards_card_count, Integer, null: false
     def discards_card_count
       discards.count
+    end
+
+    field :board_slots, [CardSlot], null: false
+    def board_slots
+      object.card_slots
+        .group_by(&:location)
+        .entries
+        .map{|k,arr| ::CardSlot.new(k, arr)}
     end
   end
 end

@@ -3,12 +3,13 @@ module Events
 
     class Event
       include Interactor::Organizer
-      organize Steps::DealCards,
+      organize Steps::ShuffleCards,
+               Steps::DealCards,
                Steps::SaveGame
     end
 
     def call
-      result = Event.call game: game
+      Event.call game: game
       {game: game}
     end
   end

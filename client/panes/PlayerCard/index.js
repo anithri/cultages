@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 import { PlayerContainer, playerShape } from 'concerns/player'
 import Dice from 'components/Dice'
 import Money from './Money'
+import CardSlot from 'panes/CardSlot'
 
 const PlayerCardPane = ({ className, player, currentPlayer }) => {
   return (
@@ -20,6 +21,7 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
       <header>
         <h2>{player.name}</h2>
       </header>
+      <CardSlot cards={[null,null,null,null]} className={styles.cards} />
       <Dice
         dice={player.dice}
         theme={player.theme}

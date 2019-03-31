@@ -2,7 +2,7 @@ module Rules
   extend ActiveSupport::Concern
 
   NumberOfPlayers = 4
-  HandSize = 8
+  HandSize = 2
 
   included do
   end

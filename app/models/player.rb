@@ -3,10 +3,10 @@
 # Table name: players
 #
 #  id         :bigint(8)        not null, primary key
-#  dice       :integer          default(["1", "1", "1", "1", "1"]), is an Array
+#  dice       :integer          default(["0", "0", "0", "0", "0"]), is an Array
 #  money      :integer          default(0)
 #  name       :string
-#  sort_order :integer          default(0)
+#  slug       :integer          default("player1")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  game_id    :bigint(8)
@@ -21,18 +21,15 @@
 #
 
 class Player < ApplicationRecord
-  PER_GAME = 4
+  PLAYERS = %w{player1 player2 player3 player4}
   THEMES = %w{ blue navy green pink purple gold orange red }
 
+  enum slug: PLAYERS
+
   belongs_to :game
-  has_many :hand, -> { where(purpose: :hand) }, class_name: 'CardLocation'
-  has_many :tableau, -> { where(purpose: :tableau) }, class_name: 'CardLocation'
+  has_many :cards, ->{where(location: slug)}, through: :game
 
-  default_scope -> { order(sort_order: :asc) }
-
-  def slug
-    "player#{sort_order}"
-  end
+  default_scope -> { order(slug: :asc) }
 
   def theme
     THEMES[id % THEMES.length]

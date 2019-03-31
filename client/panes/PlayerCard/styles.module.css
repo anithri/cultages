@@ -59,7 +59,7 @@
     background-color: var(--black-40);
   }
   & > .cards {
-    grid-area: dice;
+    grid-area: cards;
   }
 
   border-color: var(--highlight-color);

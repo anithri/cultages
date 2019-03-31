@@ -26,11 +26,11 @@ const GamePage = ({ className, game, match }) => {
     <main className={cx(className, styles.gamePage)}>
       <GameInfoPane game={game} className={styles.game} />
       {players}
-      <CardSlot slot="slot1" cards={[null]} className={styles.slot1} />
-      <CardSlot slot="slot2" cards={[null]} className={styles.slot2} />
-      <CardSlot slot="slot3" cards={[null]} className={styles.slot3} />
-      <CardSlot slot="slot4" cards={[null]} className={styles.slot4} />
-      <CardSlot slot="slot5" cards={[null,null]} className={styles.slot5} />
+      <CardSlot cards={[null]} className={styles.slot1} />
+      <CardSlot cards={[null]} className={styles.slot2} />
+      <CardSlot cards={[null]} className={styles.slot3} />
+      <CardSlot cards={[null]} className={styles.slot4} />
+      <CardSlot cards={[null,null]} className={styles.slot5} />
     </main>
   )
 }

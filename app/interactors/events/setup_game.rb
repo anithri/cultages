@@ -4,7 +4,7 @@ module Events
     class Event
       include Interactor::Organizer
       organize Steps::SeatPlayers,
-               Steps::ShuffleCards,
+               Steps::SetupCards,
                Steps::SaveGame
     end
 

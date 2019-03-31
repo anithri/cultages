@@ -7,7 +7,7 @@ module GameState
 
     aasm column: :game_state do
       state :filled_box, initial: true
-      state :ready_to_start, before_enter: Events::SetupGame
+      state :ready_to_start, before_enter: Events::SetupGame, after_exit: Events::StartGame
       state :start_of_round, before_enter: Events::StartRound
       state :player_turn, before_enter: Events::StartTurn
       state :end_of_round

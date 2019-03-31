@@ -5,7 +5,8 @@ module Types
 
     field :id, ID, null: false
     field :name, String, null: false
-    field :body, String, null: true
-    field :category, Types::CardCategoryEnum, null: false
+    field :dice, [Integer], null: false
+    field :location, String, null: false
+    field :sequence, Integer, null: false
   end
 end
