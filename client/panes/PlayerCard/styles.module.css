@@ -127,12 +127,12 @@
       'cards  dice'
       'cards money';
   & > header > h2 {
-    text-align: right;
+    text-align: left;
   }
 }
 .money {
+  composes: flexCenter from global;
   grid-area: money;
-  composes: centeringFlex from global;
   border-radius: var(--border-radius-circle);
   background-color: var(--white-70);
   height: var(--spacing-extra-large);

@@ -1,5 +1,5 @@
 .cardSlot {
-  composes: flexRow alignCenter justifyCenter itemsCenter from global;
+  composes: flexCenter from global;
   padding: var(--spacing-small);
 
 }
@@ -7,9 +7,14 @@
 .emptySlot {
   border: thin solid black;
   border-radius: var(--border-radius-3);
-  composes: flexRow alignCenter justifyCenter itemsCenter from global;
+  composes: flexCenter from global;
 }
 
+.slot1,
+.slot2,
+.slot3,
+.slot4,
+.slot5,
 .vertical {
   & > .Card {
     width: 10rem;
@@ -50,21 +55,6 @@
   }
 }
 
-.slot1 {
-  composes: vertical;
-}
-.slot2 {
-  composes: horizontal;
-}
-.slot3 {
-  composes: vertical;
-}
-.slot4 {
-  composes: horizontal;
-}
-.slot5 {
-  composes: horizontal;
-}
 
 .Card {
   height: 100%;

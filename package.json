@@ -29,10 +29,7 @@
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
-    "react-typography": "^0.16.13",
     "tachyons-custom": "^4.9.6",
-    "typography": "^0.16.17",
-    "typography-theme-wordpress-2012": "^0.15.10",
     "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
