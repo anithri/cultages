@@ -42,3 +42,7 @@
 .red * {
   color: var(--red);
 }
+
+.selectedDie {
+  border: thin solid white;
+}

@@ -1,14 +1,21 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './styles.module.css'
 import Die from './Die'
 // import RequiredDice from './RequiredDice'
+import SelectedDie from 'pages/Game'
 
 const Dice = ({ className, dice, theme, layout, size }) => {
+  const selectedDieId = useContext(SelectedDie)
+  console.log('Dice - Context', selectedDieId)
   const allDice = dice.map((pips, idx) => (
     <li key={`dice-${idx}`}>
-      <Die pips={pips} size={size} />
+      <Die
+        pips={pips}
+        size={size}
+        selected={selectedDieId === idx.toString()}
+      />
     </li>
   ))
   return (
@@ -25,6 +32,7 @@ Dice.propTypes = {
   layout: PropTypes.string,
   size: PropTypes.string,
 }
+
 Dice.defaultProps = {
   layout: 'column',
 }

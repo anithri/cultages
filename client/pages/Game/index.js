@@ -7,10 +7,13 @@ import PlayerCard from 'panes/PlayerCard'
 import GameInfoPane from 'panes/GameInfo'
 import { Redirect } from 'react-router-dom'
 import CardSlot from 'panes/CardSlot'
+import { GameContext } from 'contexts/game'
+export const SelectedDie = React.createContext(-1)
+const SelectedCard = React.createContext(-1)
 
 const GamePage = ({ className, game, match }) => {
-  console.log('GamePage', game.url, match.url, game.boardSlots)
-  if (game.url !== match.url) return <Redirect to={game.url} />
+  console.log('GamePage', game.url, match.url, match)
+  if (!match.url.startsWith(game.url)) return <Redirect to={game.url} />
 
   const players = game.players.map(player => {
     return (
@@ -48,4 +51,4 @@ GamePage.propTypes = {
   }).isRequired,
 }
 
-export default GameContainer({ Display: GamePage })
+export default GameContainer({ Display: GameContext({ Display: GamePage }) })
