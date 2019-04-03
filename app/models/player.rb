@@ -2,18 +2,16 @@
 #
 # Table name: players
 #
-#  id         :bigint(8)        not null, primary key
-#  dice       :integer          default(["0", "0", "0", "0", "0"]), is an Array
-#  money      :integer          default(0)
-#  name       :string
-#  slug       :integer          default("player1")
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  game_id    :bigint(8)
+#  id      :bigint(8)        not null, primary key
+#  money   :integer          default(0)
+#  name    :string
+#  slug    :integer          default("player1")
+#  game_id :bigint(8)
 #
 # Indexes
 #
-#  index_players_on_game_id  (game_id)
+#  index_players_on_game_id           (game_id)
+#  index_players_on_game_id_and_slug  (game_id,slug)
 #
 # Foreign Keys
 #
@@ -21,23 +19,26 @@
 #
 
 class Player < ApplicationRecord
-  PLAYERS = %w{player1 player2 player3 player4}
-  THEMES = %w{ blue navy green pink purple gold orange red }
+  DICE_BAG_SIZE = 5
+  PLAYERS = %w{player1 player2 player3 player4}.freeze
+  THEMES = %w{ blue navy green purple gold orange red }.freeze
 
   enum slug: PLAYERS
 
   belongs_to :game
+  has_many :dice, as: :bag, autosave: true, dependent: :delete_all
 
-  default_scope -> { order(slug: :asc) }
+  default_scope -> { includes(:dice).order(slug: :asc) }
 
   def cards
     game.send(slug)
   end
+
   def theme
     THEMES[id % THEMES.length]
   end
 
   def roll
-    self.dice = Array.new(self.dice.length){rand(6) + 1}
+    self.dice = self.dice.each{|d| d.roll}
   end
 end

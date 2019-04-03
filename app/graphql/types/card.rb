@@ -7,6 +7,6 @@ module Types
     field :name, String, null: false
     field :dice, [Integer], null: false
     field :location, String, null: false
-    field :sequence, Integer, null: false
+    field :slug, Integer, null: false
   end
 end

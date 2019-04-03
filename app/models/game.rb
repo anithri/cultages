@@ -18,6 +18,7 @@ class Game < ApplicationRecord
   validates :game_state, :name, presence: true
 
   has_many :players, autosave: true, dependent: :destroy
+  has_many :selected_dice,->{where(selected: true)}, through: :players, source: :dice
 
   default_scope -> { includes(:players, :cards) }
   scope :list, -> { unscope.order(name: :asc) }

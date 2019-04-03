@@ -3,7 +3,7 @@ module Steps
 
     def call
       game.cards.shuffle.each_with_index.map do |card, idx |
-        card.sequence = idx
+        card.slug = idx
       end
     end
   end

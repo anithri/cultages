@@ -10,21 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_231056) do
+ActiveRecord::Schema.define(version: 2019_04_03_015239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.string "name"
-    t.integer "dice", default: [], array: true
     t.bigint "game_id"
+    t.string "name"
     t.integer "location", default: 0
     t.integer "reward", default: 0
-    t.integer "sequence", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "slug", default: 0
+    t.index ["game_id", "slug"], name: "index_cards_on_game_id_and_slug"
     t.index ["game_id"], name: "index_cards_on_game_id"
+  end
+
+  create_table "dice", force: :cascade do |t|
+    t.string "bag_type"
+    t.bigint "bag_id"
+    t.integer "value", default: 0
+    t.boolean "selected"
+    t.integer "slug", default: 0
+    t.index ["bag_id", "bag_type", "slug"], name: "index_dice_on_bag_id_and_bag_type_and_slug"
+    t.index ["bag_type", "bag_id"], name: "index_dice_on_bag_type_and_bag_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -36,13 +44,11 @@ ActiveRecord::Schema.define(version: 2019_03_04_231056) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.integer "dice", default: [0, 0, 0, 0, 0], array: true
     t.bigint "game_id"
-    t.integer "money", default: 0
     t.string "name"
+    t.integer "money", default: 0
     t.integer "slug", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id", "slug"], name: "index_players_on_game_id_and_slug"
     t.index ["game_id"], name: "index_players_on_game_id"
   end
 
