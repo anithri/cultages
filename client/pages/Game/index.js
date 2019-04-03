@@ -2,40 +2,37 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import React from 'react'
 import styles from './styles.module.css'
-import { GameContainer, gameShape } from 'concerns/game'
+import {GameContainer, gameShape} from 'concerns/game'
 import PlayerCard from 'panes/PlayerCard'
 import GameInfoPane from 'panes/GameInfo'
-import { Redirect } from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import CardSlot from 'panes/CardSlot'
-import { GameContext } from 'contexts/game'
-export const SelectedDie = React.createContext(-1)
-const SelectedCard = React.createContext(-1)
 
-const GamePage = ({ className, game, match }) => {
+const GamePage = ({className, game, match}) => {
   console.log('GamePage', game.url, match.url, match)
-  if (!match.url.startsWith(game.url)) return <Redirect to={game.url} />
+  if (!match.url.startsWith(game.url)) return <Redirect to={game.url}/>
 
   const players = game.players.map(player => {
     return (
-      <PlayerCard
-        {...player}
-        currentPlayer={player.playerId === game.currentPlayerId}
-        key={`gamePage-player-${player.playerId}`}
-        className={styles[player.slug]}
-      />
+        <PlayerCard
+            {...player}
+            currentPlayer={player.playerId === game.currentPlayerId}
+            key={`gamePage-player-${player.playerId}`}
+            className={styles[player.slug]}
+        />
     )
   })
 
   const slots = game.boardSlots.map(slot => (
-    <CardSlot key={slot.id} cards={slot.cards} className={styles[slot.id]} />
+      <CardSlot key={slot.id} cards={slot.cards} className={styles[slot.id]}/>
   ))
 
   return (
-    <main className={cx(className, styles.gamePage)}>
-      <GameInfoPane game={game} className={styles.game} />
-      {players}
-      {slots}
-    </main>
+      <main className={cx(className, styles.gamePage)}>
+        <GameInfoPane game={game} className={styles.game}/>
+        {players}
+        {slots}
+      </main>
   )
 }
 
@@ -51,4 +48,4 @@ GamePage.propTypes = {
   }).isRequired,
 }
 
-export default GameContainer({ Display: GameContext({ Display: GamePage }) })
+export default GameContainer({Display: GamePage})

@@ -8,6 +8,9 @@ export const GAME_FRAGMENT = gql`
     currentPlayerId
     discardsCardCount
     drawCardCount
+    selectedDice {
+      id
+    }
     name
     url
   }

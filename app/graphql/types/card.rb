@@ -5,7 +5,7 @@ module Types
 
     field :id, ID, null: false
     field :name, String, null: false
-    field :dice, [Integer], null: false
+    field :dice, [Types::Dice], null: false
     field :location, String, null: false
     field :slug, Integer, null: false
   end

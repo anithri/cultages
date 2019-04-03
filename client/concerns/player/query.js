@@ -8,10 +8,17 @@ export const PLAYER_FRAGMENT = gql`
       cards {
         id
         name
-        dice
+        dice {
+          id
+        }
       }
     }
-    dice
+    dice {
+      id
+      value
+      slug
+      selected
+    }
     money
     name
     slug
