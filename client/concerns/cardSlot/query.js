@@ -8,6 +8,9 @@ export const CARD_SLOT_FRAGMENT = gql`
       name
       dice {
         id
+        selected
+        slug
+        theme
         value
       }
     }

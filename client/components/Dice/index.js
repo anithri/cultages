@@ -6,20 +6,16 @@ import Die from './Die'
 // import RequiredDice from './RequiredDice'
 import SelectedDie from 'pages/Game'
 
-const Dice = ({ className, dice, theme, layout, size }) => {
+const Dice = ({ className, dice, layout, size }) => {
   const selectedDieId = useContext(SelectedDie)
   console.log('Dice - Context', selectedDieId)
-  const allDice = dice.map((pips, idx) => (
+  const allDice = dice.map((die, idx) => (
     <li key={`dice-${idx}`}>
-      <Die
-        pips={pips}
-        size={size}
-        selected={selectedDieId === idx.toString()}
-      />
+      <Die die={die} size={size} />
     </li>
   ))
   return (
-    <ul className={cx(className, styles.dice, styles[layout], styles[theme])}>
+    <ul className={cx(className, styles.dice, styles[layout])}>
       {allDice}
     </ul>
   )

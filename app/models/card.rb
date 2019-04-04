@@ -11,8 +11,7 @@
 #
 # Indexes
 #
-#  index_cards_on_game_id           (game_id)
-#  index_cards_on_game_id_and_slug  (game_id,slug)
+#  index_cards_on_game_id  (game_id)
 #
 # Foreign Keys
 #
@@ -35,7 +34,8 @@ class Card < ApplicationRecord
   enum location: LOCATIONS, reward: REWARDS
 
   has_one :game
-  has_many :dice, as: :bag, autosave: true, dependent: :destroy
+  has_many :dice_requirements, autosave: true, dependent: :destroy
+  has_many :dice, through: :dice_requirements
 
-  default_scope ->{order(:slug)}
+  default_scope ->{includes(:dice).order(:slug)}
 end

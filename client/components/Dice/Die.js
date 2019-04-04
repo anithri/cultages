@@ -14,11 +14,11 @@ const diceName = [
   'dice-six',
 ]
 
-const Die = ({ className, pips, size, selected }) => {
+const Die = ({ className, die: { selected, value, theme }, size }) => {
   return (
-    <figure className={selected && styles.selectedDie }>
+    <figure className={cx(selected && styles.selectedDie, styles[theme])}>
       <FontAwesomeIcon
-        icon={diceName[pips]}
+        icon={diceName[value]}
         fixedWidth={true}
         size={size}
         className={cx(className, styles.die)}
@@ -31,6 +31,12 @@ Die.propTypes = {
   className: PropTypes.string,
   pips: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
+  die: PropTypes.shape({
+    id: PropTypes.string,
+    value: PropTypes.number.isRequired,
+    selected: PropTypes.bool,
+    theme: PropTypes.string.isRequired,
+  }),
 }
 Die.defaultProps = {
   size: '4x',

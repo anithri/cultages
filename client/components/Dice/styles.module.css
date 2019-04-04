@@ -8,7 +8,7 @@
 }
 
 .die {
-  color: rebeccapurple;
+  color: var(--dark-gray);
 }
 
 .blue * {

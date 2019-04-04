@@ -7,9 +7,10 @@ import EmptySlot from './EmptySlot'
 import { cardShape } from 'concerns/cardSlot'
 
 const CardSlotPane = ({ className, cards }) => {
-  const allCards = cards.map(
-    (c, i) => (c ? <Card card={c} key={i} /> : <EmptySlot key={i} />),
-  )
+  const allCards = cards.map((card, idx) => {
+    if (!card) return <EmptySlot key={idx} />
+    return <Card card={card} key={idx} />
+  })
   return (
     <section className={cx(className, styles.cardSlot)}>{allCards}</section>
   )

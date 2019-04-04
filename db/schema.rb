@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_015239) do
+ActiveRecord::Schema.define(version: 2019_04_04_040213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,18 +21,27 @@ ActiveRecord::Schema.define(version: 2019_04_03_015239) do
     t.integer "location", default: 0
     t.integer "reward", default: 0
     t.integer "slug", default: 0
-    t.index ["game_id", "slug"], name: "index_cards_on_game_id_and_slug"
     t.index ["game_id"], name: "index_cards_on_game_id"
   end
 
   create_table "dice", force: :cascade do |t|
-    t.string "bag_type"
-    t.bigint "bag_id"
+    t.bigint "player_id"
     t.integer "value", default: 0
     t.boolean "selected"
     t.integer "slug", default: 0
-    t.index ["bag_id", "bag_type", "slug"], name: "index_dice_on_bag_id_and_bag_type_and_slug"
-    t.index ["bag_type", "bag_id"], name: "index_dice_on_bag_type_and_bag_id"
+    t.index ["player_id", "slug"], name: "index_dice_on_player_id_and_slug"
+    t.index ["player_id"], name: "index_dice_on_player_id"
+  end
+
+  create_table "dice_requirements", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "dice_id"
+    t.integer "value"
+    t.integer "slug", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_dice_requirements_on_card_id"
+    t.index ["dice_id"], name: "index_dice_requirements_on_dice_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -48,10 +57,11 @@ ActiveRecord::Schema.define(version: 2019_04_03_015239) do
     t.string "name"
     t.integer "money", default: 0
     t.integer "slug", default: 0
-    t.index ["game_id", "slug"], name: "index_players_on_game_id_and_slug"
     t.index ["game_id"], name: "index_players_on_game_id"
   end
 
   add_foreign_key "cards", "games"
+  add_foreign_key "dice_requirements", "cards"
+  add_foreign_key "dice_requirements", "dice"
   add_foreign_key "players", "games"
 end

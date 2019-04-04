@@ -7,6 +7,5 @@ class CreateCards < ActiveRecord::Migration[6.0]
       t.integer :reward, default: 0
       t.integer :slug, default: 0
     end
-    add_index :cards, [:game_id, :slug]
   end
 end

@@ -10,14 +10,17 @@ export const PLAYER_FRAGMENT = gql`
         name
         dice {
           id
+          value
+          selected
+          theme
         }
       }
     }
     dice {
       id
       value
-      slug
       selected
+      theme
     }
     money
     name

@@ -7,6 +7,9 @@ module Types
     field :selected, Boolean, null: true
     field :slug, Integer, null: false
     field :value, Integer, null: false
-
+    field :theme, String, null: true
+    def theme
+      return player.theme
+    end
   end
 end

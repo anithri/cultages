@@ -10,8 +10,7 @@
 #
 # Indexes
 #
-#  index_players_on_game_id           (game_id)
-#  index_players_on_game_id_and_slug  (game_id,slug)
+#  index_players_on_game_id  (game_id)
 #
 # Foreign Keys
 #
@@ -21,12 +20,12 @@
 class Player < ApplicationRecord
   DICE_BAG_SIZE = 5
   PLAYERS = %w{player1 player2 player3 player4}.freeze
-  THEMES = %w{ blue navy green purple gold orange red }.freeze
+  THEMES = %w{ blue navy green purple gold red }.freeze
 
   enum slug: PLAYERS
 
   belongs_to :game
-  has_many :dice, as: :bag, autosave: true, dependent: :delete_all
+  has_many :dice, autosave: true, dependent: :delete_all
 
   default_scope -> { includes(:dice).order(slug: :asc) }
 

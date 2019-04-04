@@ -1,12 +1,22 @@
 import { gql } from 'apollo-boost'
+import { GAME_FRAGMENT } from 'concerns/game'
+import { PLAYER_FRAGMENT } from 'concerns/player'
 
 export const SETUP_GAME = gql`
   mutation doSetupGame {
     setupGame {
       game {
-        id
-        url
+        ...gameFragment
+        players {
+          all: edges {
+            player: node {
+              ...playerFragment
+            }
+          }
+        }
       }
     }
   }
+  ${GAME_FRAGMENT}
+  ${PLAYER_FRAGMENT}
 `

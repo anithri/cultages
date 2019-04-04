@@ -20,7 +20,7 @@ class Game < ApplicationRecord
   has_many :players, autosave: true, dependent: :destroy
   has_many :selected_dice,->{where(selected: true)}, through: :players, source: :dice
 
-  default_scope -> { includes(:players, :cards) }
+  default_scope -> { includes(players: :dice, cards: :dice) }
   scope :list, -> { unscope.order(name: :asc) }
 
   def url

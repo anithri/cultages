@@ -21,10 +21,12 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
       <header>
         <h2>{player.name}</h2>
       </header>
-      <CardSlot cards={player.playerSlot.cards} className={styles.cards} />
+      <CardSlot
+        cards={player.playerSlot.cards}
+        className={styles.cards}
+      />
       <Dice
         dice={player.dice}
-        theme={player.theme}
         className={styles.dice}
         size={'3x'}
       />
