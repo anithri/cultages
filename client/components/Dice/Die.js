@@ -14,13 +14,11 @@ const diceName = [
   'dice-six',
 ]
 
-const Die = ({ className, die: { selected, value, theme }, size }) => {
+const Die = ({ className, die: { selected, value, theme }, doClick, size }) => {
   return (
     <figure
-      className={cx(
-        selected && styles.selectedDie,
-        styles[theme]
-      )}
+      onClick={() => doClick && doClick()}
+      className={cx(selected && styles.selectedDie, styles[theme])}
     >
       <FontAwesomeIcon
         icon={diceName[value]}
@@ -34,6 +32,7 @@ const Die = ({ className, die: { selected, value, theme }, size }) => {
 
 Die.propTypes = {
   className: PropTypes.string,
+  doClick: PropTypes.func,
   pips: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
   die: PropTypes.shape({
@@ -45,6 +44,7 @@ Die.propTypes = {
 }
 Die.defaultProps = {
   size: '4x',
+  doClick: e => e.preventDefault(),
 }
 
 export default Die

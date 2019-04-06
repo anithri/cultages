@@ -23,7 +23,12 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
         <h2>{player.name}</h2>
       </header>
       <CardSlot cards={player.playerSlot.cards} className={styles.cards} />
-      <Dice dice={player.dice} className={styles.dice} size={'3x'}  />
+      <Dice
+        dice={player.dice}
+        className={styles.dice}
+        size={'3x'}
+        allowSelect={true}
+      />
       <Money money={player.money} />
     </div>
   )
