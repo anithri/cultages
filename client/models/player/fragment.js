@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost'
-import { CARD_SLOT_FRAGMENT } from 'types/cardSlot'
-import { CARD_FRAGMENT } from 'types/card'
-import { DICE_FRAGMENT } from 'types/dice'
+import { CARD_SLOT_FRAGMENT } from 'models/cardSlot'
+import { CARD_FRAGMENT } from 'models/card'
+import { DICE_FRAGMENT } from 'models/dice'
 
 export const PLAYER_FRAGMENT = gql`
   fragment playerFragment on Player {

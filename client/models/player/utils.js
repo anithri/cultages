@@ -1,5 +1,5 @@
-import { parseCardSlot } from 'types/cardSlot'
-import { parseDiceList } from 'types/dice'
+import { parseCardSlot } from 'models/cardSlot'
+import { parseDiceList } from 'models/dice'
 
 export const parsePlayer = ({ player, ...props }) => {
   console.log('parsePlayer', player, props)

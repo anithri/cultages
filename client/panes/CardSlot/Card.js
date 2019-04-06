@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import Dice from 'components/Dice'
-import { cardShape } from 'types/cardSlot'
+import { cardShape } from 'models/cardSlot'
 
 const Card = ({ className, card, theme }) => (
   <article className={cx(className, styles.Card)}>

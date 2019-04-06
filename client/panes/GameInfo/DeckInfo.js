@@ -2,7 +2,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import { gameShape } from 'types/game'
+import { gameShape } from 'models/game'
 
 const DeckInfo = ({ className, game }) => (
   <aside className={cx(className, styles.deckInfo)}>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { diceRequirementListShape } from 'types/diceRequirement'
+import { diceRequirementListShape } from 'models/diceRequirement'
 
 export const cardShape = PropTypes.shape({
   id: PropTypes.string.isRequired,

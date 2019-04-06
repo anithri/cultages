@@ -1,5 +1,5 @@
 import { GET_PLAYER } from './query'
-import { parsePlayer } from 'types/player'
+import { parsePlayer } from 'models/player'
 import { createByIdContainer } from 'concerns/base'
 
 export const PlayerContainer = args => {

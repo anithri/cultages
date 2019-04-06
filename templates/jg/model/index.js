@@ -21,7 +21,7 @@ module.exports = {
       listShapeName: `${camel}ListShape`,
       parseName: `parse${pascal}`,
       listParseName: `parse${pascal}List`,
-      mkPath: (...parts) => srcPath('types', camel, ...parts),
+      mkPath: (...parts) => srcPath('models', camel, ...parts),
       graphQLName: pascal,
     }
   },

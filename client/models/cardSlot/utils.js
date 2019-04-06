@@ -1,4 +1,4 @@
-import { parseCardList } from 'types/card'
+import { parseCardList } from 'models/card'
 
 export const parseCardSlot = cardSlot => {
   console.log('parseCardSlot', cardSlot)

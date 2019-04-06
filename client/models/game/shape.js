@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { cardSlotListShape } from 'types/cardSlot'
-import { playerListShape } from 'types/player'
+import { cardSlotListShape } from 'models/cardSlot'
+import { playerListShape } from 'models/player'
 
 export const gameShape = PropTypes.shape({
   id: PropTypes.string.isRequired,
