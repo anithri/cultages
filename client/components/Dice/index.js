@@ -4,6 +4,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import Die from './Die'
 import { SelectDiceControl } from 'controls/selectDice'
+import {diceListShape} from 'models/dice'
 
 const SelectableDie = SelectDiceControl({ Input: Die })
 
@@ -21,7 +22,7 @@ const Dice = ({ className, dice = [], layout, size, allowSelect }) => {
 
 Dice.propTypes = {
   className: PropTypes.string,
-  dice: PropTypes.arrayOf(PropTypes.number).isRequired,
+  dice: diceListShape,
   theme: PropTypes.string.isRequired,
   layout: PropTypes.string,
   size: PropTypes.string,

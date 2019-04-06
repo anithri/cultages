@@ -47,7 +47,7 @@ class Dice < ApplicationRecord
     rand(SIDES) + 1
   end
 
-  def self.bag(count, rolled = true, theme: :unselected)
+  def self.bag(count, rolled = true)
     Array.new(count) do |idx|
       Dice.new(
         {

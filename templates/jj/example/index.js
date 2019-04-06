@@ -24,7 +24,7 @@ module.exports = {
     args.exampleName = pascal
     args.cssName = camel
 
-    console.log('args', args)
+    //console.log('args', args)
     return args
   },
 }

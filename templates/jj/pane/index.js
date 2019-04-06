@@ -14,7 +14,7 @@ module.exports = {
     args.cssImportPath = './' + CSS_FILE_NAME
     args.cssPath = srcPath('panes', pascal, CSS_FILE_NAME)
 
-    console.log('args', args)
+    //console.log('args', args)
     return args
   },
 }

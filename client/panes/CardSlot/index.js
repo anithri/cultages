@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import Card from './Card'
 import EmptySlot from './EmptySlot'
-import { cardShape } from 'models/cardSlot'
+import { cardListShape } from 'models/card'
 
 const CardSlotPane = ({ className, cards }) => {
   const allCards = cards.map((card, idx) => {
@@ -18,7 +18,7 @@ const CardSlotPane = ({ className, cards }) => {
 
 CardSlotPane.propTypes = {
   className: PropTypes.string,
-  cards: PropTypes.arrayOf(cardShape).isRequired,
+  cards: cardListShape,
 }
 
 export default CardSlotPane

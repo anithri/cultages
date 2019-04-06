@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { diceShape } from 'models/dice'
+import { diceListShape } from 'models/dice'
 import { cardSlotShape } from 'models/cardSlot'
 
 export const playerShape = PropTypes.shape({
@@ -7,7 +7,7 @@ export const playerShape = PropTypes.shape({
   playerSlot: cardSlotShape.isRequired,
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
-  dice: PropTypes.arrayOf(diceShape).isRequired,
+  dice: diceListShape,
   theme: PropTypes.string.isRequired,
   money: PropTypes.number.isRequired,
 })

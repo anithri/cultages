@@ -23,7 +23,7 @@ module.exports = {
     args.pagePathPath = '/' + camel
     args.pageLabel = cc.title(camel)
 
-    console.log('args', args)
+    //console.log('args', args)
     return args
   },
 }

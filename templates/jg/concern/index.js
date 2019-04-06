@@ -4,7 +4,7 @@ const { src: srcPath } = require('../../../.hygen').helpers
 
 module.exports = {
   params: ({ args }) => {
-    console.log(args)
+    //console.log(args)
     const camel = cc.camel(args.name)
     const pascal = cc.pascal(args.name)
     const SCREAMING = cc.upper(cc.snake(args.name))

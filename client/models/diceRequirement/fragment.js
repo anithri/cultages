@@ -5,5 +5,6 @@ export const DICE_REQUIREMENT_FRAGMENT = gql`
     id
     slug
     value
+    theme
   }
 `

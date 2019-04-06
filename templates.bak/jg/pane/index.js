@@ -37,7 +37,7 @@ module.exports = {
       args.containerName = pascalContainer + 'Container'
       args.containerPath = `concerns/${pascalContainer}/container`
     }
-    console.log('args', args)
+    //console.log('args', args)
     return args
   },
 }

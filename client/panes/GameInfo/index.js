@@ -18,7 +18,7 @@ const GameInfoPane = ({ className, game }) => (
     <Route
       path="/games/:gameId/:gameState/:playerId?"
       children={({ match }) => {
-        console.log(match)
+        //console.log(match)
         if (match.url.endsWith('ready_to_start'))
           return <ReadyToStart label="Ready to Start" gameId={game.id} />
         return <DeckInfo game={game} />

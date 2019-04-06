@@ -4,7 +4,7 @@ import { GameContainer } from 'concerns/game'
 import { gameShape } from 'models/game'
 
 const GameState = ({ game }) => {
-  console.log('GameState', game)
+  //console.log('GameState', game)
   return <Redirect to={game.url} />
 }
 

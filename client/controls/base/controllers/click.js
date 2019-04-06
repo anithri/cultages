@@ -17,7 +17,7 @@ const redirectTo = ({ history }) => {
       },
     },
   ) => {
-    console.log('redirectTo - inner', game)
+    //console.log('redirectTo - inner', game)
     history.push(game.url)
   }
 }

@@ -43,7 +43,7 @@ const getParent = args => args[args.partType.name]
 module.exports = {
   params: ({ args }) => {
     // make the canonical Part name
-    console.log(args)
+    //console.log(args)
     const pascal = cc.pascal(args.name)
     const camel = cc.camel(args.name)
 
@@ -59,7 +59,7 @@ module.exports = {
     args.cssPath = srcPath(partType.dir, args.parent, CSS_FILE_NAME)
     args.cssName = camel
 
-    console.log('args', args)
+    //console.log('args', args)
     return args
   },
 }

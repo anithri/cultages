@@ -10,7 +10,7 @@ import { Redirect } from 'react-router-dom'
 import CardSlot from 'panes/CardSlot'
 
 const GamePage = ({ className, game, match }) => {
-  console.log('GamePage', game)
+  //console.log('GamePage', game)
   if (!match.url.startsWith(game.url)) return <Redirect to={game.url} />
 
   const players = game.players.map(player => {

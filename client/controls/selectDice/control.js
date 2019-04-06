@@ -5,6 +5,7 @@ export const SelectDiceControl = args =>
   createClickControl({
     displayName: 'selectDice',
     mutation: SELECT_DICE,
-    preMutation: ({ die: { id } }) => console.log(id) || { diceId: id },
+    preMutation: ({ die: { id } }) => ({ diceId: id }),
+    updateMutation: () => {},
     ...args,
   })

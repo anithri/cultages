@@ -6,7 +6,7 @@ module Mutations
     def resolve(id:)
       dice = Dice.tree.find(id)
       Events::SelectDice.call(dice: dice)
-      game = die.player.game
+      game = dice.game
       return {game: nil, errors: game.errors.messages} if game.errors.any?
       {
         game: game,

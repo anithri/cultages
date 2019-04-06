@@ -27,7 +27,7 @@ module.exports = {
     args.pagePath = args.pageImportPath + '/index.js'
     args.pageRoute = `/${args.pageRoute || camel}`
 
-    console.log('args', args)
+    //console.log('args', args)
     return args
   },
 }
