@@ -44,9 +44,6 @@
 }
 
 .selectedDie {
-  border: thin solid white;
-}
-
-.nowSelected {
-  margin: var(--spacing-small)
+  border: var(--spacing-extra-extra-small) solid  var(--yellow);
+  border-radius: var(--border-radius-3);
 }

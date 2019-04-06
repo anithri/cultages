@@ -8,5 +8,9 @@ module Types
     field :slug, Integer, null: false
     field :value, Integer, null: false
     field :theme, String, null: true
+    field :in_use, Boolean, null: true
+    def in_use
+      !!object.dice_requirement
+    end
   end
 end
