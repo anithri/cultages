@@ -2,13 +2,20 @@
 #
 # Table name: games
 #
-#  id         :bigint(8)        not null, primary key
-#  game_state :string
-#  name       :string
-#  turn       :integer          default(-1)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id               :bigint(8)        not null, primary key
+#  game_state       :string
+#  name             :string
+#  turn             :integer          default(-1)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  selected_dice_id :integer
 #
+
+INCLUDE = {
+  players: {dice: :dice_requirement},
+  cards:  {dice: :dice_requirement, dice_requirements: :dice},
+  selected_dice: :dice_requirement,
+}
 
 class Game < ApplicationRecord
   include Rules
@@ -17,10 +24,12 @@ class Game < ApplicationRecord
 
   validates :game_state, :name, presence: true
 
-  has_many :players, autosave: true, dependent: :destroy
-  has_many :selected_dice,->{where(selected: true)}, through: :players, source: :dice
+  has_many :players, autosave: true, dependent: :destroy, inverse_of: :game
 
-  default_scope -> { includes(players: :dice, cards: :dice) }
+  belongs_to :selected_dice, class_name: 'Dice',
+             optional:                   true, inverse_of: :game
+
+  scope :tree,  -> { includes(INCLUDE) }
   scope :list, -> { unscope.order(name: :asc) }
 
   def url

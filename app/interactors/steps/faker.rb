@@ -27,11 +27,11 @@ module Steps
     end
 
     def game_name
-      generator.send(game_method)
+      generator.unique.send(game_method)
     end
 
     def player_name
-      generator.send(player_method)
+      generator.unique.send(player_method)
     end
 
     def self.random

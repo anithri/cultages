@@ -5,7 +5,7 @@ module Mutations
     argument :game_id, ID, required: true, as: :id
 
     def resolve(id:)
-      game = Game.find(id)
+      game = Game.tree.find(id)
       return unless game
       game.start_game!
       game.next_player!

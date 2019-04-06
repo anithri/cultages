@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2019_04_04_040213) do
   create_table "dice", force: :cascade do |t|
     t.bigint "player_id"
     t.integer "value", default: 0
-    t.boolean "selected"
     t.integer "slug", default: 0
     t.index ["player_id", "slug"], name: "index_dice_on_player_id_and_slug"
     t.index ["player_id"], name: "index_dice_on_player_id"
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_040213) do
     t.string "name"
     t.string "game_state"
     t.integer "turn", default: -1
+    t.integer "selected_dice_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

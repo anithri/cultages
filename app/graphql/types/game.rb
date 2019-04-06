@@ -8,7 +8,8 @@ module Types
     field :url, String, null: false
     field :players, Types::Player.connection_type, null: false
     field :current_player_id, String, null: true
-    field :selected_dice, [Types::Dice], null: false
+    field :selected_dice, Types::Dice, null: true
+
     field :draw_card_count, Integer, null: false
     def draw_card_count
       object.draw.count

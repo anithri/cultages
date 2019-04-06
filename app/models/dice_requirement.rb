@@ -22,12 +22,12 @@
 #
 
 class DiceRequirement < ApplicationRecord
-  belongs_to :card
-  belongs_to :dice, optional: true
-
+  belongs_to :card, inverse_of: :dice_requirements
+  belongs_to :dice, optional: true, inverse_of: :dice_requirement
+  has_one :game, through: :card
   validates :card, presence: true
 
-  default_scope -> { includes(:card, :dice).order(:slug) }
+  # default_scope -> { includes(:card, :dice).order(:slug) }
 
   def self.bag(count)
     Array.new(count) do |idx|

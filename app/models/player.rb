@@ -19,15 +19,20 @@
 
 class Player < ApplicationRecord
   DICE_BAG_SIZE = 5
-  PLAYERS = %w{player1 player2 player3 player4}.freeze
-  THEMES = %w{ blue navy green purple gold red }.freeze
+  PLAYERS       = %w{player1 player2 player3 player4}.freeze
+  THEMES        = %w{ blue navy green purple gold red }.freeze
 
   enum slug: PLAYERS
 
-  belongs_to :game
-  has_many :dice, autosave: true, dependent: :delete_all
+  belongs_to :game, inverse_of: :players
+  has_many :dice, autosave: true,
+           dependent:       :delete_all, inverse_of: :player
 
-  default_scope -> { includes(:dice).order(slug: :asc) }
+  scope :tree, -> {
+    includes(game: :selected_dice,
+             dice: [:dice_requirement, {game: :selected_dice}])
+      .order(slug: :asc)
+  }
 
   def cards
     game.send(slug)
@@ -38,6 +43,6 @@ class Player < ApplicationRecord
   end
 
   def roll
-    self.dice = self.dice.each{|d| d.roll}
+    self.dice = self.dice.each { |d| d.roll }
   end
 end

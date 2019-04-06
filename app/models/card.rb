@@ -19,23 +19,29 @@
 #
 
 class Card < ApplicationRecord
-  DEAL_CARDS = {
+  DEAL_CARDS       = {
     'slot1' => 1,
     'slot2' => 1,
     'slot3' => 1,
     'slot4' => 1,
     'slot5' => 2,
   }
-  DECK_LOCATIONS = %w{draw discards}
+  DECK_LOCATIONS   = %w{draw discards}
   PUBLIC_LOCATIONS = DEAL_CARDS.keys
-  LOCATIONS = DECK_LOCATIONS + PUBLIC_LOCATIONS + Player::PLAYERS
-  REWARDS = [:money1,:money2,:money3]
+  LOCATIONS        = DECK_LOCATIONS + PUBLIC_LOCATIONS + Player::PLAYERS
+  REWARDS          = [:money1, :money2, :money3]
 
   enum location: LOCATIONS, reward: REWARDS
 
-  has_one :game
-  has_many :dice_requirements, autosave: true, dependent: :destroy
+  has_one :game, inverse_of: :cards
+  has_many :dice_requirements, autosave: true,
+           dependent:                    :destroy, inverse_of: :card
+
   has_many :dice, through: :dice_requirements
 
-  default_scope ->{preload(:dice, ).order(:slug)}
+  scope :tree, -> {
+    includes(:dice, dice_requirements: :dice,
+             game:                     [:selected_dice, :players])
+      .order(:slug)
+  }
 end

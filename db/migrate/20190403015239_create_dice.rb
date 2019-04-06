@@ -3,7 +3,6 @@ class CreateDice < ActiveRecord::Migration[6.0]
     create_table :dice do |t|
       t.references :player, index: true
       t.integer :value, default: 0
-      t.boolean :selected
       t.integer :slug, default: 0
     end
 

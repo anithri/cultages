@@ -8,12 +8,12 @@ module Types
       argument :card_id, ID, required: true, as: :id
     end
     def card(id:)
-      ::Card.find id
+      ::Card.tree.find id
     end
 
     field :cards, Types::Card.connection_type, null: false
     def cards
-      ::Card.all
+      ::Card.tree.all
     end
     # endregion
 
@@ -22,12 +22,12 @@ module Types
       argument :game_id, ID, required: true, as: :id
     end
     def game(id:)
-      ::Game.find id
+      ::Game.tree.find id
     end
 
     field :games, Types::Game.connection_type, null: false
     def games
-      ::Game.all
+      ::Game.tree.all
     end
     # endregion
 
@@ -36,7 +36,7 @@ module Types
       argument :player_id, ID, required: true, as: :id
     end
     def player(id:)
-      ::Player.find id
+      ::Player.tree.find id
     end
     # endregion
 

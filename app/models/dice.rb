@@ -3,7 +3,6 @@
 # Table name: dice
 #
 #  id        :bigint(8)        not null, primary key
-#  selected  :boolean
 #  slug      :integer          default(0)
 #  value     :integer          default(0)
 #  player_id :bigint(8)
@@ -17,9 +16,9 @@
 class Dice < ApplicationRecord
   SIDES = 6
 
-  belongs_to :player
+  belongs_to :player, inverse_of: :dice
   has_one :game, through: :player
-  has_one :dice_requirement
+  has_one :dice_requirement, inverse_of: :dice
 
   validates :value, allow_nil: true, numericality: {
     only_integer:             true,
@@ -27,10 +26,18 @@ class Dice < ApplicationRecord
     less_than_or_equal_to:    SIDES
   }
 
-  default_scope -> { order(:slug) }
-  scope :select_dice, ->(dice_id) { eager_load(game: :selected_dice).find(dice_id) }
+  scope :tree, -> {
+    includes(:player, :dice_requirement, game: :selected_dice)
+      .order(:slug)
+  }
+
+  scope :select_dice, ->(dice_id) { find(dice_id) }
 
   delegate :theme, to: :player
+
+  def selected
+    game.selected_dice == self
+  end
 
   def roll
     self.value = Dice.roll

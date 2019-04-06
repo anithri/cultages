@@ -4,7 +4,8 @@ module Mutations
 
     argument :dice_id, ID, required: true, as: :id
     def resolve(id:)
-      die = Events::SelectDice.call(dice_id: id)
+      dice = Dice.tree.find(id)
+      Events::SelectDice.call(dice: dice)
       game = die.player.game
       return {game: nil, errors: game.errors.messages} if game.errors.any?
       {

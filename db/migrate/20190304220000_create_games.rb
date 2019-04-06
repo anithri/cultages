@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
 
       t.string :game_state
       t.integer :turn, default: -1
-
+      t.integer :selected_dice_id
       t.timestamps
     end
   end
