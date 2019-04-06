@@ -1,5 +1,3 @@
 import { parseDice } from '../utils'
 
-export const parseDiceList = ({ all }) => {
-  return all.map(({ dice }) => parseDice(dice))
-}
+export const parseDiceList = bag => bag.map(dice => parseDice(dice))

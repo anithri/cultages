@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { gameShape } from 'concerns/game'
+import { gameShape } from 'types/game'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'

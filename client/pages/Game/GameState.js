@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { GameContainer, gameShape } from 'concerns/game'
+import { GameContainer } from 'concerns/game'
+import { gameShape } from 'types/game'
 
 const GameState = ({ game }) => {
   console.log('GameState', game)

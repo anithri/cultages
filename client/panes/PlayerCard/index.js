@@ -2,7 +2,8 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import { PlayerContainer, playerShape } from 'concerns/player'
+import { PlayerContainer } from 'concerns/player'
+import { playerShape } from 'types/player'
 import Dice from 'components/Dice'
 import Money from './Money'
 import CardSlot from 'panes/CardSlot'
@@ -21,15 +22,8 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
       <header>
         <h2>{player.name}</h2>
       </header>
-      <CardSlot
-        cards={player.playerSlot.cards}
-        className={styles.cards}
-      />
-      <Dice
-        dice={player.dice}
-        className={styles.dice}
-        size={'3x'}
-      />
+      <CardSlot cards={player.playerSlot.cards} className={styles.cards} />
+      <Dice dice={player.dice} className={styles.dice} size={'3x'} />
       <Money money={player.money} />
     </div>
   )

@@ -1,4 +1,5 @@
-import { GameListContainer, gameListShape } from 'concerns/game'
+import { GameListContainer } from 'concerns/game'
+import { gameListShape } from 'types/game'
 import Button from 'components/Button'
 import cx from 'classnames'
 import GameList from './List'

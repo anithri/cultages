@@ -1,5 +1,5 @@
 import { GET_GAME } from './query'
-import { parseGame } from './utils'
+import { parseGame } from 'types/game'
 import { createRouteIdContainer } from 'concerns/base'
 
 export const GameContainer = args => {
