@@ -1,12 +1,14 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './styles.module.css'
 import Die from './Die'
 // import RequiredDice from './RequiredDice'
 import SelectedDie from 'pages/Game'
 
 const Dice = ({ className, dice = [], layout, size }) => {
+  const [nowSelected, setSelected] = useState(false)
+
   const selectedDieId = useContext(SelectedDie)
   console.log('Dice - Context', selectedDieId)
   const allDice = dice.map((die, idx) => (

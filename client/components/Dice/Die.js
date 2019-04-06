@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -16,7 +16,12 @@ const diceName = [
 
 const Die = ({ className, die: { selected, value, theme }, size }) => {
   return (
-    <figure className={cx(selected && styles.selectedDie, styles[theme])}>
+    <figure
+      className={cx(
+        selected && styles.selectedDie,
+        styles[theme]
+      )}
+    >
       <FontAwesomeIcon
         icon={diceName[value]}
         fixedWidth={true}

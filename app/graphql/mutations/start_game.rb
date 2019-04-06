@@ -1,6 +1,6 @@
 module Mutations
   class StartGame < BaseMutation
-    field :game, Types::Game, null: true
+    field :game, Types::Game, null: false
 
     argument :game_id, ID, required: true, as: :id
 

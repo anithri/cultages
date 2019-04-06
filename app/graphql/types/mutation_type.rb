@@ -2,8 +2,10 @@
 
 module Types
   class MutationType < BaseObject
+    field :selectDice, mutation: Mutations::SelectDice
     field :setup_game, mutation: Mutations::SetupGame
     field :start_game, mutation: Mutations::StartGame
+    field :select_dice, mutation: Mutations::SelectDice
     # field :next_round, mutation: Mutations::NextRound
   end
 end

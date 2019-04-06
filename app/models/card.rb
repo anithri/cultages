@@ -37,5 +37,5 @@ class Card < ApplicationRecord
   has_many :dice_requirements, autosave: true, dependent: :destroy
   has_many :dice, through: :dice_requirements
 
-  default_scope ->{includes(:dice).order(:slug)}
+  default_scope ->{preload(:dice, ).order(:slug)}
 end

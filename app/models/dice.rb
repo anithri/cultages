@@ -18,6 +18,7 @@ class Dice < ApplicationRecord
   SIDES = 6
 
   belongs_to :player
+  has_one :game, through: :player
   has_one :dice_requirement
 
   validates :value, allow_nil: true, numericality: {
@@ -26,9 +27,11 @@ class Dice < ApplicationRecord
     less_than_or_equal_to:    SIDES
   }
 
-  default_scope -> { includes(:player).order(:slug) }
+  default_scope -> { order(:slug) }
+  scope :select_dice, ->(dice_id) { eager_load(game: :selected_dice).find(dice_id) }
 
   delegate :theme, to: :player
+
   def roll
     self.value = Dice.roll
   end

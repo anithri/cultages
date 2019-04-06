@@ -46,3 +46,7 @@
 .selectedDie {
   border: thin solid white;
 }
+
+.nowSelected {
+  margin: var(--spacing-small)
+}
