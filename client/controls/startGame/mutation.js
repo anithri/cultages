@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost'
-import { GAME_FRAGMENT } from 'concerns/game'
-import { CARD_SLOT_FRAGMENT } from 'concerns/cardSlot'
-import { PLAYER_FRAGMENT } from '../../concerns/player'
+import { GAME_FRAGMENT } from 'types/game'
+import { CARD_SLOT_FRAGMENT } from 'types/cardSlot'
+import { PLAYER_FRAGMENT } from 'concerns/player'
 
 export const START_GAME = gql`
   mutation doStartGame($gameId: ID!) {

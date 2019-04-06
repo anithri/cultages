@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost'
-import { GAME_FRAGMENT } from 'concerns/game'
+import { GAME_FRAGMENT } from 'types/game'
 import { PLAYER_FRAGMENT } from 'concerns/player'
 
 export const SETUP_GAME = gql`

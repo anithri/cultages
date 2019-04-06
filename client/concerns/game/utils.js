@@ -1,4 +1,4 @@
-import { parseCardSlot } from '../cardSlot'
+import { parseCardSlot } from 'types/cardSlot'
 
 export const parseGame = ({ game }) => ({
   ...game,

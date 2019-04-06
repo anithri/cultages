@@ -28,6 +28,7 @@ class Dice < ApplicationRecord
 
   default_scope -> { includes(:player).order(:slug) }
 
+  delegate :theme, to: :player
   def roll
     self.value = Dice.roll
   end

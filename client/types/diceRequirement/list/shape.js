@@ -1,4 +1,4 @@
 import PropTypes from 'prop-types'
-import {  } from '../shape'
+import { diceRequirementShape } from '../shape'
 
 export const diceRequirementListShape = PropTypes.arrayOf(diceRequirementShape)

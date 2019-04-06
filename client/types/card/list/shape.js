@@ -1,4 +1,4 @@
 import PropTypes from 'prop-types'
-import {  } from '../shape'
+import { cardShape } from '../shape'
 
 export const cardListShape = PropTypes.arrayOf(cardShape)

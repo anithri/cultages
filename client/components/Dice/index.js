@@ -6,7 +6,7 @@ import Die from './Die'
 // import RequiredDice from './RequiredDice'
 import SelectedDie from 'pages/Game'
 
-const Dice = ({ className, dice, layout, size }) => {
+const Dice = ({ className, dice = [], layout, size }) => {
   const selectedDieId = useContext(SelectedDie)
   console.log('Dice - Context', selectedDieId)
   const allDice = dice.map((die, idx) => (
