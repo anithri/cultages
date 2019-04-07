@@ -1,9 +1,10 @@
 class Steps::FulfillRequirement
   include Interactor
 
+  delegate :dice_requirement, :dice, :game, to: :context
+
   def call
-    # bail unless dice.value == requirement.value
-    # bail unless card's cardSlot allowed for player
-    # requirement.dice = dice
+    dice_requirement.dice = dice
+    game.selected_dice    = nil
   end
 end

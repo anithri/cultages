@@ -27,7 +27,7 @@ module Types
 
     field :games, Types::Game.connection_type, null: false
     def games
-      ::Game.tree.all
+      ::Game.all
     end
     # endregion
 

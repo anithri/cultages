@@ -11,8 +11,14 @@
 
 }
 
+.fillable {
+  background-color: var(--yellow);
+  border-radius: var(--border-radius-2);
+
+}
+
 .unfilled {
-  color: var(--red);
+  color: var(--dark-gray);
 }
 
 .blue * {
@@ -45,4 +51,7 @@
 
 .red * {
   color: var(--red);
+}
+figure {
+  margin: var(--spacing-none);
 }

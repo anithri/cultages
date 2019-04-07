@@ -56,5 +56,7 @@ class Card < ApplicationRecord
     NEIGHBORS[game.current_player.slug].include?(location)
   end
 
-
+  def fulfilled?
+    dice_requirements.all?{|dr| dr.dice}
+  end
 end

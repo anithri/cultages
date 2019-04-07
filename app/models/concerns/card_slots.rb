@@ -16,7 +16,7 @@ module CardSlots
     end
   end
 
-  def deal(count, to: :discards, from: :draw)
+  def deal(count = 1, to: :discards, from: :draw)
     self.send(from).first(count).each{|c| c.location = to}
   end
 end

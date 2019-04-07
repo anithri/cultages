@@ -5,9 +5,7 @@
 
 :root {
   --dark-purple: #431f73;
-}
 
-/* imported from tachyons-custom;
 
   --black: #000;
   --near-black: #111;
@@ -74,4 +72,4 @@
   --washed-green:  #e8fdf5;
   --washed-yellow:  #fffceb;
   --washed-red:  #ffdfdf;
- */
+}

@@ -30,7 +30,7 @@ class DiceRequirement < ApplicationRecord
   # default_scope -> { includes(:card, :dice).order(:slug) }
 
   scope :tree, -> {
-    includes(:dice,card: :dice_requirements)
+    includes(:dice, card: [:player, :game, :dice_requirements]).order(:slug)
   }
 
   def theme
@@ -39,7 +39,9 @@ class DiceRequirement < ApplicationRecord
 
   def fillable
     return if self.dice
-    card.usable
+    return unless card.usable
+    return unless game.selected_dice
+    game.selected_dice.value == value
   end
 
   def self.bag(count)

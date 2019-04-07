@@ -3,15 +3,20 @@ module Events
     class Event
       include Interactor::Organizer
 
-      organize Steps::GetRequirements,
+      organize Steps::GetDiceRequirement,
                Steps::FulfillRequirement,
-               Steps::ScoreCard,
-               Steps::SaveGame
+               Steps::ScoreCard
+               # Steps::SaveGame
     end
 
-    def call(dice_requirement:)
-      result = Event.call dice_requirement_id: dice_requirement_id
-      {game: result.game}
+    def self.call(id:)
+      Event.call(dice_requirement_id: id)
+      result = Event.call dice_requirement: dice_requirement
+      if result.success?
+        {game: result.game}
+      else
+        {game: nil, error: result.error}
+      end
     end
   end
 end

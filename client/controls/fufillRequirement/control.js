@@ -5,7 +5,7 @@ export const FillRequirementControl = args =>
   createClickControl({
     displayName: 'fillRequirement',
     mutation: FILL_REQUIREMENT,
-    preMutation: ({ die: { id } }) => ({ diceRequirementId: id }),
+    preMutation: ({ diceRequirement: { id } }) => ({ diceRequirementId: id }),
     updateMutation: () => {},
     ...args,
   })

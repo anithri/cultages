@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './styles.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { diceRequirementShape } from 'models/diceRequirement'
@@ -17,22 +17,22 @@ export const diceName = [
 
 const Requirement = ({
   className,
-  requirement: { value, theme, fillable },
+  diceRequirement: { value, theme, fillable },
   doClick,
   size,
 }) => {
   return (
     <figure
       onClick={() => doClick && doClick()}
-      className={cx(styles[theme], styles.requirement, {
-        [styles.unfilled]: fillable,
+      className={cx(styles[theme], className, styles.requirement, {
+        [styles.fillable]: fillable,
       })}
     >
       <FontAwesomeIcon
         icon={diceName[value]}
         fixedWidth={true}
         size={size}
-        className={cx(className, styles.Requirement)}
+        className={cx(className, styles.requirement)}
       />
     </figure>
   )
@@ -42,11 +42,11 @@ Requirement.propTypes = {
   className: PropTypes.string,
   doClick: PropTypes.func,
   size: PropTypes.string.isRequired,
-  requirement: diceRequirementShape,
+  diceRequirement: diceRequirementShape,
 }
 Requirement.defaultProps = {
   size: '4x',
-  doClick: e => e.preventDefault(),
+  doClick: evt => evt.preventDefault(),
 }
 
 export default Requirement

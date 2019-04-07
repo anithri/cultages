@@ -10,7 +10,7 @@ const SelectableDie = SelectDiceControl({ Input: Die })
 
 const Dice = ({ className, dice = [], layout, size, allowSelect }) => {
   const DieDisplay = allowSelect ? SelectableDie : Die
-  const allDice = dice.map((die, idx) => (
+  const allDice = dice.filter(die => !die.inUse).map((die, idx) => (
     <li key={`dice-${die.id}`}>
       <DieDisplay diceId={die.id} die={die} size={size} />
     </li>

@@ -1,11 +1,20 @@
 class Steps::ScoreCard
   include Interactor
 
+  delegate :dice_requirement, :dice_requirement_id, :dice,
+           :player, :card, :game, to: :context
+
   def call
-    # bail unless card.dice_requirements all have dice assigned
-    # update all card.dice to remove dice_requirements
-    # apply card.reward to player
-    # discard card
-    # draw card into same cardSlot
+    return unless card.fulfilled?
+
+    card.dice_requirements.each do |dr|
+      dr.dice.value = 0
+      dr.dice       = nil
+    end
+
+    game.deal(to: card.location)
+
+    player.money += 4
+    card.location = :discards
   end
 end
