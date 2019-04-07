@@ -40,6 +40,34 @@ module Types
     end
     # endregion
 
+    #region Dice Fields
+    field :dice, Types::Dice, null: true do
+      argument :Dice_id, ID, required: true, as: :id
+    end
+    def dice(id:)
+      ::Dice.tree.find id
+    end
+
+    field :dices, [Types::Dice], null: false
+    def dices
+      ::Dice.tree.all
+    end
+    #endregion
+
+    #region DiceRequirement Fields
+    field :diceRequirement, Types::DiceRequirement, null: true do
+      argument :diceRequirement_id, ID, required: true, as: :id
+    end
+    def dice_requirement(id:)
+      ::DiceRequirement.tree.find id
+    end
+
+    field :diceRequirements, [Types::DiceRequirement], null: false
+    def dice_requirements
+      ::DiceRequirement.tree.all
+    end
+    #endregion
+
     # last of fields
   end
 end

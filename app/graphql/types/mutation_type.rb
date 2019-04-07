@@ -2,7 +2,7 @@
 
 module Types
   class MutationType < BaseObject
-    field :fillDiceRequirement, mutation: Mutations::FillRequirement
+    field :fillRequirement, mutation: Mutations::FillRequirement
     field :selectDice, mutation: Mutations::SelectDice
     field :setup_game, mutation: Mutations::SetupGame
     field :start_game, mutation: Mutations::StartGame

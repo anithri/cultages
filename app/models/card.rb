@@ -39,7 +39,7 @@ class Card < ApplicationRecord
 
   enum location: LOCATIONS, reward: REWARDS
 
-  has_one :game, inverse_of: :cards
+  belongs_to :game, inverse_of: :cards
   has_many :dice_requirements, autosave: true,
            dependent:                    :destroy, inverse_of: :card
 
@@ -53,9 +53,6 @@ class Card < ApplicationRecord
 
   def usable
     return unless game.current_player
-    warn '=' * 30
-    warn [game.current_player.slug, NEIGHBORS].inspect
-    warn '=' * 30
     NEIGHBORS[game.current_player.slug].include?(location)
   end
 

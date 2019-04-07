@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import Die from './Die'
 import { SelectDiceControl } from 'controls/selectDice'
-import {diceListShape} from 'models/dice'
+import { diceListShape } from 'models/dice'
 
 const SelectableDie = SelectDiceControl({ Input: Die })
 
