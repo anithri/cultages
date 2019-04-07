@@ -27,7 +27,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: 'header' 'dice' 'reward';
-  background-color: var(--black-40);
+  background-color: var(--white-40);
 
   & > header {
     grid-area: header;
