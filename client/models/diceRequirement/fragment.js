@@ -6,5 +6,6 @@ export const DICE_REQUIREMENT_FRAGMENT = gql`
     slug
     value
     theme
+    fillable
   }
 `

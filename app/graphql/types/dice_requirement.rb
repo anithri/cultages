@@ -8,9 +8,6 @@ module Types
     field :slug, Integer, null: false
     field :value, Integer, null: false
     field :theme, String, null: false
-    def theme
-      'unfilled'
-    end
-
+    field :fillable, Boolean, null: true
   end
 end

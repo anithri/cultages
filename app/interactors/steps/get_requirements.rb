@@ -4,7 +4,6 @@ class Steps::GetRequirements
   delegate :dice_requirement, :game, :card, :dice, :player
 
   def call
-    context.dice_requirement = DiceRequirement.find(context.dice_requirement_id)
     context.game = dice_requirement.game
     context.dice = game.selected_dice.first
     context.card = dice_requirement.card

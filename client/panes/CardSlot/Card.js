@@ -6,7 +6,7 @@ import Dice from 'components/Dice'
 import { cardShape } from 'models/card'
 
 const Card = ({ className, card }) => {
-  console.log('Card', card.diceRequirements)
+  // console.log('Card', card.diceRequirements)
   return (
     <article className={cx(className, styles.Card)}>
       <header>

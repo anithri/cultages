@@ -29,6 +29,19 @@ class DiceRequirement < ApplicationRecord
 
   # default_scope -> { includes(:card, :dice).order(:slug) }
 
+  scope :tree, -> {
+    includes(:dice,card: [:player, :dice_requirements])
+  }
+
+  def theme
+    'unfilled'
+  end
+
+  def fillable
+    return if self.dice
+    !self.dice && card.usable
+  end
+
   def self.bag(count)
     Array.new(count) do |idx|
       DiceRequirement.new(

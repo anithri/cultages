@@ -25,7 +25,13 @@ class Card < ApplicationRecord
     'slot3' => 1,
     'slot4' => 1,
     'slot5' => 2,
-  }
+  }.with_indifferent_access
+  NEIGHBORS        = {
+    'player1': %w{player1 slot1 slot4 slot5},
+    'player2': %w{player2 slot1 slot2 slot5},
+    'player3': %w{player3 slot2 slot3 slot5},
+    'player4': %w{player4 slot3 slot4 slot5},
+  }.with_indifferent_access
   DECK_LOCATIONS   = %w{draw discards}
   PUBLIC_LOCATIONS = DEAL_CARDS.keys
   LOCATIONS        = DECK_LOCATIONS + PUBLIC_LOCATIONS + Player::PLAYERS
@@ -40,8 +46,18 @@ class Card < ApplicationRecord
   has_many :dice, through: :dice_requirements
 
   scope :tree, -> {
-    includes(:dice, dice_requirements: :dice,
-             game:                     [:selected_dice, :players])
+    includes(:dice, game: [:selected_dice, :players],
+             dice_requirements: :dice)
       .order(:slug)
   }
+
+  def usable
+    return unless game.current_player
+    warn '=' * 30
+    warn [game.current_player.slug, NEIGHBORS].inspect
+    warn '=' * 30
+    NEIGHBORS[game.current_player.slug].include?(location)
+  end
+
+
 end

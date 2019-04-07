@@ -9,7 +9,7 @@ module Events
                Steps::SaveGame
     end
 
-    def call(dice_requirement_id:)
+    def call(dice_requirement:)
       result = Event.call dice_requirement_id: dice_requirement_id
       {game: result.game}
     end

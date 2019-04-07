@@ -5,4 +5,5 @@ export const diceRequirementShape = PropTypes.shape({
   slug: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
   theme: PropTypes.string.isRequired,
+  fillable: PropTypes.bool,
 })
