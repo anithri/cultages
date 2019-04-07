@@ -5,17 +5,16 @@ module Events
 
       organize Steps::GetDiceRequirement,
                Steps::FulfillRequirement,
-               Steps::ScoreCard
-               # Steps::SaveGame
+               Steps::ScoreCard,
+               Steps::SaveGame
     end
 
-    def self.call(id:)
-      Event.call(dice_requirement_id: id)
-      result = Event.call dice_requirement: dice_requirement
+    def self.call(dice_requirement_id:)
+      result = Event.call(dice_requirement_id: dice_requirement_id)
       if result.success?
-        {game: result.game}
+        {game: result.game, result: result}
       else
-        {game: nil, error: result.error}
+        {game: nil, error: result.error, result: result}
       end
     end
   end

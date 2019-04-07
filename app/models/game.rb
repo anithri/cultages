@@ -52,4 +52,8 @@ class Game < ApplicationRecord
   def advance_turn
     self.turn += 1
   end
+
+  def deselect_dice
+    self.selected_dice = nil
+  end
 end

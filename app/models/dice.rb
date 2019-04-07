@@ -31,6 +31,7 @@ class Dice < ApplicationRecord
       .order(:slug)
   }
 
+  default_scope ->{order(slug: :asc)}
   scope :select_dice, ->(dice_id) { find(dice_id) }
 
   delegate :theme, to: :player

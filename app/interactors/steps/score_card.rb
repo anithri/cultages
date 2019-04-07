@@ -1,7 +1,7 @@
 class Steps::ScoreCard
   include Interactor
 
-  delegate :dice_requirement, :dice_requirement_id, :dice,
+  delegate :dice_requirement, :dice,
            :player, :card, :game, to: :context
 
   def call
@@ -14,7 +14,7 @@ class Steps::ScoreCard
 
     game.deal(to: card.location)
 
-    player.money += 4
-    card.location = :discards
+    player.earn(4)
+    card.discard
   end
 end

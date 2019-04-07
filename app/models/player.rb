@@ -28,9 +28,10 @@ class Player < ApplicationRecord
   has_many :dice, autosave: true,
            dependent:       :delete_all, inverse_of: :player
 
+  default_scope ->{order(slug: :asc)}
   scope :tree, -> {
     includes(game: :selected_dice,
-             dice: [:dice_requirement, {game: :selected_dice}])
+             dice: [:dice_requirement, { game: :selected_dice }])
       .order(slug: :asc)
   }
 
@@ -40,6 +41,18 @@ class Player < ApplicationRecord
 
   def theme
     THEMES[id % THEMES.length]
+  end
+
+  def earn(amt)
+    self.money += amt
+  end
+
+  def spend(amt)
+    if self.money <= amt
+      self.money = 0
+    else
+      self.money -= amt
+    end
   end
 
   def roll

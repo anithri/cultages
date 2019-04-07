@@ -9,7 +9,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-4.times do
+16.times do
   game = Events::CreateGame.call
   game.setup_game!
 end

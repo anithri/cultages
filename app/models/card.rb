@@ -45,10 +45,10 @@ class Card < ApplicationRecord
 
   has_many :dice, through: :dice_requirements
 
+  default_scope ->{order(slug: :asc)}
   scope :tree, -> {
     includes(:dice, game: [:selected_dice, :players],
              dice_requirements: :dice)
-      .order(:slug)
   }
 
   def usable
@@ -58,5 +58,9 @@ class Card < ApplicationRecord
 
   def fulfilled?
     dice_requirements.all?{|dr| dr.dice}
+  end
+
+  def discard
+    self.location = :discards
   end
 end

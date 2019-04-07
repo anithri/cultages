@@ -2,10 +2,10 @@ module Mutations
   class FillRequirement < BaseMutation
     field :game, Types::Game, null: false
 
-    argument :dice_requirement_id, ID, required: true, as: :id
+    argument :dice_requirement_id, ID, required: true
 
-    def resolve(id:)
-      Events::FillRequirement.call(id: id)
+    def resolve(dice_requirement_id:)
+      Events::FillRequirement.call(dice_requirement_id: dice_requirement_id)
     end
   end
 end
