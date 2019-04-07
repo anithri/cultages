@@ -2,6 +2,7 @@
 
 module Types
   class MutationType < BaseObject
+    field :endTurn, mutation: Mutations::EndTurn
     field :fillRequirement, mutation: Mutations::FillRequirement
     field :selectDice, mutation: Mutations::SelectDice
     field :setup_game, mutation: Mutations::SetupGame

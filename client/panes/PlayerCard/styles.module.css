@@ -63,6 +63,10 @@
     grid-area: cards;
   }
 
+  & > .actions {
+    grid-area: actions;
+  }
+
   border-color: var(--highlight-color);
   background: linear-gradient(
       var(--gradient-angle),
@@ -143,6 +147,11 @@
 }
 
 .actions {
+  composes: flexCenter from global;
 
+  &  button {
+    border-radius: var(--border-radius-3);
+    font-size: var(--font-size-4);
+  }
 }
 

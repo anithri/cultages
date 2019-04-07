@@ -7,6 +7,7 @@ import { playerShape } from 'models/player'
 import Dice from 'components/Dice'
 import Money from './Money'
 import CardSlot from 'panes/CardSlot'
+import Actions from './Actions'
 
 const PlayerCardPane = ({ className, player, currentPlayer }) => {
   return (
@@ -22,6 +23,7 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
       <header>
         <h2>{player.name}</h2>
       </header>
+      {currentPlayer && <Actions />}
       <CardSlot cards={player.playerSlot.cards} className={styles.cards} />
       <Dice
         dice={player.dice}

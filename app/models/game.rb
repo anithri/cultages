@@ -41,6 +41,7 @@ class Game < ApplicationRecord
   end
 
   def messages
+    @messages_list = [{type: :info, body: 'Welcome'}] if self.ready_to_start?
     @messages_list ||= []
   end
 

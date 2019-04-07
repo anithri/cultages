@@ -4,9 +4,11 @@ import React from 'react'
 import styles from './styles.module.css'
 
 const PlayerCardActions = ({ className }) => (
-  <div className={cx(className, styles.actions)}>
-    <h2>Component (styled) Actions</h2>
-  </div>
+  <ul className={cx(className, styles.actions)}>
+    <li>
+      <button>End Turn</button>
+    </li>
+  </ul>
 )
 
 PlayerCardActions.propTypes = {
