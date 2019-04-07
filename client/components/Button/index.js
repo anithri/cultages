@@ -4,13 +4,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Button = ({
-  className,
-  doClick,
-  label,
-  iconBefore,
-  iconAfter,
-}) => (
+const Button = ({ className, doClick, label, iconBefore, iconAfter }) => (
   <button
     className={cx(className, styles.button)}
     onClick={() => doClick && doClick()}

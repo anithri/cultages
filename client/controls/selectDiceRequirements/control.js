@@ -5,6 +5,8 @@ export const SelectDiceRequirementControl = args =>
   createClickControl({
     displayName: 'selectDice',
     mutation: SELECT_DICE,
-    preMutation: ({ die: { id } }) => { diceId: id },
+    preMutation: ({ die: { id } }) => {
+      diceId: id
+    },
     ...args,
   })

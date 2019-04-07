@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 
-const QueryError = ({className}) => (
+const QueryError = ({ className }) => (
   <div className={cx(className, styles.QueryError)}>
     <h2>Component (styled) QueryError</h2>
   </div>

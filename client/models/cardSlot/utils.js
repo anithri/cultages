@@ -2,8 +2,8 @@ import { parseCardList } from 'models/card'
 
 export const parseCardSlot = cardSlot => {
   //console.log('parseCardSlot', cardSlot)
-  return ({
+  return {
     ...cardSlot,
     cards: parseCardList(cardSlot.cards),
-  })
+  }
 }
