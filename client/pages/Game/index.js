@@ -8,8 +8,9 @@ import PlayerCard from 'panes/PlayerCard'
 import GameInfoPane from 'panes/GameInfo'
 import { Redirect } from 'react-router-dom'
 import CardSlot from 'panes/CardSlot'
+import 'react-toastify/dist/ReactToastify.css'
 
-const GamePage = ({ className, game, match }) => {
+const GamePage = ({ className, game, match, sendMessage }) => {
   //console.log('GamePage', game)
   if (!match.url.startsWith(game.url)) return <Redirect to={game.url} />
 
@@ -27,6 +28,13 @@ const GamePage = ({ className, game, match }) => {
   const slots = game.boardSlots.map(slot => (
     <CardSlot key={slot.id} cards={slot.cards} className={styles[slot.id]} />
   ))
+
+  if (game.messages && sendMessage) {
+    game.messages.forEach(message => {
+      console.log(message)
+      sendMessage(message)
+    })
+  }
 
   return (
     <main className={cx(className, styles.gamePage)}>
@@ -47,6 +55,7 @@ GamePage.propTypes = {
       playerId: PropTypes.string,
     }).isRequired,
   }).isRequired,
+  sendMessage: PropTypes.func,
 }
 
 export default GameContainer({ Display: GamePage })

@@ -12,8 +12,8 @@
 #
 
 INCLUDE = {
-  players: {dice: :dice_requirement},
-  cards:  {dice: :dice_requirement, dice_requirements: :dice},
+  players:       { dice: :dice_requirement },
+  cards:         { dice: :dice_requirement, dice_requirements: :dice },
   selected_dice: :dice_requirement,
 }
 
@@ -29,7 +29,7 @@ class Game < ApplicationRecord
   belongs_to :selected_dice, class_name: 'Dice',
              optional:                   true, inverse_of: :game
 
-  scope :tree,  -> { includes(INCLUDE) }
+  scope :tree, -> { includes(INCLUDE) }
   scope :list, -> { unscope.order(name: :asc) }
 
   def url
@@ -38,6 +38,14 @@ class Game < ApplicationRecord
     else
       "/games/#{id}/#{game_state}"
     end
+  end
+
+  def messages
+    @messages_list ||= []
+  end
+
+  def send_message(type, body)
+    messages.push({ type: type, body: body })
   end
 
   def current_player

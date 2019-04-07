@@ -24,8 +24,7 @@
 }
 
 .gold.playerCard {
-  //color: var(--gold);
-  --highlight-color: var(--gold);
+//color: var(--gold); --highlight-color: var(--gold);
 }
 
 .orange.playerCard {
@@ -53,21 +52,23 @@
       text-align: center;
     }
   }
+
   & > .dice {
     grid-area: dice;
     border-radius: var(--border-radius-3);
     background-color: var(--black-40);
   }
+
   & > .cards {
     grid-area: cards;
   }
 
   border-color: var(--highlight-color);
   background: linear-gradient(
-    var(--gradient-angle),
-    var(--highlight-color) 0%,
-    transparent 33.3%,
-    transparent 100%
+      var(--gradient-angle),
+      var(--highlight-color) 0%,
+      transparent 33.3%,
+      transparent 100%
   );
   opacity: 50%;
 }
@@ -84,10 +85,7 @@
 .player1 {
   --gradient-angle: 140deg;
   grid-template-columns: 1fr auto;
-  grid-template-areas:
-    'cards money'
-    'cards dice'
-    'header dice';
+  grid-template-areas: 'actions money' 'cards dice' 'header dice';
 
   & > header > h2 {
     text-align: left;
@@ -97,10 +95,8 @@
 .player2 {
   --gradient-angle: -140deg;
   grid-template-columns: auto 1fr;
-  grid-template-areas:
-      'money cards'
-      'dice cards'
-      'dice header';
+  grid-template-areas: 'money actions' 'dice cards' 'dice header';
+
   & > header > h2 {
     text-align: right;
   }
@@ -109,10 +105,7 @@
 .player3 {
   --gradient-angle: -40deg;
   grid-template-columns: auto 1fr;
-  grid-template-areas:
-      'dice header'
-      'dice cards'
-      'money cards';
+  grid-template-areas: 'dice header' 'dice cards' 'money actions';
 
   & > header > h2 {
     text-align: right;
@@ -122,14 +115,13 @@
 .player4 {
   --gradient-angle: 40deg;
   grid-template-columns: 1fr auto;
-  grid-template-areas:
-      'header dice'
-      'cards  dice'
-      'cards money';
+  grid-template-areas: 'header dice' 'cards  dice' 'actions money';
+
   & > header > h2 {
     text-align: left;
   }
 }
+
 .money {
   composes: flexCenter from global;
   grid-area: money;
@@ -141,6 +133,7 @@
   width: var(--spacing-extra-large);
 
   position: relative;
+
   & > h5 {
     font-size: var(--font-size-6);
     font-weight: bold;
@@ -148,3 +141,8 @@
     width: var(--spacing-extra-large);
   }
 }
+
+.actions {
+
+}
+

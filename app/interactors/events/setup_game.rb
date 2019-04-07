@@ -9,7 +9,7 @@ module Events
     end
 
     def call
-      Event.call game: game
+      r = Event.call game: game
     end
   end
 end

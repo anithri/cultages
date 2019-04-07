@@ -16,4 +16,10 @@ export const gameShape = PropTypes.shape({
   ),
   boardSlots: cardSlotListShape,
   players: playerListShape,
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 })

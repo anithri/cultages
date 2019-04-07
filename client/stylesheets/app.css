@@ -6,6 +6,7 @@
 @import "./__palette.css";
 @import "./__variables.css";
 @import "./_grid.css";
+@import "./_toastify.css";
 
 html, body, #ateEight {
   height: 100%; /* .h-100 */

@@ -4,6 +4,11 @@
  */
 
 :root {
+  --brand-danger: var(--red);
+  --brand-info: var(--blue);
+  --brand-success: var(--green);
+  --brand-warning: var(--gold);
+
   --dark-purple: #431f73;
 
 

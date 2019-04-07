@@ -24,6 +24,10 @@ export const GAME_FRAGMENT = gql`
         }
       }
     }
+    messages {
+      type
+      body
+    }
   }
   ${CARD_SLOT_FRAGMENT}
   ${PLAYER_FRAGMENT}

@@ -3,6 +3,7 @@ import DefaultLoading from 'components/Loading'
 import DefaultError from 'components/QueryError'
 import React from 'react'
 import { emptyQuery, spreadData } from './utils'
+import { toast } from 'react-toastify'
 
 export const createContainer = args => {
   const {
@@ -25,9 +26,16 @@ export const createContainer = args => {
     if (loading) return <Loading />
     if (error) return <Error error={error} />
 
+    const sendMessage = ({ body, type }) =>
+      toast(body, { type, className: 'Prime' })
+
     const displayProps = postQuery(props, data)
 
-    return <Display {...displayProps} />
+    return (
+      <React.Fragment>
+        <Display {...displayProps} sendMessage={sendMessage} />
+      </React.Fragment>
+    )
   }
 
   container.displayName = displayName

@@ -6,6 +6,8 @@ import React from 'react'
 import { Helmet as ReactHelmet } from 'react-helmet'
 import setupIcons from 'stylesheets/fontawesome'
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
+import { ToastContainer } from 'react-toastify'
+
 
 setupIcons()
 
@@ -30,6 +32,7 @@ class App extends React.Component {
     return (
       <ApolloProvider client={client}>
         <ApolloHooksProvider client={client}>
+          <ToastContainer/>
           <Pages className="max">
             <ReactHelmet>
               <meta charSet="utf-8" />

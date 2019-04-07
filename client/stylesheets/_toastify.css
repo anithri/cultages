@@ -1,0 +1,12 @@
+.Prime.Toastify__toast--success {
+  background-color: var(--brand-success);
+}
+.Prime.Toastify__toast--warning {
+  background-color: var(--brand-warning);
+}
+.Prime.Toastify__toast--fail {
+  background-color: var(--brand-danger);
+}
+.Prime.Toastify__toast--info {
+  background-color: var(--brand-info);
+}

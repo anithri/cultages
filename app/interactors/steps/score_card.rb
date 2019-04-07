@@ -18,5 +18,6 @@ class Steps::ScoreCard
 
     player.earn(4)
     card.discard
+    game.send_message('success', 'Card scored!')
   end
 end

@@ -6,5 +6,6 @@ class Steps::FulfillRequirement
   def call
     dice_requirement.fulfill(game.selected_dice) || context.fail!(error: ERR)
     game.deselect_dice
+    game.send_message('success', 'Requirement Met')
   end
 end
