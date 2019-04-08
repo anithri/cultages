@@ -21,7 +21,7 @@ class Player < ApplicationRecord
   DICE_BAG_SIZE  = 5
   STARTING_MONEY = 6
   PLAYERS        = %w{player1 player2 player3 player4}.freeze
-  THEMES         = %w{ blue navy green purple gold red }.freeze
+  THEMES         = %w{ blue green purple gold red }.freeze
 
   enum slug: PLAYERS
 

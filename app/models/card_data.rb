@@ -6,7 +6,7 @@ module CardData
         dice_requirements: DiceRequirement.bag(count),
         location:          :draw,
         name:              "Card #{idx + 1}",
-        reward:            "money#{count - 1}",
+        reward:            "money#{rand(10) + 1}",
       }
     end
     Player::PLAYERS.each do |player|

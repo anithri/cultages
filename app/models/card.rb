@@ -19,6 +19,8 @@
 #
 
 class Card < ApplicationRecord
+  include Rewards
+
   DEAL_CARDS       = {
     'slot1' => 1,
     'slot2' => 1,
@@ -35,7 +37,6 @@ class Card < ApplicationRecord
   DECK_LOCATIONS   = %w{draw discards}
   PUBLIC_LOCATIONS = DEAL_CARDS.keys
   LOCATIONS        = DECK_LOCATIONS + PUBLIC_LOCATIONS + Player::PLAYERS
-  REWARDS          = [:money1, :money2, :money3, :unlock]
 
   enum location: LOCATIONS, reward: REWARDS
 

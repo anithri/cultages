@@ -15,8 +15,8 @@ class Steps::ScoreCard
     end
 
     game.deal(to: card.location)
+    card.award_to(player)
 
-    player.earn(4)
     card.discard
     game.send_message('success', 'Card scored!')
   end
