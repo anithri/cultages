@@ -4,6 +4,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import DiceRequirements from 'components/DiceRequirements'
 import { cardShape } from 'models/card'
+import Reward from 'components/Reward'
 
 const Card = ({ className, card }) => {
   console.log('Card', card.diceRequirements)
@@ -13,8 +14,8 @@ const Card = ({ className, card }) => {
         <h4>{card.name}</h4>
       </header>
       <DiceRequirements diceRequirements={card.diceRequirements} size="3x" />
-      <footer>
-        <p>Reward</p>
+      <footer className={styles.rewards}>
+        <Reward reward={card.reward} />
       </footer>
     </article>
   )

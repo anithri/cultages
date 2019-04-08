@@ -41,7 +41,7 @@
     grid-area: dice;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     align-items: center;
     justify-content: space-between;
     justify-items: center;
@@ -69,4 +69,6 @@
 .reward {
   grid-area: reward;
 }
-
+.rewards {
+  composes: flexCenter from global;
+}

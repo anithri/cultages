@@ -15,6 +15,8 @@ import {
   faDiceFive,
   faDiceSix,
   faLockAlt,
+  faLockOpenAlt,
+  faBadge,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faCheckCircle,
@@ -44,6 +46,8 @@ const setupIcons = () => {
     faDiceFive,
     faDiceSix,
     faLockAlt,
+    faLockOpenAlt,
+    faBadge,
   )
 }
 

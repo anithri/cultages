@@ -9,6 +9,7 @@ export const CARD_FRAGMENT = gql`
     diceRequirements {
       ...diceRequirementFragment
     }
+    reward
   }
   ${DICE_REQUIREMENT_FRAGMENT}
 `

@@ -9,6 +9,8 @@ module Types
     field :dice, [Types::Dice], null: false
     field :location, String, null: false
     field :slug, Integer, null: false
+    field :reward, String, null: false
+
     field :allow_select, Boolean, null: true
     def allow_select
       true
