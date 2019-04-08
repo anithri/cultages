@@ -14,7 +14,7 @@
 INCLUDE = {
   players:       { dice: :dice_requirement },
   cards:         { dice: :dice_requirement, dice_requirements: :dice },
-  selected_dice: :dice_requirement,
+  selected_dice: [:player, :dice_requirement]
 }
 
 class Game < ApplicationRecord

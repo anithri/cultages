@@ -8,7 +8,7 @@ class Steps::FulfillRequirement
     game.send_message('success', 'Requirement Met')
     if dice.player != player
       dice_owner.earn(2)
-      dice_owner.save
+      # dice_owner.save
       player.spend(2)
       game.send_message('warning', "paid 2 to #{dice_owner.name}")
     end
