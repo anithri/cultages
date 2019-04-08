@@ -1,14 +1,14 @@
 module Mutations
-  class EndTurn < GraphQL::Schema::RelayClassicMutation
-    # TODO: define return fields
-    # field :post, Types::PostType, null: false
+  class EndTurn < BaseMutation
+    field :game, Types::Game, null: false
 
-    # TODO: define arguments
-    # argument :name, String, required: true
+    argument :game_id, ID, required: true, as: :id
 
-    # TODO: define resolve method
-    # def resolve(name:)
-    #   { post: ... }
-    # end
+    def resolve(id:)
+      game = Game.tree.find(id)
+      return unless game
+      game.next_player!
+      {game: game}
+    end
   end
 end

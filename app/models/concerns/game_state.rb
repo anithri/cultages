@@ -8,9 +8,7 @@ module GameState
     aasm column: :game_state do
       state :filled_box, initial: true
       state :ready_to_start, before_enter: Events::SetupGame, after_exit: Events::StartGame
-      state :start_of_round, before_enter: Events::StartRound
       state :player_turn, before_enter: Events::StartTurn
-      state :end_of_round
       state :end_of_game
       state :empty_box
 
@@ -19,17 +17,17 @@ module GameState
       end
 
       event :start_game do
-        transitions from: :ready_to_start, to: :start_of_round, guard: :can_start_game?
-      end
-
-      event :next_round do
-        transitions from: :end_of_round, to: :end_of_game, guard: :final_round?
-        transitions from: [:end_of_round, :start_of_game], to: :start_of_round
+        transitions from: :ready_to_start,
+                    to: :player_turn,
+                    guard: :can_start_game?
       end
 
       event :next_player do
-        transitions from: :player_turn, to: :end_of_round, guard: :final_player?
-        transitions from: [:start_of_round, :player_turn], to: :player_turn
+        transitions from: :player_turn,
+                    to: :end_of_game,
+                    guard: :game_over?
+        transitions from: [:start_of_round, :player_turn],
+                    to: :player_turn
       end
 
       event :put_away do
@@ -40,6 +38,10 @@ module GameState
 
   def final_player?
     turn % players.length == players.length - 1
+  end
+
+  def game_over?
+    final_player? && final_round?
   end
 
   def can_start_game?
