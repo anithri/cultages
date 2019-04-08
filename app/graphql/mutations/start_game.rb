@@ -8,7 +8,6 @@ module Mutations
       game = Game.tree.find(id)
       return unless game
       game.start_game!
-      game.next_player!
       {game: game}
     end
   end

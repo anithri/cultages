@@ -27,10 +27,10 @@ class Card < ApplicationRecord
     'slot5' => 2,
   }.with_indifferent_access
   NEIGHBORS        = {
-    'player1': %w{player1 slot1 slot4 slot5},
-    'player2': %w{player2 slot1 slot2 slot5},
-    'player3': %w{player3 slot2 slot3 slot5},
-    'player4': %w{player4 slot3 slot4 slot5},
+    'player1': %w{slot1 slot4 slot5},
+    'player2': %w{slot1 slot2 slot5},
+    'player3': %w{slot2 slot3 slot5},
+    'player4': %w{slot3 slot4 slot5},
   }.with_indifferent_access
   DECK_LOCATIONS   = %w{draw discards}
   PUBLIC_LOCATIONS = DEAL_CARDS.keys
@@ -53,7 +53,9 @@ class Card < ApplicationRecord
 
   def usable
     return unless game.current_player
-    NEIGHBORS[game.current_player.slug].include?(location)
+    return false unless game.selected_dice
+    return true if (game.current_player.slug == location)
+    NEIGHBORS[game.selected_dice.player.slug].include?(location)
   end
 
   def fulfilled?

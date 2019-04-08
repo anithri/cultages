@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { diceShape } from 'models/dice'
 
 export const diceName = [
+  'lock-alt',
   'dice-d6',
   'dice-one',
   'dice-two',
@@ -30,7 +31,7 @@ const Die = ({
       })}
     >
       <FontAwesomeIcon
-        icon={diceName[value]}
+        icon={diceName[value + 1]}
         fixedWidth={true}
         size={size}
         className={cx(className, styles.die)}

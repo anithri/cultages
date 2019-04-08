@@ -41,6 +41,7 @@ class Dice < ApplicationRecord
   end
 
   def roll
+    return if self.value < 0
     self.value = Dice.roll
   end
 
@@ -48,12 +49,13 @@ class Dice < ApplicationRecord
     rand(SIDES) + 1
   end
 
-  def self.bag(count, rolled = true)
+  def self.bag(count)
     Array.new(count) do |idx|
+      val = idx <= 2 ? 0 : -1
       Dice.new(
         {
           slug:  idx,
-          value: rolled && (rand(SIDES) + 1),
+          value: val
         }
       )
     end

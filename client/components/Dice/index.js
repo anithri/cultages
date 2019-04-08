@@ -9,12 +9,14 @@ import { diceListShape } from 'models/dice'
 const SelectableDie = SelectDiceControl({ Input: Die })
 
 const Dice = ({ className, dice = [], layout, size, allowSelect }) => {
-  const DieDisplay = allowSelect ? SelectableDie : Die
-  const allDice = dice.filter(die => !die.inUse).map((die, idx) => (
-    <li key={`dice-${die.id}`}>
-      <DieDisplay diceId={die.id} die={die} size={size} />
-    </li>
-  ))
+  const allDice = dice.filter(die => !die.inUse).map((die, idx) => {
+    const DieDisplay = (allowSelect && die.value > 0) ? SelectableDie : Die
+    return (
+      <li key={`dice-${die.id}`}>
+        <DieDisplay diceId={die.id} die={die} size={size}/>
+      </li>
+    )
+  })
   return (
     <ul className={cx(className, styles.dice, styles[layout])}>{allDice}</ul>
   )
