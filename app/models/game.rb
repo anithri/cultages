@@ -29,6 +29,7 @@ class Game < ApplicationRecord
   belongs_to :selected_dice, class_name: 'Dice',
              optional:                   true, inverse_of: :game
 
+  has_many :dice, through: :players
   scope :tree, -> { includes(INCLUDE) }
   scope :list, -> { unscope.order(name: :asc) }
 
@@ -38,6 +39,10 @@ class Game < ApplicationRecord
     else
       "/games/#{id}/#{game_state}"
     end
+  end
+
+  def find_die(dice_id)
+    dice.to_a.find{|d| d.id == dice_id}
   end
 
   def messages

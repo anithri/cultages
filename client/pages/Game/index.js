@@ -19,6 +19,7 @@ const GamePage = ({ className, game, match, sendMessage }) => {
       <PlayerCard
         {...player}
         currentPlayer={player.playerId === game.currentPlayerId}
+        gameId={game.id}
         key={`gamePage-player-${player.playerId}`}
         className={styles[player.slug]}
       />

@@ -2,7 +2,8 @@ class Steps::GetDiceRequirement
   include Interactor
   ERR               = 'dice_requirement missing'
   SELECTED_DICE_ERR = 'no dice selected'
-  delegate :dice_requirement, :dice_requirement_id, :card, :game, to: :context
+  delegate :card, :dice, :dice_requirement, :dice_requirement_id,  :game, to:
+    :context
   before do
     context.fail!(error: ERR + '!!!') unless dice_requirement_id
   end
@@ -17,8 +18,8 @@ class Steps::GetDiceRequirement
 
     context.card             = game.cards.find(card_id)
     context.dice_requirement = card.dice_requirements.find(dice_requirement_id)
-    context.dice             = game.current_player.dice.find(game
-                                                               .selected_dice_id)
+    context.dice             = game.find_die(game.selected_dice_id)
+    context.dice_owner       = dice.player
     context.player           = game.current_player
     context.fail!(error: 'Something went wrong, missing records') unless went_well
     context.fail!(error: 'not valid requirement') unless dice_requirement

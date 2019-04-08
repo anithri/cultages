@@ -9,7 +9,7 @@ import Money from './Money'
 import CardSlot from 'panes/CardSlot'
 import Actions from './Actions'
 
-const PlayerCardPane = ({ className, player, currentPlayer }) => {
+const PlayerCardPane = ({ className, player, currentPlayer, gameId }) => {
   return (
     <div
       className={cx(
@@ -23,7 +23,7 @@ const PlayerCardPane = ({ className, player, currentPlayer }) => {
       <header>
         <h2>{player.name}</h2>
       </header>
-      {currentPlayer && <Actions />}
+      {currentPlayer && <Actions gameId={gameId} />}
       <CardSlot cards={player.playerSlot.cards} className={styles.cards} />
       <Dice
         dice={player.dice}
@@ -40,6 +40,7 @@ PlayerCardPane.propTypes = {
   className: PropTypes.string,
   currentPlayer: PropTypes.bool,
   player: playerShape,
+  gameId: PropTypes.string.isRequired,
 }
 
 export default PlayerContainer({ Display: PlayerCardPane })
