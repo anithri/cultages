@@ -1,19 +1,22 @@
 ---
-to: <%= h.src('components', name, 'index.js') %>
+/*
+* Copyright (c) 2019.  Cermak, Peterka, & Peterson.
+*/
+to: <%= styledPath %>
 ---
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles.module.css'
+import styles from '<%= cssImportPath %>'
 
-const <%= name %> = ({className}) => (
-  <div className={cx(className, styles.<%= name %>)}>
-    <h2>Component (styled) <%= name %></h2>
+const <%= styledName %> = ({className}) => (
+  <div className={cx(className, styles.<%= cssName %>)}>
+    <h2>Component (styled) <%= styledName %></h2>
   </div>
 )
 
-<%= name %>.propTypes = {
+<%= styledName %>.propTypes = {
   className: PropTypes.string,
 }
 
-export default <%= name %>
+export default <%= styledName %>

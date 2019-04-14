@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "clean": "rm -rf public .cache",
+    "prebuild": "yarn clean",
+    "predevlop": "yarn clean",
+    "build": "gatsby build",
+    "build:css": "bin/buildCSS",
+    "develop": "gatsby develop -H 0.0.0.0",
+    "start": "yarn run develop",
+    "format": "prettier --write 'src/**/*.js' 'src/**/*.css'",
+    "deploy": "rsync -avzhre ssh public/ batcave:/var/www/atmo",
+    "postversion": "git push && git push --tags"
+  },
+  "license": "UNLISCENSED",
+  "private": true
+}

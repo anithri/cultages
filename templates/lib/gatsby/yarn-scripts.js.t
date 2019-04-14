@@ -1,0 +1,3 @@
+---
+sh: <%= addScripts %> <%= scriptsJson %>
+---

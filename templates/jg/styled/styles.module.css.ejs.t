@@ -1,6 +1,9 @@
 ---
-to: <%= h.src('components', name, `styles.module.css`) %>
+/*
+* Copyright (c) 2019.  Cermak, Peterka, & Peterson.
+*/
+to: <%= cssPath %>
 ---
-.<%= name %> {
+.<%= cssName %> {
 
 }

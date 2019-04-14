@@ -1,6 +1,9 @@
 ---
+#
+# Copyright (c) <%= (new Date).getFullYear() %>.  Cermak, Peterka, & Peterson.
+#
 to: <%= cssPath %>
 ---
-.<%= cssSelector %> {
+.<%= cssName %> {
   composes: grid from global;
 }

@@ -1,16 +1,5 @@
-/* required values:
-      name
-      partPath
-      partClass
-      cssFile
-      cssPath
-      cssSelector
-*/
-
-const cc = require('change-case')
-const srcPath = require(process.cwd() + '/.hygen').helpers.src
-
-const CSS_FILE_NAME = 'styles.module.css'
+const { cc, clientPath, CSS_FILE_NAME } = require(process.cwd() +
+  '/.hygen').helpers
 
 const partTypes = {
   components: {
@@ -38,22 +27,23 @@ const getParent = args => args[args.partType.name]
 
 module.exports = {
   params: ({ args }) => {
-    // make the canonical Part name
+    const camel = cc.camel(args.name)
     const pascal = cc.pascal(args.name)
 
     const partType = getPartType(args)
+
     args.partType = partType
 
     args.parent = getParent(args)
 
-    args.partPath = srcPath(partType.dir, args.parent, `${pascal}.js`)
+    args.partPath = clientPath(partType.dir, args.parent, `${pascal}.js`)
 
-    args.partClass = args.parent + pascal
+    args.partClass = pascal
     args.cssFile = './' + CSS_FILE_NAME
-    args.cssPath = srcPath(partType.dir, args.parent, CSS_FILE_NAME)
-    args.cssSelector = partType.selector || cc.camel(pascal)
+    args.cssPath = clientPath(partType.dir, args.parent, CSS_FILE_NAME)
+    args.cssSelector = camel
 
-    //console.log('args', args)
+    console.log('args', args)
     return args
   },
 }

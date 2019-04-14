@@ -1,4 +1,7 @@
 ---
+#
+# Copyright (c) <%= (new Date).getFullYear() %>.  Cermak, Peterka, & Peterson.
+#
 to: <%= partPath %>
 ---
 import cx from 'classnames'
@@ -8,7 +11,7 @@ import styles from '<%= cssFile %>'
 
 const <%= partClass %> = ({ className }) => (
   <div className={cx(className, styles.<%= cssSelector %>)}>
-    <h2>Component (styled) <%= Name %></h2>
+    <h2><%= partType %> part <%= Name %></h2>
   </div>
 )
 

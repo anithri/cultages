@@ -1,33 +1,61 @@
-/* required values
-      cssFile
-      cssPath
-      cssSelector
-      pageClass
-      pageImportPath
-      pagePath
-      pageRoute
-      routePath
- */
-const cc = require('change-case')
-const srcPath = require('../../../.hygen').helpers.src
 
-const CSS_FILE_NAME = 'styles.module.css'
+  const {
+  clientPath,
+  cc,
+  CSS_FILE_NAME,
+  useRoutes,
+  inflection: { pluralize },
+} = require(`${process.cwd()}/.hygen`).helpers
 
 module.exports = {
   params: ({ args }) => {
     const pascal = cc.pascal(args.name)
     const camel = cc.camel(pascal)
 
-    args.routePath = 'pages/index.js'
-    args.cssFile = './' + CSS_FILE_NAME
-    args.cssPath = srcPath('pages', pascal, CSS_FILE_NAME)
-    args.cssSelector = 'page'
-    args.pageClass = pascal + 'Page'
-    args.pageImportPath = srcPath('pages', pascal)
-    args.pagePath = args.pageImportPath + '/index.js'
-    args.pageRoute = `/${args.pageRoute || camel}`
+    args.pagePlainPath = null
+    args.pageContainedPath = null
+    args.pageName = pascal
 
-    //console.log('args', args)
+    args.cssFile = './' + CSS_FILE_NAME
+    args.cssPath = clientPath('pages', pascal, CSS_FILE_NAME)
+    args.cssName = camel
+
+    args.routePath = null
+
+    if (useRoutes) {
+      args.routePath = clientPath('pages', 'index.js')
+      args.pageImportPath = clientPath('pages', pascal)
+      args.pageRoute = `/${args.pageRoute || camel}`
+
+      if (args.list) {
+        args.pageRoute = pluralize(args.pageRoute)
+      }
+    }
+
+    if (args.concern) {
+      const list = args.list ? 'List' : ''
+      const basePascalContainer = cc.pascal(args.concern)
+      const baseCamelContainer = cc.camel(basePascalContainer)
+
+      const pascalContainer = basePascalContainer + list
+      const camelContainer = baseCamelContainer + list
+
+      args.pageContainerPath = clientPath('pages', pascal, 'index.js')
+
+      args.concernPath = `concerns/${basePascalContainer}`
+
+      args.pageContainedPath = clientPath('pages', pascal, 'index.js')
+      args.containedName = args.list
+        ? pluralize(baseCamelContainer)
+        : camelContainer
+
+      args.shapeName = camelContainer + 'Shape'
+      args.containerName = pascalContainer + 'Container'
+    } else {
+      args.pagePlainPath = clientPath('pages', pascal, 'index.js')
+    }
+
+    console.log('args', args)
     return args
   },
 }

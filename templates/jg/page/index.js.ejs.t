@@ -1,22 +1,25 @@
 ---
-  to: <%= pagePath %>
+#
+# Copyright (c) <%= (new Date).getFullYear() %>.  Cermak, Peterka, & Peterson.
+#
+to: <%= pagePlainPath %>
 ---
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import styles from <%= cssFile %>
 
-const <%= pageClass %> = ({className}) => {
+const <%= pageName %> = ({className}) => {
   return (
-    <main className={cx(className, styles.<%= cssSelector %>)}>
-      <h2>Component (styled) <%= Name %></h2>
+    <main className={cx(className, styles.<%= cssName %>)}>
+      <h2>Page <%= pageName %></h2>
     </main>
   )
 }
 
-<%= pageClass %>.propTypes = {
+<%= pageName %>.propTypes = {
   className: PropTypes.string,
 }
 
-export default <%= pageClass %>
+export default <%= pageName %>

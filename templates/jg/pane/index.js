@@ -1,43 +1,47 @@
-// my-generator/my-action/index.js
-const cc = require('change-case')
-const srcPath = require('../../../.hygen').helpers.src
+const {
+  clientPath,
+  cc,
+  CSS_FILE_NAME,
+  inflection: { pluralize },
+} = require(`${process.cwd()}/.hygen`).helpers
 
 module.exports = {
   params: ({ args }) => {
     const pascal = cc.pascal(args.name)
     const camel = cc.camel(pascal)
 
-    args.dirName = pascal
-    args.stylesName = camel
-    args.paneName = pascal + 'Pane'
-    args.container = args.container || false
-
+    args.cssPath = clientPath('panes', pascal, CSS_FILE_NAME)
+    args.cssImportPath = `./${CSS_FILE_NAME}`
+    args.paneName = pascal
+    args.cssName = camel
+    args.paneContainedPath = null
+    args.panePlainPath = null
+    args.containedName = null
     args.shapeName = null
-    args.shapePath = null
-
-    args.contained = null
     args.containerName = null
-    args.containerPath = null
+    args.concernPath = null
 
-    args.panePath = null
-    args.simplePath = srcPath('panes', pascal, 'index.js')
-    args.stylesPath = srcPath('panes', pascal, 'styles.module.css')
+    if (args.concern) {
+      const list = args.list ? 'List' : ''
+      const basePascalContainer = cc.pascal(args.concern)
+      const baseCamelContainer = cc.camel(basePascalContainer)
 
-    if (args.container) {
-      const pascalContainer = cc.pascal(args.container)
-      const camelContainer = cc.camel(pascalContainer)
+      const pascalContainer = basePascalContainer + list
+      const camelContainer = baseCamelContainer + list
 
-      args.panePath = args.simplePath
-      args.simplePath = null
+      args.concernPath = `concerns/${pascalContainer}`
+      args.paneContainedPath = clientPath('panes', pascal, 'index.js')
+      args.containedName = args.list
+        ? pluralize(baseCamelContainer)
+        : camelContainer
 
       args.shapeName = camelContainer + 'Shape'
-      args.shapePath = `concerns/${pascalContainer}/shape`
-
-      args.contained = camelContainer
       args.containerName = pascalContainer + 'Container'
-      args.containerPath = `concerns/${pascalContainer}/container`
+    } else {
+      args.panePlainPath = clientPath('panes', pascal, 'index.js')
     }
-    //console.log('args', args)
+
+    console.log('args', args)
     return args
   },
 }

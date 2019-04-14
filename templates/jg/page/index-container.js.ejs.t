@@ -2,8 +2,7 @@
 #
 # Copyright (c) <%= (new Date).getFullYear() %>.  Cermak, Peterka, & Peterson.
 #
-
-to: <%= paneContainedPath || null %>
+to: <%= pageContainedPath %>
 ---
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -11,15 +10,15 @@ import React from 'react'
 import styles from './styles.module.css'
 import { <%= containerName %>, <%= shapeName %> } from '<%= concernPath %>'
 
-const <%= paneName %> = ({ className, <%= containedName %> }) => (
+const <%= pageName %> = ({ className, <%= containedName %> }) => (
   <div className={cx(className, styles.<%= cssName %>)}>
-    <h2>Component (styled) <%= paneName %></h2>
+    <h2>Component (styled) <%= pageName %></h2>
   </div>
 )
 
-<%= paneName %>.propTypes = {
+<%= pageName %>.propTypes = {
   className: PropTypes.string,
   <%= containedName %>: <%= shapeName %>,
 }
 
-export default <%= containerName %>(<%= paneName %>)
+export default <%= containerName %>(<%= pageName %>)
