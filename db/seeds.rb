@@ -13,3 +13,5 @@
   game = Events::CreateGame.call
   game.setup_game!
 end
+
+

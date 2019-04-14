@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_040213) do
+ActiveRecord::Schema.define(version: 2019_04_14_203621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,30 @@ ActiveRecord::Schema.define(version: 2019_04_04_040213) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "grid_hexes", force: :cascade do |t|
+    t.integer "q"
+    t.integer "r"
+    t.integer "s"
+    t.bigint "center_id"
+    t.index ["center_id"], name: "index_grid_hexes_on_center_id"
+  end
+
+  create_table "grid_hexes_points", id: false, force: :cascade do |t|
+    t.bigint "grid_point_id", null: false
+    t.bigint "grid_hex_id", null: false
+    t.index ["grid_hex_id", "grid_point_id"], name: "index_grid_hexes_points_on_grid_hex_id_and_grid_point_id"
+    t.index ["grid_point_id", "grid_hex_id"], name: "index_grid_hexes_points_on_grid_point_id_and_grid_hex_id"
+  end
+
+  create_table "grid_points", force: :cascade do |t|
+    t.decimal "x", precision: 8, scale: 3
+    t.decimal "y", precision: 8, scale: 3
+    t.decimal "z", precision: 8, scale: 3
+    t.integer "category", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "players", force: :cascade do |t|
     t.bigint "game_id"
     t.string "name"
@@ -63,5 +87,6 @@ ActiveRecord::Schema.define(version: 2019_04_04_040213) do
   add_foreign_key "cards", "games"
   add_foreign_key "dice_requirements", "cards"
   add_foreign_key "dice_requirements", "dice"
+  add_foreign_key "grid_hexes", "grid_points", column: "center_id"
   add_foreign_key "players", "games"
 end

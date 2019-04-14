@@ -217,6 +217,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rhex (2.0.3)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -319,6 +320,7 @@ DEPENDENCIES
   pundit-matchers (~> 1.6.0)
   rails (~> 6.0.0.beta2)
   rails_warden
+  rhex
   rspec-graphql_matchers
   rspec-rails
   shoulda-matchers
