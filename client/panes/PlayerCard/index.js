@@ -8,6 +8,7 @@ import Dice from 'components/Dice'
 import Money from './Money'
 import CardSlot from 'panes/CardSlot'
 import Actions from './Actions'
+import PlayerName from './Name'
 
 const PlayerCardPane = ({ className, player, currentPlayer, gameId }) => {
   return (
@@ -19,10 +20,8 @@ const PlayerCardPane = ({ className, player, currentPlayer, gameId }) => {
         styles[player.theme],
         currentPlayer && styles.currentPlayer,
       )}
-    >
-      <header>
-        <h2>{player.name}</h2>
-      </header>
+  >
+      <PlayerName player={player} />
       {currentPlayer && <Actions gameId={gameId} />}
       <CardSlot cards={player.playerSlot.cards} className={styles.cards} />
       <Dice

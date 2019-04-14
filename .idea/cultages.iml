@@ -49,10 +49,9 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v6.0.0.beta3, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="annotate (v2.7.4, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="awesome_print (v1.8.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bindex (v0.6.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.4.2, asdf: 2.5.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bindex (v0.7.0, asdf: 2.5.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.4.3, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bullet (v5.9.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.0.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v11.0.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.2, asdf: 2.5.1) [gem]" level="application" />
@@ -71,7 +70,7 @@
     <orderEntry type="library" scope="PROVIDED" name="fuubar (v2.3.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="graphiql-rails (v1.7.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="graphql (v1.9.3, asdf: 2.5.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="graphql (v1.9.4, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard (v2.15.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-bundler (v2.2.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-compat (v1.2.1, asdf: 2.5.1) [gem]" level="application" />
@@ -101,7 +100,6 @@
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.10.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="notiffany (v0.1.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.1.4, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pg_search (v2.1.4, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.12.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry-rails (v0.3.9, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v3.12.1, asdf: 2.5.1) [gem]" level="application" />
@@ -137,11 +135,9 @@
     <orderEntry type="library" scope="PROVIDED" name="spring-watcher-listen (v2.0.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.7.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.1, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="surus (v0.7.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.20.3, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.5, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="uniform_notifier (v1.12.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.8, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.7.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="webpacker (v4.0.2, asdf: 2.5.1) [gem]" level="application" />
