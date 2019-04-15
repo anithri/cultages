@@ -70,14 +70,14 @@ module Types
 
 
     #region Hexes Fields
-    field :hexes, Types::GridHex, null: true do
+    field :hexes, Types::Hex, null: true do
       argument :hex_id, ID, required: true, as: :id
     end
     def hexes(id:)
       ::GridHex.includes(:center).find id
     end
 
-    field :hexes, Types::GridHex.connection_type, null: false
+    field :hexes, Types::Hex.connection_type, null: false
     def hexes
       ::GridHex.includes(:center).all
     end

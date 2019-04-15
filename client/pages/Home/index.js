@@ -14,6 +14,11 @@ class HomePage extends React.Component {
         <nav className="pageNav">
           <ul>
             <li>
+              <NavLink to="/hexes" activeClassName="bg-white">
+                Hexes
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/games" activeClassName="bg-white">
                 Games
               </NavLink>

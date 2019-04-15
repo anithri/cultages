@@ -1,0 +1,3 @@
+.hexes {
+  composes: grid from global;
+}

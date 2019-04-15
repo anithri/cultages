@@ -1,20 +1,25 @@
+const { basePathTo } = require('./templates/utils/help/path')
+const cc = require('change-case')
+const inflection = require('inflection')
+const CSS_FILE_NAME = 'styles.module.css'
+
 const sourcePaths = {
+  rails: 'app',
+  client: 'client',
 }
 
-const sourcePath = dest => sourcePaths[dest] || `client/${dest}/`
+const useRoutes = sourcePaths.client === 'client'
 
-const extRegex = /^\./
-
-const pathTo = (source, ...parts) => {
-  if (parts.slice(-1)[0].match(extRegex)) {
-    const ext = parts.pop()
-    parts[parts.length - 1] = parts[parts.length - 1] + ext
-  }
-  return sourcePath(source) + parts.join('/')
-}
+const appPath = basePathTo(sourcePaths.rails)
+const clientPath = basePathTo(sourcePaths.client)
 
 module.exports = {
   helpers: {
-    src: pathTo,
+    appPath,
+    cc,
+    clientPath,
+    CSS_FILE_NAME,
+    inflection,
+    useRoutes,
   },
 }

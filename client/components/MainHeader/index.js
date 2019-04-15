@@ -10,6 +10,11 @@ const MainHeader = ({ className, title }) => (
     <nav>
       <ul className={styles.pageNav}>
         <li>
+          <NavLink to="/hexes" activeClassName="bg-white">
+            Hexes
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/">Home</NavLink>
         </li>
         <li>

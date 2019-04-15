@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Types
-  class GridHex < Types::BaseObject
+  class Hex < Types::BaseObject
     description 'Gridhex'
 
     field :id, ID, null: false

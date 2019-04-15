@@ -1,5 +1,4 @@
-
-  const {
+const {
   clientPath,
   cc,
   CSS_FILE_NAME,

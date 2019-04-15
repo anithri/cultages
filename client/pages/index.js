@@ -7,6 +7,8 @@ import React from 'react'
 import Game from 'pages/Game'
 import GameState from 'pages/Game/GameState'
 
+import Hexes from 'pages/Hexes'
+
 /* new imports above here - see templates/jg/pages */
 
 const SiteRouter = props => {
@@ -27,6 +29,8 @@ const SiteRouter = props => {
         <Route exact path="/games/:gameId/:gameState" component={Game} />
         <Route exact path="/games/:gameId" component={GameState} />
         <Route strict path="/games" component={Games} />
+
+        <Route exact path="/hexes" component={Hexes} />
 
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />
