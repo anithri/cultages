@@ -6,5 +6,6 @@ class CreateGridHexes < ActiveRecord::Migration[6.0]
       t.integer :s
       t.references :center, foreign_key: {to_table: :grid_points}
     end
+    add_index :grid_hexes, [:q, :r, :s], unique: true
   end
 end

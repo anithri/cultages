@@ -4,7 +4,7 @@ namespace :grid do
   task hexes: :environment do
     raw = `node lib/tasks/generateGrid.js 5 5 5 2>/dev/null`
     data = JSON.parse(raw).with_indifferent_access
-
+    puts data.inspect
     CreateGrid.call(grid_data: data)
   end
 

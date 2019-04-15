@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_04_14_203621) do
     t.integer "s"
     t.bigint "center_id"
     t.index ["center_id"], name: "index_grid_hexes_on_center_id"
+    t.index ["q", "r", "s"], name: "index_grid_hexes_on_q_and_r_and_s", unique: true
   end
 
   create_table "grid_hexes_points", id: false, force: :cascade do |t|
@@ -72,8 +73,7 @@ ActiveRecord::Schema.define(version: 2019_04_14_203621) do
     t.decimal "y", precision: 8, scale: 3
     t.decimal "z", precision: 8, scale: 3
     t.integer "category", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["x", "y"], name: "index_grid_points_on_x_and_y", unique: true
   end
 
   create_table "players", force: :cascade do |t|

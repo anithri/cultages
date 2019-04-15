@@ -5,8 +5,8 @@ class CreateGridPoints < ActiveRecord::Migration[6.0]
       t.decimal :y, precision: 8, scale: 3
       t.decimal :z, precision: 8, scale: 3
       t.integer :category, default: 0
-
-      t.timestamps
     end
+    add_index :grid_points, [:x, :y], unique: true
+
   end
 end
