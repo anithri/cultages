@@ -2,24 +2,28 @@
 #
 # Table name: grid_hexes
 #
-#  id        :bigint(8)        not null, primary key
-#  q         :integer
-#  r         :integer
-#  s         :integer
-#  center_id :bigint(8)
+#  id          :bigint(8)        not null, primary key
+#  q           :integer
+#  r           :integer
+#  s           :integer
+#  center_id   :bigint(8)
+#  grid_map_id :bigint(8)
 #
 # Indexes
 #
-#  index_grid_hexes_on_center_id      (center_id)
-#  index_grid_hexes_on_q_and_r_and_s  (q,r,s) UNIQUE
+#  index_grid_hexes_on_center_id                      (center_id)
+#  index_grid_hexes_on_grid_map_id                    (grid_map_id)
+#  index_grid_hexes_on_grid_map_id_and_q_and_r_and_s  (grid_map_id,q,r,s) UNIQUE
 #
 # Foreign Keys
 #
 #  fk_rails_...  (center_id => grid_points.id)
+#  fk_rails_...  (grid_map_id => grid_maps.id)
 #
 
 class GridHex < ApplicationRecord
   belongs_to :center, class_name: "GridPoint"
+  belongs_to :grid_map
   has_and_belongs_to_many :corners,->{corners}, class_name: "GridPoint"
 
   validates :q, :r, :s, presence: true, numericality: {only_integer: true}

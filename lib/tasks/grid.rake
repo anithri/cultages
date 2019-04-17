@@ -2,7 +2,7 @@
 namespace :grid do
   desc "generate hexGrid"
   task hexes: :environment do
-    raw = `node lib/tasks/generateGrid.js 24 40 28 2>/dev/null`
+    raw = `node lib/tasks/generateGrid.js 24 48 30 2>/dev/null`
     data = JSON.parse(raw).with_indifferent_access
     puts data.inspect
     CreateGrid.call(grid_data: data)

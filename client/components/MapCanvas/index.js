@@ -42,8 +42,12 @@ const MapCanvas = ({ className, hexes }) => {
   ))
   return (
     <section className={cx(className, styles.map)}>
-      <Canvas camera={{position: [820,486,700]}} >
+      <Canvas camera={{position: [987,522,750]}} >
         {hexagons}
+        <mesh>
+          <sphereBufferGeometry attach="geometry" args={[1, 16, 16]} />
+          <meshBasicMaterial attach="material" color={'blue'} />
+        </mesh>
       </Canvas>
     </section>
   )

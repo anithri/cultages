@@ -10,5 +10,6 @@ module Types
     field :s, Integer, null: false
     field :radius, Float, null: false
     field :center, GridPoint, null: false
+    field :corners, GridPoint.connection_type, null: false
   end
 end

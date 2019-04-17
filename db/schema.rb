@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_203621) do
+ActiveRecord::Schema.define(version: 2019_04_17_041026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(version: 2019_04_14_203621) do
     t.integer "r"
     t.integer "s"
     t.bigint "center_id"
+    t.bigint "grid_map_id"
     t.index ["center_id"], name: "index_grid_hexes_on_center_id"
-    t.index ["q", "r", "s"], name: "index_grid_hexes_on_q_and_r_and_s", unique: true
+    t.index ["grid_map_id", "q", "r", "s"], name: "index_grid_hexes_on_grid_map_id_and_q_and_r_and_s", unique: true
+    t.index ["grid_map_id"], name: "index_grid_hexes_on_grid_map_id"
   end
 
   create_table "grid_hexes_points", id: false, force: :cascade do |t|
@@ -68,12 +70,25 @@ ActiveRecord::Schema.define(version: 2019_04_14_203621) do
     t.index ["grid_point_id", "grid_hex_id"], name: "index_grid_hexes_points_on_grid_point_id_and_grid_hex_id"
   end
 
+  create_table "grid_maps", force: :cascade do |t|
+    t.string "name"
+    t.integer "rows"
+    t.integer "cols"
+    t.integer "radius"
+    t.decimal "width"
+    t.decimal "height"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "grid_points", force: :cascade do |t|
+    t.bigint "grid_map_id"
     t.decimal "x", precision: 8, scale: 3
     t.decimal "y", precision: 8, scale: 3
     t.decimal "z", precision: 8, scale: 3
     t.integer "category", default: 0
-    t.index ["x", "y"], name: "index_grid_points_on_x_and_y", unique: true
+    t.index ["grid_map_id", "x", "y"], name: "index_grid_points_on_grid_map_id_and_x_and_y", unique: true
+    t.index ["grid_map_id"], name: "index_grid_points_on_grid_map_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -87,6 +102,8 @@ ActiveRecord::Schema.define(version: 2019_04_14_203621) do
   add_foreign_key "cards", "games"
   add_foreign_key "dice_requirements", "cards"
   add_foreign_key "dice_requirements", "dice"
+  add_foreign_key "grid_hexes", "grid_maps"
   add_foreign_key "grid_hexes", "grid_points", column: "center_id"
+  add_foreign_key "grid_points", "grid_maps"
   add_foreign_key "players", "games"
 end
