@@ -9,23 +9,13 @@ export const HEX_FRAGMENT = gql`
     r
     s
     label
+    radius
     center {
       id
       x
       y
       z
       category
-    }
-    corners {
-      all: edges {
-        corner: node {
-          id
-          x
-          y
-          z
-          category
-        }
-      }
     }
   }
 `

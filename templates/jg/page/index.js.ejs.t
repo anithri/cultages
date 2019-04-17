@@ -1,7 +1,4 @@
 ---
-#
-# Copyright (c) <%= (new Date).getFullYear() %>.  Cermak, Peterka, & Peterson.
-#
 to: <%= pagePlainPath %>
 ---
 import cx from 'classnames'

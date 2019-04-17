@@ -28,4 +28,7 @@ class GridHex < ApplicationRecord
   def label
     "R#{q}#{r}"
   end
+  def radius
+    24
+  end
 end

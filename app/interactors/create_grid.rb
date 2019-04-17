@@ -9,11 +9,9 @@ class CreateGrid
     context.grid_data[:hexes].each do |hex|
       data = hex[:cube]
       data[:center] = GridPoint.find_or_create_by(normalize(hex[:center], :center))
-      puts data[:center].inspect
+
       data[:corners] = hex[:corners].map do |corner_data|
         corner = normalize(corner_data)
-        corner[:x] += data[:center].x
-        corner[:y] += data[:center].y
         GridPoint.find_or_create_by(corner)
       end
 
