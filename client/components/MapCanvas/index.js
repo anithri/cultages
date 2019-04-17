@@ -42,7 +42,7 @@ const MapCanvas = ({ className, hexes }) => {
   ))
   return (
     <section className={cx(className, styles.map)}>
-      <Canvas camera={{position: [0,0,1000]}} >
+      <Canvas camera={{position: [820,486,700]}} >
         {hexagons}
       </Canvas>
     </section>
