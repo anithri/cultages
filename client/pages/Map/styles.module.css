@@ -1,0 +1,13 @@
+.map {
+  composes: grid from global;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  & > {
+
+  }
+}
+
+.canvas {
+  background-color: var(--washed-blue);
+}

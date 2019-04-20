@@ -1,6 +1,6 @@
 import { parseHexList } from 'models/hex'
 
-export const parseMap = map => ({
+export const parseMap = ({ map }) => ({
   ...map,
-  hexes: parseHexList(map),
+  hexes: parseHexList(console.log(map) || map),
 })

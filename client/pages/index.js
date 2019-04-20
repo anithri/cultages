@@ -1,13 +1,14 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Error404 from 'pages/Error404'
-import Games from 'pages/Games'
-import Home from './Home'
-import PropTypes from 'prop-types'
-import React from 'react'
 import Game from 'pages/Game'
+import Games from 'pages/Games'
 import GameState from 'pages/Game/GameState'
 import Hexes from 'pages/Hexes'
+import Home from './Home'
+import Map from 'pages/Map'
 import Maps from 'pages/Maps'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 /* new imports above here - see templates/jg/pages */
 
@@ -31,6 +32,8 @@ const SiteRouter = props => {
         <Route strict path="/games" component={Games} />
         <Route exact path="/hexes" component={Hexes} />
         <Route exact path="/maps" component={Maps} />
+
+        <Route exact path="/maps/:mapId" component={Map} />
 
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />
