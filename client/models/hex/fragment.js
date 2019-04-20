@@ -1,6 +1,5 @@
 import { gql } from 'apollo-boost'
-import { DICE_REQUIREMENT_FRAGMENT } from 'models/diceRequirement'
-
+import { CORNER_FRAGMENT } from 'models/corner'
 
 export const HEX_FRAGMENT = gql`
   fragment hexFragment on Hex {
@@ -11,11 +10,15 @@ export const HEX_FRAGMENT = gql`
     label
     radius
     center {
-      id
-      x
-      y
-      z
-      category
+      ...cornerFragment
+    }
+    corners {
+      all: edges {
+        corner: node {
+          ...cornerFragment
+        }
+      }
     }
   }
+  ${CORNER_FRAGMENT}
 `

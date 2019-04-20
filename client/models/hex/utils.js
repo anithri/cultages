@@ -1,10 +1,7 @@
-import * as THREE from 'three'
-export const parsePoint = point => ({
-  ...point,
-  vector: new THREE.Vector3(point.x, point.y, point.z),
-})
+import { parseCorner, parseCornerList } from 'models/corner'
 
 export const parseHex = hex => ({
   ...hex,
-  center: parsePoint(hex.center),
+  center: parseCorner(hex.center),
+  corners: parseCornerList(hex),
 })

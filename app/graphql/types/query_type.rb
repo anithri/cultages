@@ -83,6 +83,20 @@ module Types
     end
     #endregion
 
+    #region GridMap Fields
+    field :map, Types::Map, null: true do
+      argument :map_id, ID, required: true, as: :id
+    end
+    def map(id:)
+      ::GridMap.details.find id
+    end
+
+    field :maps, Types::Map.connection_type, null: false
+    def maps
+      ::GridMap.public_list
+    end
+    #endregion
+
     # last of fields
   end
 end

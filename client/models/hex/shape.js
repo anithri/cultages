@@ -1,13 +1,5 @@
 import PropTypes from 'prop-types'
-import { diceRequirementListShape } from 'models/diceRequirement'
-
-export const pointShape = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  x: PropTypes.number,
-  y: PropTypes.number,
-  z: PropTypes.number,
-  category: PropTypes.string,
-})
+import { cornerShape, cornerListShape } from 'models/corner'
 
 export const hexShape = PropTypes.shape({
   id: PropTypes.string.isRequired,
@@ -15,5 +7,6 @@ export const hexShape = PropTypes.shape({
   q: PropTypes.number,
   r: PropTypes.number,
   s: PropTypes.number,
-  center: pointShape,
+  center: cornerShape.isRequired,
+  hexes: cornerListShape,
 })

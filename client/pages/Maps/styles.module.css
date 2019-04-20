@@ -1,0 +1,7 @@
+.maps {
+  composes: grid from global;
+}
+.list {
+
+}
+

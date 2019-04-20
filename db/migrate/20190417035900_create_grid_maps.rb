@@ -5,8 +5,6 @@ class CreateGridMaps < ActiveRecord::Migration[6.0]
       t.integer :rows
       t.integer :cols
       t.integer :radius
-      t.decimal :width
-      t.decimal :height
 
       t.timestamps
     end

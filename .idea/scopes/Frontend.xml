@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="Frontend" pattern="file[cultages]:client//*||file:config/webpacker.yml||file[cultages]:config/webpack//*||file[cultages]:templates/jg//*||file[cultages]:public//*||file[cultages]:app/assets//*" />
-</component>

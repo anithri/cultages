@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="backend" pattern="file[cultages]:app//*||file[cultages]:config//*||file[cultages]:db//*||file[cultages]:lib//*||file[cultages]:templates/rg//*" />
+</component>

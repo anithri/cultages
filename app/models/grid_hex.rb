@@ -22,16 +22,17 @@
 #
 
 class GridHex < ApplicationRecord
-  belongs_to :center, class_name: "GridPoint"
+  belongs_to :center, class_name: "GridCorner"
   belongs_to :grid_map
-  has_and_belongs_to_many :corners,->{corners}, class_name: "GridPoint"
+  has_and_belongs_to_many :corners, -> { corners }, class_name: "GridCorner"
 
-  validates :q, :r, :s, presence: true, numericality: {only_integer: true}
+  validates :q, :r, :s, presence: true, numericality: { only_integer: true }
   validates_presence_of :center
 
   def label
     "R#{q}#{r}"
   end
+
   def radius
     24
   end

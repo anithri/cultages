@@ -9,7 +9,7 @@ module Types
     field :r, Integer, null: false
     field :s, Integer, null: false
     field :radius, Float, null: false
-    field :center, GridPoint, null: false
-    field :corners, GridPoint.connection_type, null: false
+    field :center, Types::Corner, null: false
+    field :corners, Types::Corner.connection_type, null: false
   end
 end

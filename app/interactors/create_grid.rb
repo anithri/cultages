@@ -16,14 +16,14 @@ class CreateGrid
 
     context.grid_data[:hexes].each do |hex|
       data          = hex[:cube]
-      data[:center] = GridPoint.find_or_create_by(
+      data[:center] = GridCorner.find_or_create_by(
         normalize(hex[:center], :center)
       )
       data[:grid_map] = context.map
 
       data[:corners] = hex[:corners].map do |corner_data|
         corner = normalize(corner_data)
-        GridPoint.find_or_create_by(corner)
+        GridCorner.find_or_create_by(corner)
       end
 
       GridHex.create(data)
