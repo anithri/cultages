@@ -3,7 +3,6 @@ import Error404 from 'pages/Error404'
 import Game from 'pages/Game'
 import Games from 'pages/Games'
 import GameState from 'pages/Game/GameState'
-import Hexes from 'pages/Hexes'
 import Home from './Home'
 import Map from 'pages/Map'
 import Maps from 'pages/Maps'
@@ -30,10 +29,9 @@ const SiteRouter = props => {
         <Route exact path="/games/:gameId/:gameState" component={Game} />
         <Route exact path="/games/:gameId" component={GameState} />
         <Route strict path="/games" component={Games} />
-        <Route exact path="/hexes" component={Hexes} />
-        <Route exact path="/maps" component={Maps} />
 
         <Route exact path="/maps/:mapId" component={Map} />
+        <Route exact path="/maps" component={Maps} />
 
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />

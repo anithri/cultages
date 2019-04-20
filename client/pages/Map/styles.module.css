@@ -7,6 +7,10 @@
 
   }
 }
+.header {
+  composes: flexCenter from global;
+  justify-content: space-between;
+}
 
 .canvas {
   background-color: var(--washed-blue);

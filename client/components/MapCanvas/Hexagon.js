@@ -4,27 +4,21 @@ import React from 'react'
 import { hexShape } from 'models/hex'
 import { Canvas } from 'react-three-fiber'
 
-function Hexagon({ color='red', hex: {radius, height = 0, center: {vector}} }) {
-  const center = new THREE.Vector3(0, 0, height)
-  console.log('Hexagon', color, radius, height, vector)
-
-  const corners = [
-    new THREE.Vector3(0, radius, height),
-    new THREE.Vector3(radius * 0.866, radius * 0.5, height),
-    new THREE.Vector3(radius * 0.866, -radius * 0.5, height),
-    new THREE.Vector3(0, -radius, height),
-    new THREE.Vector3(-radius * 0.866, -radius * 0.5, height),
-    new THREE.Vector3(-radius * 0.866, radius * 0.5, height),
-  ]
-  const borderCorners = [...corners, corners[0]]
+function Hexagon({
+  color = 'red',
+  hex: {
+    center: { vector },
+    corners,
+  },
+}) {
+  console.log(corners)
+  const cornerList = corners.map(({ vector }) => vector)
+  const borderCorners = [...cornerList, cornerList[0]]
 
   const border = (
     <line>
-      <geometry
-        attach="geometry"
-        vertices={borderCorners}
-      />
-      <lineBasicMaterial attach="material" color="black" />
+      <geometry attach="geometry" vertices={borderCorners} />
+      <lineBasicMaterial attach="material" color={color} />
     </line>
   )
   return (
@@ -34,10 +28,7 @@ function Hexagon({ color='red', hex: {radius, height = 0, center: {vector}} }) {
         <meshBasicMaterial attach="material" color={'red'} />
       </mesh>
       <line>
-        <geometry
-          attach="geometry"
-          vertices={borderCorners}
-        />
+        <geometry attach="geometry" vertices={borderCorners} />
         <lineBasicMaterial attach="material" color="black" />
       </line>
     </group>

@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { Canvas, useThree } from 'react-three-fiber'
+import { Canvas } from 'react-three-fiber'
 import cx from 'classnames'
 import { hexListShape } from 'models/hex'
 import PropTypes from 'prop-types'
@@ -8,7 +8,6 @@ import styles from './styles.module.css'
 import Hexagon from './Hexagon'
 
 const cameraPosition = [987, 522, 750]
-const cameraLookAt = [987, 522, 0]
 
 const MapCanvas = ({ className, hexes }) => {
   const hexagons = hexes.map((hex, idx) => (
