@@ -15,12 +15,6 @@ function Hexagon({
   const cornerList = corners.map(({ vector }) => vector)
   const borderCorners = [...cornerList, cornerList[0]]
 
-  const border = (
-    <line>
-      <geometry attach="geometry" vertices={borderCorners} />
-      <lineBasicMaterial attach="material" color={color} />
-    </line>
-  )
   return (
     <group position={vector}>
       <mesh>
@@ -41,13 +35,3 @@ Hexagon.propTypes = {
 }
 
 export default Hexagon
-/*
-  <mesh
-    visible
-    userData={{ test: "hello" }}
-    position={new THREE.Vector3(1, 2, 3)}
-    rotation={new THREE.Euler(0, 0, 0)}
-    geometry={new THREE.SphereGeometry(1, 16, 16)}
-    material={new THREE.MeshBasicMaterial({ color: new THREE.Color('indianred'), transparent: true })}
-  />
-*/
