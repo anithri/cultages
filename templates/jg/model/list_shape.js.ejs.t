@@ -1,5 +1,5 @@
 ---
-to: <%= mkPath('list/shape.js') %>
+to: <%= listShapePath %>
 ---
 import PropTypes from 'prop-types'
 import { <%= shapeName %> } from '../shape'

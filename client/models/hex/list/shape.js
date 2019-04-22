@@ -1,4 +1,8 @@
 import PropTypes from 'prop-types'
-import { hexShape } from '../shape'
 
-export const hexListShape = PropTypes.arrayOf(hexShape)
+export const hexListRowShape = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+}).isRequired
+
+export const hexListShape = PropTypes.arrayOf(hexListRowShape)
