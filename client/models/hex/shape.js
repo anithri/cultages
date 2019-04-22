@@ -8,5 +8,5 @@ export const hexShape = PropTypes.shape({
   r: PropTypes.number,
   s: PropTypes.number,
   center: cornerShape.isRequired,
-  hexes: cornerListShape,
+  corners: cornerListShape,
 })

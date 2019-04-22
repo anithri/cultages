@@ -51,17 +51,12 @@
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.5, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.7.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v0.7.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="factory_bot (v5.0.2, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="factory_bot_rails (v5.0.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faker (v1.9.3, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.10.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="foreman (v0.64.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="formatador (v0.2.5, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="fuubar (v2.3.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="graphiql-rails (v1.7.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="graphql (v1.9.4, asdf: 2.5.1) [gem]" level="application" />
@@ -70,7 +65,6 @@
     <orderEntry type="library" scope="PROVIDED" name="guard-compat (v1.2.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-process (v1.2.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rails (v0.8.1, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="guard-rspec (v4.7.3, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-spring (v1.1.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.6.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="interactor (v3.1.1, asdf: 2.5.1) [gem]" level="application" />
@@ -98,7 +92,6 @@
     <orderEntry type="library" scope="PROVIDED" name="pry-rails (v0.3.9, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v3.12.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pundit (v2.0.1, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pundit-matchers (v1.6.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.7, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-proxy (v0.6.5, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, asdf: 2.5.1) [gem]" level="application" />
@@ -110,19 +103,9 @@
     <orderEntry type="library" scope="PROVIDED" name="rake (v12.3.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.10.3, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rhex (v2.0.3, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rspec (v3.8.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.8.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.8.2, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rspec-graphql_matchers (v0.7.1, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.8.0, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v3.8.2, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.8.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-graphviz (v1.2.4, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.10.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_dep (v1.5.0, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shellany (v0.0.1, asdf: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="shoulda-matchers (v4.0.1, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spoon (v0.0.6, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring (v2.0.2, asdf: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring-commands-rspec (v1.0.4, asdf: 2.5.1) [gem]" level="application" />

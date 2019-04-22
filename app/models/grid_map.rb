@@ -13,7 +13,7 @@
 
 class GridMap < ApplicationRecord
   has_many :hexes, class_name: 'GridHex'
-  has_many :corners,  class_name: 'GridCorner'
+  has_many :corners, class_name: 'GridCorner'
 
   scope :details, -> { includes(:corners, hexes: [:center, :corners]) }
   scope :public_list, -> { all }

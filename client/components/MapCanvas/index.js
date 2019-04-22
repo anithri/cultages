@@ -6,17 +6,19 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import Hexagon from './Hexagon'
-
-const cameraPosition = [987, 522, 750]
-
+import Controls from './Controls'
+const cameraPosition = new THREE.Vector3(0, 0, 800)
 const MapCanvas = ({ className, hexes }) => {
-  const hexagons = hexes.map((hex, idx) => (
+  const hexagons = hexes.map((hex, idx) => (console.log(hex) ||
     <Hexagon hex={hex} key={`canvas-hexagon-${hex.id}-${idx}`} />
   ))
 
   return (
     <section className={cx(className, styles.map)}>
-      <Canvas camera={{ position: cameraPosition }}>{hexagons}</Canvas>
+      <Canvas orthographic camera={{ far: 5000, position: cameraPosition }}>
+        <Controls cameraPosition={cameraPosition} />
+        {hexagons}
+      </Canvas>
     </section>
   )
 }

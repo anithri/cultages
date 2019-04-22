@@ -20,7 +20,7 @@
 #
 
 class GridCorner < ApplicationRecord
-  enum category: %w{center corner}
+  enum category: %w[center corner]
   belongs_to :grid_map, inverse_of: :corners
   has_and_belongs_to_many :grid_hexes, inverse_of: :hexes
   has_one :hex, class_name: "GridHex", inverse_of: :center, required: false

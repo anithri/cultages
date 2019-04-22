@@ -2,24 +2,34 @@ import * as THREE from 'three'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { hexShape } from 'models/hex'
-import { Canvas } from 'react-three-fiber'
 
 function Hexagon({
-  color = 'red',
+  color = 'yellow',
   hex: {
     center: { vector },
     corners,
+    q,
+    r,
+    s,
   },
 }) {
-  console.log(corners)
-  const cornerList = corners.map(({ vector }) => vector)
+  const cornerList = corners.map(({ vector: v }) => v)
   const borderCorners = [...cornerList, cornerList[0]]
+  console.log('Hexagon',borderCorners)
+
+  if (q === 17) {
+    color = 'blue'
+  } else if (r === 15) {
+    color = 'green'
+  } else if (s === -31) {
+    color = 'cyan'
+  } else if (r == 0) color = 'red'
 
   return (
     <group position={vector}>
       <mesh>
-        <sphereBufferGeometry attach="geometry" args={[1, 16, 16]} />
-        <meshBasicMaterial attach="material" color={'red'} />
+        <sphereBufferGeometry attach="geometry" args={[4, 16, 16]} />
+        <meshBasicMaterial attach="material" color={color} />
       </mesh>
       <line>
         <geometry attach="geometry" vertices={borderCorners} />

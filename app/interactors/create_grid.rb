@@ -7,7 +7,7 @@ class CreateGrid
   end
 
   def call
-    context.map = GridMap.create(
+    context.grid_map = GridMap.create(
       cols:   48,
       rows:   30,
       radius: 24,
@@ -15,18 +15,18 @@ class CreateGrid
     )
 
     context.grid_data[:hexes].each do |hex|
-      data          = hex[:cube]
+      data = hex[:cube]
+      data[:grid_map] = context.grid_map
       data[:center] = GridCorner.find_or_create_by(
         normalize(hex[:center], :center)
       )
-      data[:grid_map] = context.map
 
       data[:corners] = hex[:corners].map do |corner_data|
         corner = normalize(corner_data)
         GridCorner.find_or_create_by(corner)
       end
 
-      GridHex.create(data)
+      h = GridHex.create(data)
     end
   end
 
@@ -36,8 +36,7 @@ class CreateGrid
       y:        coord[:y].to_d.round(3),
       z:        0.0,
       category: category,
-      grid_map:      context.map,
+      grid_map: context.grid_map,
     }
   end
-
 end

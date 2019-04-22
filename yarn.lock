@@ -6739,9 +6739,9 @@ react-apollo@^2.3.2:
     tslib "^1.9.3"
 
 react-burger-menu@^2.5.4:
-  version "2.6.8"
-  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.8.tgz#a7a41374ea745894ed60a6c1156267b899039d0e"
-  integrity sha512-M2H3LqSgh5qhMDaGTpLjgOgs3znfqnYKdDmY5o+pmhlP9sfzadoEhfzOX2165H+yeJZI40r/ejBI9DCDitjkaA==
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.9.tgz#b0f2bb9babc7e29d5d797df8050869b398ae07cc"
+  integrity sha512-KxLG7VY4grI8RsjBdsKEvK+oVDF8pOlPvqtW8Kb2hwb1mP3I/WZW7zE0uNTF6b0Z0/ki6m2KVbBCO5EwNa6MCA==
   dependencies:
     browserify-optional "^1.0.0"
     classnames "^2.2.6"
@@ -6823,9 +6823,9 @@ react-side-effect@^1.1.0:
     shallowequal "^1.0.1"
 
 react-three-fiber@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.5.tgz#3123f854194309c044494184efe263e8cdb1b1c0"
-  integrity sha512-ebYoPidSTUDyvD4FAM5HXgISCQc998DlA+RiihOatzy1sic1eG+hTN94W3yUZ8nWcv2ht4Nc3fCN5gHKzHqjTg==
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.8.tgz#81e45e1816ce85de54f52f963bef8c3a81508522"
+  integrity sha512-X0StBJ5pwjYfXItmljM2E94uV2nwQ/2rtRsJzybdqWRanNawiGPGc30RD8+/J9c1df2fnYBPDtGpiNfJawg2cw==
   dependencies:
     "@babel/runtime" "^7.3.4"
     lodash-es "^4.17.11"
@@ -6835,9 +6835,9 @@ react-three-fiber@^2.0.5:
     scheduler "^0.13.3"
 
 react-toastify@^5.0.0-rc.6:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-5.0.1.tgz#ddc5f42ae1f5b2be25270d67790c9e6cd5dcce24"
-  integrity sha512-O492qeG+xNZfG5N/LW0hG9YIteU8EPOzSkU8RviBhCd40kcnnq87QIklbqCkygm/BiwlvSdLFCKIpFPdrvBA7Q==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-5.1.0.tgz#aefe1f084bf4733f083423f013d24242cb63c482"
+  integrity sha512-0kVAAE7VO609EeXLVaFHDTc6Bnd/OUAb7rrRAwMsHeaThKEhH+WEQEPftTjuA4rP59K0QhCnWu4Ds2hXAcFxaw==
   dependencies:
     "@babel/runtime" "^7.4.2"
     classnames "^2.2.6"
