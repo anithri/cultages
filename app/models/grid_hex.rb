@@ -3,21 +3,19 @@
 # Table name: grid_hexes
 #
 #  id          :bigint(8)        not null, primary key
-#  q           :integer
-#  r           :integer
-#  s           :integer
-#  center_id   :bigint(8)
+#  altitude    :integer          default(0)
+#  altitudes   :integer          default(["0", "0", "0", "0", "0", "0"]), is an Array
+#  x           :integer          default(0)
+#  y           :integer          default(0)
 #  grid_map_id :bigint(8)
 #
 # Indexes
 #
-#  index_grid_hexes_on_center_id                      (center_id)
-#  index_grid_hexes_on_grid_map_id                    (grid_map_id)
-#  index_grid_hexes_on_grid_map_id_and_q_and_r_and_s  (grid_map_id,q,r,s) UNIQUE
+#  index_grid_hexes_on_grid_map_id              (grid_map_id)
+#  index_grid_hexes_on_grid_map_id_and_x_and_y  (grid_map_id,x,y) UNIQUE
 #
 # Foreign Keys
 #
-#  fk_rails_...  (center_id => grid_points.id)
 #  fk_rails_...  (grid_map_id => grid_maps.id)
 #
 

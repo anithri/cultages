@@ -13,10 +13,17 @@ function Hexagon({
     s,
   },
 }) {
+  // const corners = [
+  //   new THREE.Vector3(0, radius, height),
+  //   new THREE.Vector3(radius * 0.866, radius * 0.5, height),
+  //   new THREE.Vector3(radius * 0.866, -radius * 0.5, height),
+  //   new THREE.Vector3(0, -radius, height),
+  //   new THREE.Vector3(-radius * 0.866, -radius * 0.5, height),
+  //   new THREE.Vector3(-radius * 0.866, radius * 0.5, height),
+  // ]
   const cornerList = corners.map(({ vector: v }) => v)
   const borderCorners = [...cornerList, cornerList[0]]
   console.log('Hexagon',borderCorners)
-
   if (q === 17) {
     color = 'blue'
   } else if (r === 15) {

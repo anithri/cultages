@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_041026) do
+ActiveRecord::Schema.define(version: 2019_04_17_041025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,39 +52,22 @@ ActiveRecord::Schema.define(version: 2019_04_17_041026) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "grid_corners", force: :cascade do |t|
-    t.bigint "grid_map_id"
-    t.decimal "x", precision: 8, scale: 3
-    t.decimal "y", precision: 8, scale: 3
-    t.decimal "z", precision: 8, scale: 3
-    t.integer "category", default: 0
-    t.index ["grid_map_id", "x", "y"], name: "index_grid_corners_on_grid_map_id_and_x_and_y", unique: true
-    t.index ["grid_map_id"], name: "index_grid_corners_on_grid_map_id"
-  end
-
-  create_table "grid_corners_hexes", id: false, force: :cascade do |t|
-    t.bigint "grid_corner_id", null: false
-    t.bigint "grid_hex_id", null: false
-    t.index ["grid_corner_id", "grid_hex_id"], name: "index_grid_corners_hexes_on_grid_corner_id_and_grid_hex_id"
-    t.index ["grid_hex_id", "grid_corner_id"], name: "index_grid_corners_hexes_on_grid_hex_id_and_grid_corner_id"
-  end
-
   create_table "grid_hexes", force: :cascade do |t|
-    t.integer "q"
-    t.integer "r"
-    t.integer "s"
-    t.bigint "center_id"
     t.bigint "grid_map_id"
-    t.index ["center_id"], name: "index_grid_hexes_on_center_id"
-    t.index ["grid_map_id", "q", "r", "s"], name: "index_grid_hexes_on_grid_map_id_and_q_and_r_and_s", unique: true
+    t.integer "altitudes", default: [0, 0, 0, 0, 0, 0], array: true
+    t.integer "altitude", default: 0
+    t.integer "x", default: 0
+    t.integer "y", default: 0
+    t.index ["grid_map_id", "x", "y"], name: "index_grid_hexes_on_grid_map_id_and_x_and_y", unique: true
     t.index ["grid_map_id"], name: "index_grid_hexes_on_grid_map_id"
   end
 
   create_table "grid_maps", force: :cascade do |t|
-    t.string "name"
-    t.integer "rows"
     t.integer "cols"
+    t.string "name"
+    t.jsonb "origin", default: {"x"=>0, "y"=>0, "z"=>0}
     t.integer "radius"
+    t.integer "rows"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -100,8 +83,6 @@ ActiveRecord::Schema.define(version: 2019_04_17_041026) do
   add_foreign_key "cards", "games"
   add_foreign_key "dice_requirements", "cards"
   add_foreign_key "dice_requirements", "dice"
-  add_foreign_key "grid_corners", "grid_maps"
-  add_foreign_key "grid_hexes", "grid_corners", column: "center_id"
   add_foreign_key "grid_hexes", "grid_maps"
   add_foreign_key "players", "games"
 end

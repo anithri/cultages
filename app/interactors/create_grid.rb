@@ -2,41 +2,39 @@ class CreateGrid
   include Interactor
 
   before do
-    context.fail!(error: 'no grid_data') if context.grid_data.empty?
-    context.faker = Steps::Faker.random
+    context.faker ||= Steps::Faker.random
+
+    context.cols   ||= 48
+    context.origin ||= { x: 0, y: 0, z: 0 }
+    context.radius ||= 12
+    context.rows   ||= 30
+
+    context.grid_data = {
+      cols:   context.cols,
+      name:   context.faker.game_name,
+      origin: context.origin,
+      radius: context.radius,
+      rows:   context.rows,
+    }
+    context.col_arr   = cols.times.to_a
+    context.row_arr   = rows.times.to_a
   end
+
+  delegate :altitude, :col_arr, :cols, :faker, :grid_map, :radius, :row_arr,
+           :rows,
+           to: :context
 
   def call
-    context.grid_map = GridMap.create(
-      cols:   48,
-      rows:   30,
-      radius: 24,
-      name:   context.faker.game_name,
-    )
+    context.grid_map = GridMap.create(context.grid_data)
 
-    context.grid_data[:hexes].each do |hex|
-      data = hex[:cube]
-      data[:grid_map] = context.grid_map
-      data[:center] = GridCorner.find_or_create_by(
-        normalize(hex[:center], :center)
-      )
-
-      data[:corners] = hex[:corners].map do |corner_data|
-        corner = normalize(corner_data)
-        GridCorner.find_or_create_by(corner)
-      end
-
-      h = GridHex.create(data)
+    hexes = col_arr.product(row_arr).map do |(x, y)|
+      return {
+        altitude:  altitude,
+        altitudes: Array.new(6, altitude),
+        x:         x,
+        y:         y,
+      }
     end
-  end
-
-  def normalize(coord, category = :corner)
-    return {
-      x:        coord[:x].to_d.round(3),
-      y:        coord[:y].to_d.round(3),
-      z:        0.0,
-      category: category,
-      grid_map: context.grid_map,
-    }
+    grid_map.hexes.create(hexes)
   end
 end
