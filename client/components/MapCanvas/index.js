@@ -1,39 +1,34 @@
 import cx from 'classnames'
-import { hexListShape } from 'models/hex'
+import { mapShape } from 'models/map'
 import PropTypes from 'prop-types'
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import styles from './styles.module.css'
-import Hexagon from './Hexagon'
+import Grid from './Grid'
 
-const MapCanvas = ({ className, hexes, width, height }) => {
+const MapCanvas = ({ className, width, height, map }) => {
   const canvasRef = useRef()
-
-  const grid = hexes.map(hex => {
-    return (
-      <Hexagon hex={hex} canvasRef={canvasRef} key={`grid-hex-${hex.id}`} />
-    )
-  })
 
   return (
     <canvas
       ref={canvasRef}
-      width={width}
-      height={height}
+      width={width || map.maxX}
+      height={height || map.maxY}
       onClick={e => console.log('click', e)}
+      className={cx(className, styles.canvas)}
     >
-      {grid}
+      <Grid map={map} canvasRef={canvasRef} />
     </canvas>
   )
 }
 
 MapCanvas.defaultProps = {
-  width: 0,
-  height: 0,
+  width: 640,
+  height: 480,
 }
 
 MapCanvas.propTypes = {
   className: PropTypes.string,
-  hexes: hexListShape,
+  map: mapShape,
   width: PropTypes.number,
   height: PropTypes.number,
 }

@@ -33,6 +33,7 @@
     "react-burger-menu": "^2.5.4",
     "react-helmet": "^5.2.0",
     "react-hook-size": "^1.3.0",
+    "react-interactive-canvas": "^1.0.2",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^5.0.0-rc.6",
     "tachyons-custom": "^4.9.6",

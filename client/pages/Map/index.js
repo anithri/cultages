@@ -10,6 +10,7 @@ import { useSize } from 'react-hook-size'
 const MapPage = ({ className, map }) => {
   const sectionRef = useRef()
   const { width, height } = useSize(sectionRef)
+  console.log('MapPage',width, height)
 
   return (
     <div className={cx(className, styles.map)}>
@@ -22,7 +23,7 @@ const MapPage = ({ className, map }) => {
         </span>
       </header>
       <section ref={sectionRef} className={cx(className, styles.canvas)}>
-        <MapCanvas hexes={map.hexes} width={width} height={height} />
+        <MapCanvas map={map} width={width} height={height} />
       </section>
     </div>
   )

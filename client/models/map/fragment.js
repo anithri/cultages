@@ -8,6 +8,8 @@ export const MAP_FRAGMENT = gql`
     radius
     width
     height
+    cols
+    rows
     hexes {
       all: edges {
         hex: node {

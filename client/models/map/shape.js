@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { hexListShape } from 'models/hex'
+import {hexListShape} from 'models/hex'
 
 export const mapShape = PropTypes.shape({
   id: PropTypes.string.isRequired,
@@ -10,4 +10,7 @@ export const mapShape = PropTypes.shape({
   cols: PropTypes.number,
   rows: PropTypes.number,
   hexes: hexListShape,
+  Hex: PropTypes.function,
+  HexGrid: PropTypes.function,
+  grid: PropTypes.array,
 })

@@ -4,8 +4,6 @@ export const HEX_FRAGMENT = gql`
   fragment hexFragment on Hex {
     id
     label
-    altitude
-    altitudes
     x
     y
   }

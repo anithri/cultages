@@ -2,8 +2,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { hexShape } from 'models/hex'
 import { reactRefShape } from 'models/reactRef'
+import { timeToDraw } from './utils'
 
-function Hexagon({ canvasRef, hex }) {
+function Hexagon({ canvasRef, hex, radius, offset }) {
   // const corners = [
   //   new THREE.Vector3(0, radius, height),
   //   new THREE.Vector3(radius * 0.866, radius * 0.5, height),
@@ -12,28 +13,23 @@ function Hexagon({ canvasRef, hex }) {
   //   new THREE.Vector3(-radius * 0.866, -radius * 0.5, height),
   //   new THREE.Vector3(-radius * 0.866, radius * 0.5, height),
   // ]
+
   if (timeToDraw(canvasRef)) {
+    // console.log(offset)
+    const { x, y } = hex.toPoint().add(offset)
     const ctx = canvasRef.current.getContext('2d')
-    ctx.fillStyle = 'Red'
-    ctx.fillRect(
-      Math.random() * ctx.canvas.width,
-      Math.random() * ctx.canvas.height,
-      hex.radius || 10,
-      hex.radius || 12,
-    )
+
+    // console.log(
+    //   'Hexagon',
+    //   offset,
+    //   canvasRef.current.width,
+    //   canvasRef.current.height,
+    // )
+
+    ctx.fillStyle = hex.id % 100 === 0 ? 'Red' : 'purple'
+    ctx.fillRect(x + 2 * radius, y + 2 * radius, radius, radius)
   }
   return null
-}
-
-const timeToDraw = canvasRef => {
-  return (
-    canvasRef &&
-    canvasRef.current &&
-    canvasRef.current.width &&
-    canvasRef.current.width > 0 &&
-    canvasRef.current.height &&
-    canvasRef.current.height > 0
-  )
 }
 
 Hexagon.propTypes = {
@@ -43,10 +39,3 @@ Hexagon.propTypes = {
 }
 
 export default Hexagon
-const Woot = (ctx, width, height, radius) => {
-  console.log(width, height)
-  ctx.fillStyle = 'red'
-  ctx.fillRect(Math.random() * width, Math.random() * height, radius, radius)
-  ctx.save()
-  return null
-}
