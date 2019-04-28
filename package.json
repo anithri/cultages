@@ -20,7 +20,6 @@
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.6",
     "core-js": "3",
-    "gatsby-starter-default": "file:../../4winds/atmosphere",
     "graphql": "^14.0.2",
     "inflection": "^1.12.0",
     "postcss-comment-2": "^1.0.1",
@@ -32,13 +31,10 @@
     "react-apollo": "^2.3.2",
     "react-apollo-hooks": "^0.4.0",
     "react-burger-menu": "^2.5.4",
-    "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
-    "react-three-fiber": "^2.0.5",
     "react-toastify": "^5.0.0-rc.6",
     "tachyons-custom": "^4.9.6",
-    "three": "^0.103.0",
     "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
