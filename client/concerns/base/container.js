@@ -4,6 +4,7 @@ import DefaultError from 'components/QueryError'
 import React from 'react'
 import { emptyQuery, spreadData } from './utils'
 import { toast } from 'react-toastify'
+import PropTypes from 'prop-types'
 
 export const createContainer = args => {
   const {
@@ -14,7 +15,9 @@ export const createContainer = args => {
     query,
     preQuery = emptyQuery,
     postQuery = spreadData,
-    propTypes = {},
+    propTypes = {
+      className: PropTypes.string.isRequired,
+    },
   } = args
 
   const container = props => {

@@ -18,4 +18,10 @@ class GridMap < ApplicationRecord
   scope :details, -> { includes(:hexes) }
   scope :public_list, -> { all }
 
+  def width
+    (cols * radius * Math.sqrt(3)).round
+  end
+  def height
+    (rows * radius * 2).round
+  end
 end
