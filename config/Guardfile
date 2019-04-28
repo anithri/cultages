@@ -6,7 +6,7 @@ notification :libnotify,
              append:    false,
              urgency:   :critical
 
-directories %w[app lib config spec] \
+directories %w[app lib config] \
   .select { |d| Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist") }
 
 guard :bundler do

@@ -16,7 +16,7 @@ export const createContainer = args => {
     preQuery = emptyQuery,
     postQuery = spreadData,
     propTypes = {
-      className: PropTypes.string.isRequired,
+      className: PropTypes.string,
     },
   } = args
 
