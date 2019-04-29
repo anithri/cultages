@@ -1,3 +1,4 @@
+const fillColors = ['red', 'green', 'blue', 'purple', 'orange', 'yellow']
 export const drawHex = ({
   canvas,
   hex,
@@ -12,7 +13,7 @@ export const drawHex = ({
     return [corner.x, corner.y]
   })
 
-  ctx.fillStyle = fillColor
+  ctx.fillStyle = fillColors[Math.floor(Math.random() * fillColors.length)]
   ctx.strokeStyle = strokeColor
 
   ctx.beginPath()
