@@ -2,7 +2,6 @@ import { Point } from 'honeycomb-grid'
 
 const scaleFactor = (width, height, map) => {
   if (width === 0 || height === 0) return 1
-  console.log('scaleFactor', width, height, map.maxX, map.maxY)
   return Math.min(width / map.maxX, height / map.maxY)
 }
 
@@ -17,7 +16,7 @@ export const calculateTransforms = ({
   const canvasWidth = map.maxX * scale
   const canvasHeight = map.maxY * scale
 
-  const offset = Point((width - canvasWidth) / 2, (height - canvasHeight) / 2)
+  const offset = Point((width - canvasWidth) / 2 , (height - canvasHeight) / 2 + map.gap)
   return {
     scale,
     offset,
@@ -35,7 +34,6 @@ export const applyTransforms = ({ transforms, canvasRef }) => {
 
   const { scale } = transforms
   const ctx = canvasRef.current.getContext('2d')
-  console.log('applyTransforms', transforms, canvasRef.current)
   ctx.scale(scale, scale)
 }
 

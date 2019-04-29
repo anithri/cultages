@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 import Grid from './Grid'
 
 const MapCanvas = ({ className, width, height, map }) => {
-  const canvasRef = useRef()
+  const canvasRef = useRef(null)
 
   return (
     <canvas

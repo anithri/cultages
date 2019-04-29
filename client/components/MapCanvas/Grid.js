@@ -1,15 +1,16 @@
 import { mapShape } from 'models/map'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Hexagon from './Hexagon'
 import { applyTransforms, calculateTransforms, timeToDraw } from './utils'
+import { drawHex } from './drawHex'
 
 const Grid = ({ map, canvasRef }) => {
   if (!timeToDraw(canvasRef)) return null
-
   const canvas = canvasRef.current
   const ctx = canvas.getContext('2d')
-  const { height, width } = canvasRef.current
+  const height = canvasRef.current.height
+  const width = canvasRef.current.width
 
   let transforms = calculateTransforms({
     width: width,
@@ -18,27 +19,18 @@ const Grid = ({ map, canvasRef }) => {
   })
 
   ctx.scale(transforms.scale, transforms.scale)
-
-  const hexes = map.grid.map(hex => {
-    return (
-      <Hexagon
-        hex={hex}
-        offset={transforms.offset}
-        canvasRef={canvasRef}
-        radius={map.radius}
-        key={`grid-hex-${hex.id}`}
-      />
-    )
-  })
+  ctx.strokeStyle = 'darkgray'
+  ctx.fillStyle = 'lightblue'
 
   useEffect(() => {
-    if (!timeToDraw(canvasRef)) return {}
+    if (!timeToDraw(canvasRef)) return
 
     transforms = calculateTransforms({ width, height, map })
-    applyTransforms({ transforms, canvasRef })
+    console.log('Grid effect')
+    map.grid.map(hex => drawHex({ canvas, hex, offset: transforms.offset }))
   })
 
-  return <>{hexes}</>
+  return <span>Grid</span>
 }
 
 Grid.defaultProps = {

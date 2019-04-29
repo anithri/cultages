@@ -4,30 +4,26 @@ import { hexShape } from 'models/hex'
 import { reactRefShape } from 'models/reactRef'
 import { timeToDraw } from './utils'
 
-function Hexagon({ canvasRef, hex, radius, offset }) {
-  // const corners = [
-  //   new THREE.Vector3(0, radius, height),
-  //   new THREE.Vector3(radius * 0.866, radius * 0.5, height),
-  //   new THREE.Vector3(radius * 0.866, -radius * 0.5, height),
-  //   new THREE.Vector3(0, -radius, height),
-  //   new THREE.Vector3(-radius * 0.866, -radius * 0.5, height),
-  //   new THREE.Vector3(-radius * 0.866, radius * 0.5, height),
-  // ]
-
+function Hexagon({ canvasRef, hex, offset }) {
   if (timeToDraw(canvasRef)) {
     // console.log(offset)
-    const { x, y } = hex.toPoint().add(offset)
+    const center = hex.toPoint().add(offset)
+    const { x, y } = center
     const ctx = canvasRef.current.getContext('2d')
+    const corners = hex.corners().map(h => {
+      const corner = h.add(center)
+      return [corner.x, corner.y]
+    })
 
-    // console.log(
-    //   'Hexagon',
-    //   offset,
-    //   canvasRef.current.width,
-    //   canvasRef.current.height,
-    // )
-
-    ctx.fillStyle = hex.id % 100 === 0 ? 'Red' : 'purple'
-    ctx.fillRect(x + 2 * radius, y + 2 * radius, radius, radius)
+    console.log(hex)
+    ctx.beginPath()
+    ctx.moveTo(...corners[5])
+    corners.forEach(c => {
+      ctx.lineTo(...c)
+      ctx.stroke()
+    })
+    ctx.closePath()
+    ctx.fill()
   }
   return null
 }
