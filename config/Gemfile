@@ -55,6 +55,7 @@ gem 'rails_warden'
 
 gem 'globalid'
 gem 'active_hash'
+gem 'hexagon'
 group :development do
   gem 'annotate'
   gem 'guard-bundler'
@@ -64,6 +65,7 @@ group :development do
   gem 'libnotify'
   #gem 'rubocop', require: false
   gem 'aasm-diagram', require: false
+  gem 'perlin'
 end
 
 group :test do

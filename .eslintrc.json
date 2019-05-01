@@ -23,7 +23,7 @@
     "no-inner-declarations": 2,
     "no-lonely-if": 2,
     "no-magic-numbers": [
-      2,
+      0,
       {
         "ignore": [-1, 0, 1, 2, 3]
       }

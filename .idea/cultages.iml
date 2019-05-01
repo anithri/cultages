@@ -72,6 +72,7 @@
     <orderEntry type="library" scope="PROVIDED" name="guard-process (v1.2.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rails (v0.8.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-spring (v1.1.1, asdf: 2.5.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="hexagon (v0.1.0.pre.alpha, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.6.0, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="interactor (v3.1.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="interactor-rails (v2.2.0@1dc07b, asdf: 2.5.5) [gem]" level="application" />
@@ -93,6 +94,7 @@
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.3.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.10.3, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="notiffany (v0.1.1, asdf: 2.5.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="perlin (v0.2.2, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.1.4, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.12.2, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry-rails (v0.3.9, asdf: 2.5.5) [gem]" level="application" />

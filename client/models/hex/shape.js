@@ -5,4 +5,5 @@ export const hexShape = PropTypes.shape({
   label: PropTypes.string,
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
+  altitude: PropTypes.number,
 })
