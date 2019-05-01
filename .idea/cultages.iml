@@ -72,7 +72,6 @@
     <orderEntry type="library" scope="PROVIDED" name="guard-process (v1.2.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rails (v0.8.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-spring (v1.1.1, asdf: 2.5.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="hexagon (v0.1.0.pre.alpha, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.6.0, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="interactor (v3.1.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="interactor-rails (v2.2.0@1dc07b, asdf: 2.5.5) [gem]" level="application" />
@@ -111,6 +110,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rake (v12.3.2, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.10.3, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.0, asdf: 2.5.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rhex (v2.0.3, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-graphviz (v1.2.4, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_dep (v1.5.0, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shellany (v0.0.1, asdf: 2.5.5) [gem]" level="application" />
@@ -123,8 +123,10 @@
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.1, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.20.3, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, asdf: 2.5.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.9, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.5, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.8, asdf: 2.5.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="waxy (v0.1.0, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.7.0, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="webpacker (v4.0.2, asdf: 2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.0, asdf: 2.5.5) [gem]" level="application" />
