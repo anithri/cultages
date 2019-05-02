@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Types
-  class Hex < Types::BaseObject
-    description 'Gridhex'
+  class Hexagon < Types::BaseObject
+    description 'Hexagon'
 
     field :id, ID, null: false
     field :altitude, Integer, null: false

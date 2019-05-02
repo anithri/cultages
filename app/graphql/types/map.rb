@@ -8,12 +8,13 @@ module Types
 
     field :cols, Integer, null: false
     field :rows, Integer, null: false
-    field :radius, Integer, null: false
-    field :origin, Vector3, null: false
+    field :size, Integer, null: false
+
     field :height, Integer, null: false
     field :width, Integer, null: false
 
-    field :hexes, Hex.connection_type, null: false
+    field :hexes, Hexagon.connection_type, null: false
+
     # field :roads, GridNetwork.connection_type, null: false
     # field :rivers, GridNetwork.connection_type, null: false
     # field :borders, GridNetwork.connection_type, null: false

@@ -12,4 +12,12 @@
 class Grid < ApplicationRecord
   has_many :hexagons
   has_many :points
+
+  def width
+    (cols * size * Math.sqrt(3)).round
+  end
+  def height
+    (rows * size * 2).round
+  end
+
 end

@@ -70,16 +70,16 @@ module Types
 
 
     #region Hexes Fields
-    field :hexes, Types::Hex, null: true do
-      argument :hex_id, ID, required: true, as: :id
+    field :hexagons, Types::Hexagon, null: true do
+      argument :hexagon_id, ID, required: true, as: :id
     end
     def hexes(id:)
-      ::GridHex.includes(:center).find id
+      ::Hexagon.includes(:center).find id
     end
 
-    field :hexes, Types::Hex.connection_type, null: false
+    field :hexes, Types::Hexagon.connection_type, null: false
     def hexes
-      ::GridHex.includes(:center).all
+      ::Hexagon.includes(:center).all
     end
     #endregion
 

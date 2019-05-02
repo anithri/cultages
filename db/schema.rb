@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_053106) do
+ActiveRecord::Schema.define(version: 2019_05_02_000120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,20 @@ ActiveRecord::Schema.define(version: 2019_05_01_053106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "grid_hexes", force: :cascade do |t|
+    t.bigint "grid_map_id", null: false
+    t.bigint "hexagon_id", null: false
+    t.integer "altitudes", default: [0, 0, 0, 0, 0, 0, 0], array: true
+    t.index ["grid_map_id"], name: "index_grid_hexes_on_grid_map_id"
+    t.index ["hexagon_id"], name: "index_grid_hexes_on_hexagon_id"
+  end
+
+  create_table "grid_maps", force: :cascade do |t|
+    t.string "name"
+    t.bigint "grid_id", null: false
+    t.index ["grid_id"], name: "index_grid_maps_on_grid_id"
+  end
+
   create_table "grids", force: :cascade do |t|
     t.string "name"
     t.integer "cols", default: 16
@@ -97,6 +111,9 @@ ActiveRecord::Schema.define(version: 2019_05_01_053106) do
   add_foreign_key "corners", "points"
   add_foreign_key "dice_requirements", "cards"
   add_foreign_key "dice_requirements", "dice"
+  add_foreign_key "grid_hexes", "grid_maps"
+  add_foreign_key "grid_hexes", "hexagons"
+  add_foreign_key "grid_maps", "grids"
   add_foreign_key "hexagons", "grids"
   add_foreign_key "players", "games"
   add_foreign_key "points", "grids"
