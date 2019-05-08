@@ -70,14 +70,14 @@ module Types
 
 
     #region Hexes Fields
-    field :hexagons, Types::Hexagon, null: true do
+    field :hexagons, Types::Hex, null: true do
       argument :hexagon_id, ID, required: true, as: :id
     end
     def hexes(id:)
       ::Hexagon.includes(:center).find id
     end
 
-    field :hexes, Types::Hexagon.connection_type, null: false
+    field :hexes, Types::Hex.connection_type, null: false
     def hexes
       ::Hexagon.includes(:center).all
     end
@@ -93,7 +93,7 @@ module Types
 
     field :maps, Types::Map.connection_type, null: false
     def maps
-      ::GridMap.public_list
+      ::GridMap.all
     end
     #endregion
 

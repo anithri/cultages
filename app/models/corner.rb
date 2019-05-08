@@ -19,8 +19,7 @@
 #
 
 class Corner < ApplicationRecord
-  DIRECTIONS = %W{CENTER SOUTHWEST NORTHWEST NORTH NORTHEAST SOUTHEAST SOUTH}
-  enum direction: DIRECTIONS
+  enum direction: GridLayout::DIRECTIONS
 
   belongs_to :point
   belongs_to :hexagon

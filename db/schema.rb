@@ -68,17 +68,16 @@ ActiveRecord::Schema.define(version: 2019_05_02_000120) do
     t.index ["hexagon_id"], name: "index_grid_hexes_on_hexagon_id"
   end
 
-  create_table "grid_maps", force: :cascade do |t|
-    t.string "name"
-    t.bigint "grid_id", null: false
-    t.index ["grid_id"], name: "index_grid_maps_on_grid_id"
+  create_table "grid_layouts", force: :cascade do |t|
+    t.integer "cols", default: 16
+    t.integer "rows", default: 10
+    t.integer "size", default: 12
   end
 
-  create_table "grids", force: :cascade do |t|
+  create_table "grid_maps", force: :cascade do |t|
     t.string "name"
-    t.integer "cols", default: 16
-    t.integer "rows", default: 9
-    t.integer "size", default: 12
+    t.bigint "grid_layout_id", null: false
+    t.index ["grid_layout_id"], name: "index_grid_maps_on_grid_layout_id"
   end
 
   create_table "hexagons", force: :cascade do |t|
@@ -87,8 +86,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_000120) do
     t.integer "q", default: 0
     t.integer "r", default: 0
     t.integer "s", default: 0
-    t.bigint "grid_id", null: false
-    t.index ["grid_id"], name: "index_hexagons_on_grid_id"
+    t.bigint "grid_layout_id", null: false
+    t.index ["grid_layout_id"], name: "index_hexagons_on_grid_layout_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -100,10 +99,10 @@ ActiveRecord::Schema.define(version: 2019_05_02_000120) do
   end
 
   create_table "points", force: :cascade do |t|
-    t.decimal "x", precision: 8, scale: 2
-    t.decimal "y", precision: 8, scale: 2
-    t.bigint "grid_id", null: false
-    t.index ["grid_id"], name: "index_points_on_grid_id"
+    t.decimal "x", precision: 8, scale: 2, default: "0.0"
+    t.decimal "y", precision: 8, scale: 2, default: "0.0"
+    t.bigint "grid_layout_id", null: false
+    t.index ["grid_layout_id"], name: "index_points_on_grid_layout_id"
   end
 
   add_foreign_key "cards", "games"
@@ -113,8 +112,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_000120) do
   add_foreign_key "dice_requirements", "dice"
   add_foreign_key "grid_hexes", "grid_maps"
   add_foreign_key "grid_hexes", "hexagons"
-  add_foreign_key "grid_maps", "grids"
-  add_foreign_key "hexagons", "grids"
+  add_foreign_key "grid_maps", "grid_layouts"
+  add_foreign_key "hexagons", "grid_layouts"
   add_foreign_key "players", "games"
-  add_foreign_key "points", "grids"
+  add_foreign_key "points", "grid_layouts"
 end

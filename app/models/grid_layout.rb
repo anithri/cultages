@@ -1,15 +1,22 @@
 # == Schema Information
 #
-# Table name: grids
+# Table name: grid_layouts
 #
 #  id   :bigint(8)        not null, primary key
 #  cols :integer          default(16)
-#  name :string
-#  rows :integer          default(9)
+#  rows :integer          default(10)
 #  size :integer          default(12)
 #
 
-class Grid < ApplicationRecord
+class GridLayout < ApplicationRecord
+  DIRECTIONS = %W{CENTER SOUTHWEST NORTHWEST NORTH NORTHEAST SOUTHEAST SOUTH}
+  def self.corners
+    DIRECTIONS[1..-1]
+  end
+  def self.center
+    DIRECTIONS[0]
+  end
+
   has_many :hexagons
   has_many :points
 

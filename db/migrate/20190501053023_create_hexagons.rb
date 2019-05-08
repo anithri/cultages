@@ -6,7 +6,7 @@ class CreateHexagons < ActiveRecord::Migration[6.0]
       t.integer :q, default: 0
       t.integer :r, default: 0
       t.integer :s, default: 0
-      t.references :grid, null: false, foreign_key: true
+      t.references :grid_layout, null: false, foreign_key: true
     end
   end
 end

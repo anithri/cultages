@@ -4,7 +4,6 @@ class CreateGridMap
   before do
     context.fail!(error: 'no grid given') unless context.grid
     context.faker ||= Steps::Faker.random
-
   end
 
   delegate :faker, :grid_map, :grid, to: :context
@@ -12,9 +11,9 @@ class CreateGridMap
   def call
     context.grid_map = GridMap.create(
       name: faker.game_name,
-      grid: grid,
+      grid_layout: grid,
     )
     allHexes = grid.hexagons.map{|h| {hexagon: h}}
-    grid_map.hexes.create(allHexes)
+    grid_map.grid_hexes.create(allHexes)
   end
 end

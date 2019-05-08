@@ -21,4 +21,10 @@
 class GridHex < ApplicationRecord
   belongs_to :grid_map
   belongs_to :hexagon
+
+  delegate :q, :r, :s, :row, :col, to: :hexagon
+  delegate :size, :grid_map
+  def label
+    "(#{col},#{row})"
+  end
 end
