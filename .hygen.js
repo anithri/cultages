@@ -1,25 +1,41 @@
-const { basePathTo } = require('./templates/utils/help/path')
 const cc = require('change-case')
 const inflection = require('inflection')
 const CSS_FILE_NAME = 'styles.module.css'
 
+const pathTo = (...base) => (...more) => (...paths) =>
+  [...base, ...more, ...paths].filter(p => p).join('/')
+
+const nullPath = (...parts) => null
+
 const sourcePaths = {
-  rails: 'app',
-  client: 'client',
+  railsPath: pathTo('app'),
+  clientPath: pathTo('client'),
 }
 
-const useRoutes = sourcePaths.client === 'client'
+const nameMaker = args => {
+  args.mode = args.mode || ''
+  const data = {
+    base: cc.camel(args.name),
+    Base: cc.pascal(args.name),
+    mode: args.mode,
+    Mode: cc.pascal(args.mode),
+  }
 
-const appPath = basePathTo(sourcePaths.rails)
-const clientPath = basePathTo(sourcePaths.client)
+  data.name = data.base + data.Mode
+  data.Name = data.Base + data.Mode
+  data.SCREAMING = cc.constant(data.name)
+  data.plural = inflection.pluralize(data.base)
+  return data
+}
 
 module.exports = {
   helpers: {
-    appPath,
     cc,
-    clientPath,
     CSS_FILE_NAME,
     inflection,
-    useRoutes,
+    nameMaker,
+    nullPath,
+    pathTo,
+    ...sourcePaths,
   },
 }

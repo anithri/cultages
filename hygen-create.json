@@ -1,0 +1,16 @@
+{
+  "about": "This is a hygen-create definitions file. The hygen-create utility creates generators that can be executed using hygen.",
+  "hygen_create_version": "0.2.0",
+  "name": "base",
+  "files_and_dirs": {
+    "hygen-create.json": true,
+    "client/concerns/base/container.js": true,
+    "client/concerns/base/index.js": true,
+    "client/concerns/base/utils.js": true,
+    "client/concerns/base/containers/byId.js": true,
+    "client/concerns/base/containers/listOf.js": true,
+    "client/concerns/base/containers/route.js": true
+  },
+  "templatize_using_name": "base",
+  "gen_parent_dir": false
+}
