@@ -1,9 +1,6 @@
 ---
 to: <%= styledPath %>
 ---
-/*
-* Copyright (c) 2019.  Cermak, Peterka, & Peterson.
-*/
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
