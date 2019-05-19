@@ -7,13 +7,13 @@ import { GridMapContainer, gridMapShape } from 'models/gridMap'
 const GridMap = ({ className, gridMap }) => {
   const sectionRef = useRef()
   return (
-    <div className={cx(className, styles.gridMap)}>
+    <main className={cx(className, styles.gridMap)}>
       <header className={styles.header}>
         <h2>{gridMap.name}</h2>
         <span>size: {gridMap.radius} miles</span>
       </header>
       <section ref={sectionRef} className={cx(className, styles.canvas)} />
-    </div>
+    </main>
   )
 }
 

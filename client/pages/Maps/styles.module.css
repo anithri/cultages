@@ -1,5 +1,14 @@
-.maps {
-  composes: grid from global;
+.gridMaps {
+  padding-top: var(--spacing-large);
+
+
+  & > article {
+    width: var(--measure-wide);
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    
+  }
 }
 .list {
 

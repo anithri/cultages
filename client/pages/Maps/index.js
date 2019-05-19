@@ -12,11 +12,11 @@ const GridMaps = ({ className, gridMaps }) => {
     </li>
   ))
   return (
-    <section className={cx(className, styles.maps)}>
+    <main className={cx(className, styles.gridMaps)}>
       <article>
         <ul>{rows}</ul>
       </article>
-    </section>
+    </main>
   )
 }
 
