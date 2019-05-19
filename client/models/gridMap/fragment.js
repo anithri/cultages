@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost'
 import { HEX_FRAGMENT } from 'models/hex'
 
-export const MAP_FRAGMENT = gql`
-  fragment mapFragment on GridMap {
+export const GRID_MAP_FRAGMENT = gql`
+  fragment gridMapFragment on GridMap {
     id
     name
     size

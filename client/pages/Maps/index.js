@@ -2,19 +2,27 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import { MapListContainer } from 'concerns/map'
-import { mapListShape } from 'models/map'
-import List from './List'
+import { GridMapListContainer, gridMapListShape } from 'models/gridMap'
+import { Link } from 'react-router-dom'
 
-const Maps = ({ className, maps }) => (
-  <div className={cx(className, styles.maps)}>
-    <List maps={maps} />
-  </div>
-)
-
-Maps.propTypes = {
-  className: PropTypes.string,
-  maps: mapListShape,
+const GridMaps = ({ className, gridMaps }) => {
+  const rows = gridMaps.map(({ id, name }) => (
+    <li key={`gridMapList-${id}`}>
+      <Link to={`/grid_maps/${id}`}>{name}</Link>
+    </li>
+  ))
+  return (
+    <section className={cx(className, styles.maps)}>
+      <article>
+        <ul>{rows}</ul>
+      </article>
+    </section>
+  )
 }
 
-export default MapListContainer({ Display: Maps })
+GridMaps.propTypes = {
+  className: PropTypes.string,
+  gridMaps: gridMapListShape,
+}
+
+export default GridMapListContainer({ Display: GridMaps })

@@ -70,31 +70,31 @@ module Types
 
 
     #region Hexes Fields
-    field :grid_hex, Types::GridHex, null: true do
+    field :hex, Types::GridHex, null: true do
       argument :hexagon_id, ID, required: true, as: :id
     end
-    def grid_hex(id:)
+    def hex(id:)
       ::GridHex.find id
     end
 
-    field :grid_hexes, Types::GridHex.connection_type, null: false do
-      argument :grid_map_id, ID, required: true, as: :id
+    field :hexes, Types::GridHex.connection_type, null: false do
+      argument :map_id, ID, required: true, as: :id
     end
-    def grid_hexes(id:)
+    def hexes(id:)
       GridHex.where(grid_map_id: id)
     end
     #endregion
 
     #region GridMap Fields
     field :grid_map, Types::GridMap, null: true do
-      argument :map_id, ID, required: true, as: :id
+      argument :grid_map_id, ID, required: true, as: :id
     end
     def grid_map(id:)
       ::GridMap.includes(:grid_hexes).find id
     end
 
     field :grid_maps, Types::GridMap.connection_type, null: false
-    def maps
+    def grid_maps
       ::GridMap.all
     end
     #endregion

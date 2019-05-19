@@ -30,8 +30,8 @@ const SiteRouter = props => {
         <Route exact path="/games/:gameId" component={GameState} />
         <Route strict path="/games" component={Games} />
 
-        <Route exact path="/maps/:mapId" component={Map} />
-        <Route exact path="/maps" component={Maps} />
+        <Route exact path="/grid_maps/:gridMapId" component={Map} />
+        <Route exact path="/grid_maps" component={Maps} />
 
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />

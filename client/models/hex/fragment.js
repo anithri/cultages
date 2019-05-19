@@ -1,11 +1,10 @@
-import {gql} from 'apollo-boost'
+import { gql } from 'apollo-boost'
 
 export const HEX_FRAGMENT = gql`
-  fragment hexFragment on Hex {
+  fragment hexFragment on GridHex {
     id
-    label
-    altitude
-    x
-    y
+    q
+    r
+    s
   }
 `
