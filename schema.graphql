@@ -162,7 +162,7 @@ type Hex {
     s: Int!
 }
 
-"The connection type for Hex."
+"The connection type for GridHex."
 type HexConnection {
     "A list of edges."
     edges: [HexEdge]

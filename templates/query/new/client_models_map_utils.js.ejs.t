@@ -7,14 +7,14 @@ import { defineGrid, extendHex } from 'honeycomb-grid'
 const SCALE_WIDTH = 2 * Math.sqrt(3)
 
 export const parseMap = ({ <%= name.toLowerCase() %> }) => {
-  const Hex = extendHex({
+  const GridHex = extendHex({
     size: <%= name.toLowerCase() %>.radius,
     origin: [<%= name.toLowerCase() %>.radius * SCALE_WIDTH, <%= name.toLowerCase() %>.radius],
   })
 
-  const HexGrid = defineGrid(Hex)
+  const HexGrid = defineGrid(GridHex)
   const hexData = parseHexList(<%= name.toLowerCase() %>)
-  const grid = HexGrid(hexData.<%= name.toLowerCase() %>(h => Hex(h)))
+  const grid = HexGrid(hexData.<%= name.toLowerCase() %>(h => GridHex(h)))
 
   const gap = <%= name.toLowerCase() %>.radius * 2
 
@@ -27,7 +27,7 @@ export const parseMap = ({ <%= name.toLowerCase() %> }) => {
     maxX,
     maxY,
     gap,
-    Hex,
+    GridHex,
     HexGrid,
     grid,
     ...<%= name.toLowerCase() %>,

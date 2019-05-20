@@ -13,18 +13,13 @@ import {
   Hex,
 } from 'react-hexgrid'
 import { hexListShape } from 'models/hex'
+import GridHex from './GridHex'
 
 const ratio = 0.897
 const MapPanel = ({ className, flat, size, hexes }) => {
   const articleRef = useRef()
   const { width, height } = useSize(articleRef)
-  const hexagons = hexes.map(hex => (
-    <Hexagon
-      {...hex}
-      key={`Hexagon-${hex.id}`}
-      className={cx(hex.r > 3 ? styles.unexplored : styles.found)}
-    />
-  ))
+  const hexagons = hexes.map(hex => <GridHex hex={hex} key={`Hexagon-${hex.id}`} />)
 
   return (
     height || (
