@@ -15,4 +15,6 @@
 
 class GridMap < ApplicationRecord
   has_many :grid_hexes
+
+  
 end

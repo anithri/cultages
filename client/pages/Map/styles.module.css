@@ -1,16 +1,22 @@
 .gridMap {
   composes: grid from global;
   display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr;
+  grid-template-rows: auto 480px 1fr;
+  grid-template-columns: auto repeat(2, 1fr);
+  grid-template-areas: "header header header" "map player board" "other player board";
+
 }
+
 .header {
   composes: flexCenter from global;
+  grid-area: header;
   justify-content: space-between;
 }
 
-.canvas {
-  background-color: var(--white-30);
+.map {
+  composes: flexCenter from global;
+  background-color: var(--white-20);
   max-height: 100%;
   overflow: hidden;
+  grid-area: map;
 }

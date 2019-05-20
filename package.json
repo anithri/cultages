@@ -54,6 +54,7 @@
     "clean": "rm -rf .cache public/site",
     "build": "gatsby build",
     "pretty": "prettier --write 'client/**/*.js'",
-    "generateGrid": "node lib/tasks/generateGrid ${GRID_SIZE-12} ${GRID_COLS-48} ${GRID_ROWS-30}"
+    "generateGrid": "node lib/tasks/generateGrid ${GRID_SIZE-12} ${GRID_COLS-48} ${GRID_ROWS-30}",
+    "genGrid": "node lib/tasks/genGrid"
   }
 }

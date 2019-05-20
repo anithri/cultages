@@ -1,6 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
+import { useSize } from 'react-hook-size'
 import styles from './styles.module.css'
 import {
   HexGrid,
@@ -11,30 +12,36 @@ import {
   Path,
   Hex,
 } from 'react-hexgrid'
-import { useSize } from 'react-hook-size'
 import { hexListShape } from 'models/hex'
 
+const ratio = 0.897
+
 const MapPanel = ({ className, hexes }) => {
-  // const sectionRef = useRef()
-  // const { width, height } = useSize(sectionRef)
+  const articleRef = useRef()
+  const { width, height } = useSize(articleRef)
   const hexagons = hexes.map(hex => (
     <Hexagon {...hex} key={`Hexagon-${hex.id}`} />
   ))
+  console.log('MapPanel', width, height)
+
   return (
-    <section className={cx(className, styles.mapPanel)}>
-      <HexGrid width={1200} height={800} viewBox="0 0 100 100">
-        {/* Grid with manually inserted hexagons */}
-        <Layout
-          size={{ x: 1, y: 1 }}
-          flat={true}
-          spacing={1.1}
-          origin={{ x: 0, y: 0 }}
-        >
-          {hexagons}
-          <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} />
-        </Layout>
-      </HexGrid>
-    </section>
+    height || (
+      <section ref={articleRef} className={cx(className, styles.mapPanel)}>
+        <article>
+          <HexGrid width={435} height={485} viewBox="-6 -9 81 90">
+            <Layout
+              flat={false}
+              size={{ x: 6, y: 6 }}
+              spacing={1.1}
+              origin={{ x: 0, y: 0 }}
+            >
+              {hexagons}
+            </Layout>
+            {/*<rect x="-6" y="-8" width="75" height="82" fill="var(--white-40)"/>*/}
+          </HexGrid>
+        </article>
+      </section>
+    )
   )
 }
 
