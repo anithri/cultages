@@ -11,7 +11,6 @@ class CreateGridMap
   def call
     context.grid_map = GridMap.create(data['grid'])
     grid_map.name    = faker.game_name
-    warn(data['hexes'])
     data['hexes'].each do |hex|
       grid_map.grid_hexes.create(hex)
     end

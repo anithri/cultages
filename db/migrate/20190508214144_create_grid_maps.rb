@@ -5,8 +5,7 @@ class CreateGridMaps < ActiveRecord::Migration[6.0]
       t.integer :cols
       t.integer :rows
       t.integer :size
-      t.boolean :flat
-      t.jsonb :origin
+      t.boolean :flat, default: false
 
       t.timestamps
     end

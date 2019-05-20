@@ -14,4 +14,10 @@
   game.setup_game!
 end
 
+(4..10).to_a.each do |row|
+  (3..8).to_a.each do |col|
+    layout = GenerateGridLayout.call rows: row, cols: col
+    CreateGridMap.call data: layout.data
+  end
+end
 

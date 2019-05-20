@@ -1,9 +1,9 @@
 .gridMap {
   composes: grid from global;
   display: grid;
-  grid-template-rows: auto 480px 1fr;
-  grid-template-columns: auto repeat(2, 1fr);
-  grid-template-areas: "header header header" "map player board" "other player board";
+  grid-template-rows: auto repeat(2, 1fr);
+  grid-template-columns: var(--measure) repeat(2, 1fr);
+  grid-template-areas: "header header header" "map player board" "messages player board";
 
 }
 

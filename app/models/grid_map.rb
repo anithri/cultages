@@ -4,9 +4,8 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  cols       :integer
-#  flat       :boolean
+#  flat       :boolean          default(FALSE)
 #  name       :string
-#  origin     :jsonb
 #  rows       :integer
 #  size       :integer
 #  created_at :datetime         not null

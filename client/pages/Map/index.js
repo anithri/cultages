@@ -12,7 +12,7 @@ const GridMap = ({ className, gridMap }) => {
         <h2>{gridMap.name}</h2>
         <span>size: {gridMap.radius} miles</span>
       </header>
-      <MapPanel hexes={gridMap.hexes} className={styles.map} />
+      <MapPanel {...gridMap} className={styles.map} />
     </main>
   )
 }

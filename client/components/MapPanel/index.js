@@ -15,25 +15,27 @@ import {
 import { hexListShape } from 'models/hex'
 
 const ratio = 0.897
-
-const MapPanel = ({ className, hexes }) => {
+const MapPanel = ({ className, flat, size, hexes }) => {
   const articleRef = useRef()
   const { width, height } = useSize(articleRef)
   const hexagons = hexes.map(hex => (
-    <Hexagon {...hex} key={`Hexagon-${hex.id}`} />
+    <Hexagon
+      {...hex}
+      key={`Hexagon-${hex.id}`}
+      className={cx(hex.r > 3 ? styles.unexplored : styles.found)}
+    />
   ))
-  console.log('MapPanel', width, height)
 
   return (
     height || (
       <section ref={articleRef} className={cx(className, styles.mapPanel)}>
         <article>
-          <HexGrid width={435} height={485} viewBox="-6 -9 81 90">
+          <HexGrid width={480} height={536} viewBox="0 0 52 56">
             <Layout
-              flat={false}
-              size={{ x: 6, y: 6 }}
+              flat={!!flat}
+              size={{ x: size, y: size }}
               spacing={1.1}
-              origin={{ x: 0, y: 0 }}
+              origin={{ x: 4, y: 6 * 0.75 * 1.1 }}
             >
               {hexagons}
             </Layout>

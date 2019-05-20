@@ -6,9 +6,9 @@ import { GridMapListContainer, gridMapListShape } from 'models/gridMap'
 import { Link } from 'react-router-dom'
 
 const GridMaps = ({ className, gridMaps }) => {
-  const rows = gridMaps.map(({ id, name }) => (
+  const rows = gridMaps.map(({ id, name, cols, rows }) => (
     <li key={`gridMapList-${id}`}>
-      <Link to={`/grid_maps/${id}`}>{name}</Link>
+      <Link to={`/grid_maps/${id}`}>{`${name} (${cols},${rows})`}</Link>
     </li>
   ))
   return (

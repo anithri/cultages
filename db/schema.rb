@@ -67,8 +67,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_215441) do
     t.integer "cols"
     t.integer "rows"
     t.integer "size"
-    t.boolean "flat"
-    t.jsonb "origin"
+    t.boolean "flat", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
