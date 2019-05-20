@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2019_05_08_215441) do
     t.integer "r"
     t.integer "s"
     t.bigint "grid_map_id", null: false
-    t.integer "terrain"
-    t.integer "territory"
+    t.integer "terrain", default: 0
+    t.integer "territory", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["grid_map_id"], name: "index_grid_hexes_on_grid_map_id"

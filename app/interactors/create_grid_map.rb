@@ -3,6 +3,9 @@ class CreateGridMap
   
   before do
     context.fail!(error: 'no grid given') unless context.data
+    context.ocean_cycles    ||= [10, 5, 9]
+    context.mountain_cycles ||= [3, 2]
+    
     context.faker ||= Steps::Faker.random
   end
   
@@ -13,53 +16,48 @@ class CreateGridMap
     grid_map.name    = faker.game_name
     
     data['hexes'].each do |hex|
-      hex[:terrain] = GridHex::TERRAINS.keys.sample
-      hex[:territory] = GridHex::TERRITORIES.keys.sample
-  
       grid_map.grid_hexes.create(hex)
     end
     grid_map.save
-    context.extents = extents
+    oceans
+    mountains
+  end
+  
+  def in_range(size)
+    rand(1 + size * 2) - size
+  end
+  
+  def random_delta(base, rng = 1)
+    {
+      q: base.q + in_range(rng),
+      r: base.r + in_range(rng),
+      s: base.s + in_range(rng),
+    }
+  end
+  
+  def oceans
+    context.ocean_cycles.each do |count|
+      h      = grid_map.ocean_starter
+      oceans = [h]
+      count.times do
+        delta = random_delta(h)
+        hex   = grid_map.grid_hexes.find_by(delta)
+        
+        oceans.push(hex) if hex
+      end
+      oceans.uniq.each { |hex| hex.update(terrain: :ocean, territory: :sea) }
+    end
+  end
+  
+  def mountains
+    above = grid_map.grid_hexes.where.not(terrain: :ocean)
+    range = []
+    context.mountain_cycles.each do |count|
+      range.push(*above.sample(count))
+    end
+    range.uniq.each { |hex| hex.update(terrain: :mountains) }
   end
   
   delegate :cols, :rows, :size, to: :grid_map
-  
-  def width
-    (Math.sqrt(3) * grid_map.size) * spacing
-  end
-  
-  def height
-    2 * size * spacing
-  end
-  
-  def between_rows
-    0.75 * height
-  end
-  
-  def high
-    # https://www.redblobgames.com/grids/hexagons/#basics
-    ((rows + 1) * between_rows).ceil
-  end
-  
-  def wide
-    ((cols + 1) * width).ceil
-  end
-  
-  def spacing
-    1.2
-  end
-  
-  def negSpacing
-    [(-width / 2.0).floor, -size]
-  end
-  
-  def extents
-    [
-      negSpacing,
-      [
-        wide, high
-      ]
-    ]
-  
-  end
 end
+#

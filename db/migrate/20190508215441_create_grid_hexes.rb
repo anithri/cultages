@@ -5,8 +5,8 @@ class CreateGridHexes < ActiveRecord::Migration[6.0]
       t.integer :r
       t.integer :s
       t.references :grid_map, null: false, foreign_key: true
-      t.integer :terrain
-      t.integer :territory
+      t.integer :terrain, default: 0
+      t.integer :territory, default: 0
       t.timestamps
     end
   end

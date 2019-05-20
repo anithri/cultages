@@ -9,15 +9,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-16.times do
-  game = Events::CreateGame.call
-  game.setup_game!
-end
+# 16.times do
+#   game = Events::CreateGame.call
+#   game.setup_game!
+# end
 
-(4..10).to_a.each do |row|
-  (3..8).to_a.each do |col|
-    layout = GenerateGridLayout.call rows: row, cols: col
-    CreateGridMap.call data: layout.data
-  end
+# (5..10).to_a.each do |row|
+#   (4..8).to_a.each do |col|
+#     layout = GenerateGridLayout.call rows: row, cols: col
+#     CreateGridMap.call data: layout.data
+#   end
+# end
+
+10.times do
+  layout = GenerateGridLayout.call cols: 6, rows: 8
+  CreateGridMap.call data: layout.data
 end
 

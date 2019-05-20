@@ -6,8 +6,8 @@
 #  q           :integer
 #  r           :integer
 #  s           :integer
-#  terrain     :integer
-#  territory   :integer
+#  terrain     :integer          default("distant")
+#  territory   :integer          default("unexplored")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  grid_map_id :bigint(8)        not null
@@ -38,6 +38,7 @@ class GridHex < ApplicationRecord
     frontier: 2,
     wilds: 3,
     enemy: 4,
+    sea: 5,
   }
   
   belongs_to :grid_map
@@ -47,4 +48,5 @@ class GridHex < ApplicationRecord
   def label
     "(#{q},#{r},#{s})"
   end
+  
 end
