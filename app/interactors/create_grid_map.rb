@@ -11,7 +11,11 @@ class CreateGridMap
   def call
     context.grid_map = GridMap.create(data['grid'])
     grid_map.name    = faker.game_name
+    
     data['hexes'].each do |hex|
+      hex[:terrain] = GridHex::TERRAINS.keys.sample
+      hex[:territory] = GridHex::TERRITORIES.keys.sample
+  
       grid_map.grid_hexes.create(hex)
     end
     grid_map.save

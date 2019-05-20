@@ -6,5 +6,7 @@ export const HEX_FRAGMENT = gql`
     q
     r
     s
+    terrain
+    territory
   }
 `

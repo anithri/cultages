@@ -9,8 +9,11 @@ module Types
     field :q, Integer, null: false
     field :r, Integer, null: false
     field :s, Integer, null: false
-
+    field :territory, String, null: false
+    field :terrain, String, null: false
     field :map, Types::GridMap, method: :grid_map, null: false
 
+    field :terrain, String, null: false
+    field :territory, String, null: false
   end
 end

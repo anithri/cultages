@@ -39,9 +39,90 @@ svg g text {
 }
 svg path {
   fill: none;
-  stroke: hsl(60, 20%, 70%);
+  //stroke: hsl(60, 20%, 70%);
   stroke-opacity: 0.3;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.ocean {
+  & > g polygon {
+    fill: var(--dark-blue);
+  }
+}
+
+.lake {
+  & > g polygon {
+    fill: var(--light-blue);
+  }
+
+}
+
+.plains {
+  & > g polygon {
+    fill: var(--wheat);
+  }
+
+}
+
+.hills {
+  & > g polygon {
+    fill: var(--sienna);
+  }
+}
+
+.mountains {
+  & > g polygon {
+    fill: var(--mid-gray);
+  }
+}
+
+.swamp {
+  & > g polygon {
+    fill: var(--sandy-brown);
+  }
+}
+
+.desert {
+  & > g polygon {
+    fill: var(--washed-yellow);
+  }
+}
+
+.unexplored {
+  & > g polygon {
+    fill: var(--black-20);
+  }
+}
+
+.distant {
+  & > g polygon {
+    stroke: var(--near-black);
+  }
+}
+
+
+.tamed {
+  & > g polygon {
+    stroke: var(--green);
+  }
+}
+
+.frontier {
+  & > g polygon {
+    stroke: var(--yellow)
+  }
+}
+
+.wilds {
+  & > g polygon {
+    stroke: var(--blue);
+  }
+}
+
+.enemy {
+  & > g polygon {
+    stroke: var(--red);
+  }
 }
 

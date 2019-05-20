@@ -6,6 +6,8 @@
 #  q           :integer
 #  r           :integer
 #  s           :integer
+#  terrain     :integer
+#  territory   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  grid_map_id :bigint(8)        not null
@@ -20,8 +22,28 @@
 #
 
 class GridHex < ApplicationRecord
+  TERRAINS    = {
+    distant:   0,
+    ocean:     1,
+    lake:      2,
+    plains:    3,
+    hills:     4,
+    mountains: 5,
+    swamp:     6,
+    desert:    7,
+  }
+  TERRITORIES = {
+    unexplored: 0,
+    tamed: 1,
+    frontier: 2,
+    wilds: 3,
+    enemy: 4,
+  }
+  
   belongs_to :grid_map
-
+  enum terrain: TERRAINS
+  enum territory: TERRITORIES
+  
   def label
     "(#{q},#{r},#{s})"
   end
