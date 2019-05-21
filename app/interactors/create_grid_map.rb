@@ -4,7 +4,7 @@ class CreateGridMap
   before do
     context.fail!(error: 'no grid given') unless context.data
     context.ocean_cycles    ||= [10, 5, 9]
-    context.mountain_cycles ||= [3, 2]
+    context.mountain_cycles ||= [6, 4]
     
     context.faker ||= Steps::Faker.random
   end
@@ -21,6 +21,8 @@ class CreateGridMap
     grid_map.save
     oceans
     mountains
+    starting_hex
+    fill_hexes
   end
   
   def in_range(size)
@@ -29,9 +31,10 @@ class CreateGridMap
   
   def random_delta(base, rng = 1)
     {
-      q: base.q + in_range(rng),
-      r: base.r + in_range(rng),
-      s: base.s + in_range(rng),
+      q:       base.q + in_range(rng),
+      r:       base.r + in_range(rng),
+      s:       base.s + in_range(rng),
+      terrain: :distant,
     }
   end
   
@@ -45,19 +48,53 @@ class CreateGridMap
         
         oceans.push(hex) if hex
       end
-      oceans.uniq.each { |hex| hex.update(terrain: :ocean, territory: :sea) }
+      oceans.uniq.each {|hex| hex.update(terrain: :ocean, territory: :sea)}
     end
   end
   
   def mountains
-    above = grid_map.grid_hexes.where.not(terrain: :ocean)
-    range = []
     context.mountain_cycles.each do |count|
-      range.push(*above.sample(count))
+      m         = grid_map.mountain_starter
+      mountains = [m]
+      count.times do
+        delta = random_delta(m)
+        hex   = grid_map.grid_hexes.find_by(delta)
+        
+        mountains.push(hex) if hex
+      end
+      mountains.uniq.each {|hex| hex.update(terrain: :mountains, territory: :impassable)}
     end
-    range.uniq.each { |hex| hex.update(terrain: :mountains) }
+  end
+  
+  def starting_hex
+    city = grid_map.ocean_starter
+    city.update(terrain: :city, territory: :tamed)
+    city.neighbors
+      .compact
+      .select(&:distant?)
+      .each {|c| c.update(terrain: :plains, territory: :tamed)}
+    grid_map.grid_hexes
+      .where(terrain: :plains)
+      .map(&:neighbors)
+      .flatten
+      .compact
+      .select(&:distant?)
+      .each {|h| h.update(terrain: GridHex.random_terrain, territory: :frontier)}
+    grid_map.grid_hexes
+      .where(territory: :frontier)
+      .map(&:neighbors)
+      .flatten
+      .compact
+      .select(&:distant?)
+      .each {|h| h.update(terrain: GridHex.random_terrain, territory: :wilds)}
+    
+  end
+  
+  def fill_hexes
+    grid_map.grid_hexes
+      .where(terrain: :distant)
+      .each {|h| h.update(terrain: GridHex.random_terrain, territory: :unexplored)}
   end
   
   delegate :cols, :rows, :size, to: :grid_map
 end
-#

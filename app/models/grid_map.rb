@@ -14,13 +14,10 @@
 
 class GridMap < ApplicationRecord
   has_many :grid_hexes
-  NEIGHBORS = [
-    [1, -1, 0], [1, 0, -1], [0, 1, -1],
-    [-1, 1, 0], [-1, 0, 1], [0, -1, 1]
-  ]
   
   def ocean_starter
     ends = grid_hexes
+      .where(terrain: :distant)
       .group_by(&:r)
       .values
       .map do |row|
@@ -33,9 +30,7 @@ class GridMap < ApplicationRecord
     ends.flatten.sample()
   end
   
-  def neighbors
-    neighbors ||= NEIGHBORS.map do |delta|
-      # grid_hexes.find_by()
-    end
+  def mountain_starter
+    grid_hexes.where(terrain: :distant).sample
   end
 end

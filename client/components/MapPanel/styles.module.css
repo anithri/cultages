@@ -23,7 +23,7 @@ svg {
 
 svg g polygon {
   //stroke: #3f51b5;
-  stroke-width: 0.2;
+  stroke-width: 0.5;
   transition: fill-opacity 0.2s;
 }
 svg g text {
@@ -39,87 +39,93 @@ svg path {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
 .distant {
-  & polygon {
-    fill: var(--black-20);
+  & g polygon {
+    fill: var(--distant);
+  }
+}
+.city {
+  & g polygon {
+    fill: var(--city);
+  }
+}
+.lake {
+  & g polygon {
+    fill: var(--lake);
   }
 }
 .ocean {
-  & polygon {
-    fill: var(--dark-blue);
+  & g polygon {
+    fill: var(--ocean);
   }
 }
-
-.lake {
-  & > g polygon {
-    fill: var(--light-blue);
-  }
-}
-
-.plains {
-  & > g polygon {
-    fill: var(--wheat);
-  }
-}
-
-.hills {
-  & > g polygon {
-    fill: var(--sienna);
-  }
-}
-
 .mountains {
-  & > g polygon {
-    fill: var(--mid-gray);
+  & g polygon {
+    fill: var(--mountains);
   }
 }
-
+.plains {
+  & g polygon {
+    fill: var(--plains);
+  }
+}
+.forest {
+  & g polygon {
+    fill: var(--forest);
+  }
+}
+.hills {
+  & g polygon {
+    fill: var(--hills);
+  }
+}
 .swamp {
-  & > g polygon {
-    fill: var(--sandy-brown);
+  & g polygon {
+    fill: var(--swamp);
   }
 }
-
 .desert {
-  & > g polygon {
-    fill: var(--washed-yellow);
+  & g polygon {
+    fill: var(--desert);
   }
 }
-
-
 .unexplored {
-  & > g polygon {
-    stroke: var(--black-20);
+  & g polygon {
+    fill: var(--distant);
+    stroke-width: 0;
   }
 }
-
-.distant {
-  & > g polygon {
-    stroke: var(--near-white);
-  }
-}
-
 .tamed {
-  & > g polygon {
-    stroke: var(--green);
+  & g polygon {
+    stroke: var(--tamed);
   }
 }
-
 .frontier {
-  & > g polygon {
-    stroke: var(--yellow)
+  & g polygon {
+    stroke: var(--frontier);
   }
 }
-
 .wilds {
-  & > g polygon {
-    stroke: var(--blue);
+  & g polygon {
+    stroke: var(--wilds);
   }
 }
-
 .enemy {
-  & > g polygon {
-    stroke: var(--red);
+  & g polygon {
+    stroke: var(--enemy);
+  }
+}
+.sea {
+  & g polygon {
+    stroke: var(--sea);
+    stroke-width: 0.9;
+  }
+}
+.impassable {
+  & g polygon {
+    stroke: var(--impassable);
+    stroke-width: 0.9;
   }
 }
 
