@@ -4,6 +4,7 @@ import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
+import barbarian from 'images/barbarian.png'
 
 class HomePage extends React.Component {
   render() {
@@ -11,10 +12,11 @@ class HomePage extends React.Component {
     return (
       <main className={cx(className, styles.homePage)}>
         <MainHeader title="Welcome!" />
+        <img src={barbarian} />
         <nav className="pageNav">
           <ul>
             <li>
-              <NavLink to="/maps" activeClassName="bg-white">
+              <NavLink to="/grid_maps" activeClassName="bg-white">
                 Maps
               </NavLink>
             </li>

@@ -5,10 +5,10 @@ import { useSize } from 'react-hook-size'
 import styles from './styles.module.css'
 import { Hexagon } from 'react-hexgrid'
 import { hexShape } from 'models/hex'
-
 const GridHex = ({ className, hex }) => {
   return (
     <Hexagon
+      fill="barbarian"
       {...hex}
       className={cx(className, styles[hex.terrain], styles[hex.territory])}
     />
