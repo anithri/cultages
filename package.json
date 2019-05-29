@@ -21,7 +21,9 @@
     "classnames": "^2.2.6",
     "core-js": "3",
     "graphql": "^14.0.2",
+    "honeycomb-grid": "^1.4.4",
     "inflection": "^1.12.0",
+    "konva": "^3.2.6",
     "postcss-comment-2": "^1.0.1",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.4.0",
@@ -32,13 +34,12 @@
     "react-apollo-hooks": "^0.4.0",
     "react-burger-menu": "^2.5.4",
     "react-helmet": "^5.2.0",
-    "react-hexgrid": "^1.0.3",
     "react-hook-size": "^1.3.0",
     "react-interactive-canvas": "^1.0.2",
+    "react-konva": "^16.8.7-2",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^5.0.0-rc.6",
     "tachyons-custom": "^4.9.6",
-    "use-image": "^1.0.3",
     "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
@@ -47,7 +48,6 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.0",
-    "honeycomb-grid": "^1.4.4",
     "postcss": "^7.0.13",
     "webpack-dev-server": "^3.2.1"
   },
