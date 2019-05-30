@@ -55,7 +55,6 @@ gem 'rails_warden'
 
 gem 'globalid'
 gem 'active_hash'
-gem 'waxy'
 group :development do
   gem 'annotate'
   gem 'guard-bundler'

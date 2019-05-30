@@ -6,8 +6,3 @@ export const hexListRowShape = PropTypes.shape({
 }).isRequired
 
 export const hexListShape = PropTypes.arrayOf(hexListRowShape)
-
-
-
-
-

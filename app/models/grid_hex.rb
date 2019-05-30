@@ -62,6 +62,10 @@ class GridHex < ApplicationRecord
   def label
     "(#{q},#{r},#{s})"
   end
+
+  def coords
+    [q + (s - (s&1)) / 2, s]
+  end
   
   def neighbors
     NEIGHBORS.map do |delta|
