@@ -4,8 +4,6 @@ import Game from 'pages/Game'
 import Games from 'pages/Games'
 import GameState from 'pages/Game/GameState'
 import Home from './Home'
-import Map from 'pages/Map'
-import Maps from 'pages/Maps'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -29,9 +27,6 @@ const SiteRouter = props => {
         <Route exact path="/games/:gameId/:gameState" component={Game} />
         <Route exact path="/games/:gameId" component={GameState} />
         <Route strict path="/games" component={Games} />
-
-        <Route exact path="/grid_maps/:gridMapId" component={Map} />
-        <Route exact path="/grid_maps" component={Maps} />
 
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />

@@ -68,37 +68,6 @@ module Types
     end
     #endregion
 
-
-    #region Hexes Fields
-    field :hex, Types::GridHex, null: true do
-      argument :hexagon_id, ID, required: true, as: :id
-    end
-    def hex(id:)
-      ::GridHex.find id
-    end
-
-    field :hexes, Types::GridHex.connection_type, null: false do
-      argument :map_id, ID, required: true, as: :id
-    end
-    def hexes(id:)
-      GridHex.where(grid_map_id: id)
-    end
-    #endregion
-
-    #region GridMap Fields
-    field :grid_map, Types::GridMap, null: true do
-      argument :grid_map_id, ID, required: true, as: :id
-    end
-    def grid_map(id:)
-      ::GridMap.includes(:grid_hexes).find id
-    end
-
-    field :grid_maps, Types::GridMap.connection_type, null: false
-    def grid_maps
-      ::GridMap.all
-    end
-    #endregion
-
     # last of fields
   end
 end
