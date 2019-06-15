@@ -5,10 +5,9 @@ unless_exists: true
 const cc = require('change-case')
 const inflection = require('inflection')
 const CSS_FILE_NAME = 'styles.module.css'
-const { pathTo } = require('.hygen/pathTo.js')
+const pathTo = require('./.hygen/pathTo').pathTo
 
 const basePath = new pathTo(process.cwd())
-
 const paths = {
   <%- paths %>
 }

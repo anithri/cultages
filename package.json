@@ -1,6 +1,7 @@
 {
   "name": "cultages",
   "private": true,
+  "license": "UNLICENSED",
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-pro-regular": "^5.0.13",
@@ -22,6 +23,8 @@
     "core-js": "3",
     "graphql": "^14.0.2",
     "honeycomb-grid": "^1.4.4",
+    "hygen-add": "^1.0.5",
+    "hygen-create": "^0.2.1",
     "inflection": "^1.12.0",
     "node-sass": "^4.12.0",
     "postcss-comment-2": "^1.0.1",
@@ -40,12 +43,14 @@
     "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
-    "change-case": "^3.0.2",
+    "change-case": "^3.1.0",
     "eslint": "^5.11.1",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.0",
     "postcss": "^7.0.13",
+    "skywriter": "https://github.com/CPPWind/skywriter",
+    "undefined": "^0.1.0",
     "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
