@@ -11,6 +11,13 @@ class GenerateGridLayout
   end
   
   def generateGrid
-    JSON.parse(`yarn -s genGrid #{cols} #{rows}`)
+    all = []
+    cols.times do |col|
+      rows.times do |row|
+        all.push({
+          q: col,
+                 })
+      end
+    end
   end
 end

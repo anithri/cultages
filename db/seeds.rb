@@ -1,28 +1,8 @@
 # frozen_string_literal: true
-
-# This file should contain all the record creation needed to seed the database with its default
-# values. The data can then be loaded with the rails db:seed command (or created alongside the
-# database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-# 16.times do
-#   game = Events::CreateGame.call
-#   game.setup_game!
-# end
-
-# (5..10).to_a.each do |row|
-#   (4..8).to_a.each do |col|
-#     layout = GenerateGridLayout.call rows: row, cols: col
-#     CreateGridMap.call data: layout.data
-#   end
-# end
+require 'json'
+grid_filename = Rails.root + 'db/grid-5-8.json'
+template =JSON.parse(File.read(grid_filename))
 
 10.times do
-  layout = GenerateGridLayout.call cols: 6, rows: 8
-  CreateGridMap.call data: layout.data
+  CreateGridMap.call data: template
 end
-

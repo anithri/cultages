@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_215441) do
+ActiveRecord::Schema.define(version: 2019_06_15_030310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,33 +43,33 @@ ActiveRecord::Schema.define(version: 2019_05_08_215441) do
     t.index ["dice_id"], name: "index_dice_requirements_on_dice_id"
   end
 
+  create_table "game_hexes", force: :cascade do |t|
+    t.integer "q"
+    t.integer "r"
+    t.integer "s"
+    t.integer "order"
+    t.integer "terrain"
+    t.integer "territory"
+    t.bigint "game_map_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_map_id"], name: "index_game_hexes_on_game_map_id"
+  end
+
+  create_table "game_maps", force: :cascade do |t|
+    t.string "name"
+    t.jsonb "extents", default: {"x"=>600, "y"=>800}
+    t.integer "cols", default: 5
+    t.integer "rows", default: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "game_state"
     t.integer "turn", default: -1
     t.integer "selected_dice_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "grid_hexes", force: :cascade do |t|
-    t.integer "q"
-    t.integer "r"
-    t.integer "s"
-    t.bigint "grid_map_id", null: false
-    t.integer "terrain", default: 0
-    t.integer "territory", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["grid_map_id"], name: "index_grid_hexes_on_grid_map_id"
-  end
-
-  create_table "grid_maps", force: :cascade do |t|
-    t.string "name"
-    t.integer "cols"
-    t.integer "rows"
-    t.integer "size"
-    t.boolean "flat", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -85,6 +85,6 @@ ActiveRecord::Schema.define(version: 2019_05_08_215441) do
   add_foreign_key "cards", "games"
   add_foreign_key "dice_requirements", "cards"
   add_foreign_key "dice_requirements", "dice"
-  add_foreign_key "grid_hexes", "grid_maps"
+  add_foreign_key "game_hexes", "game_maps"
   add_foreign_key "players", "games"
 end
