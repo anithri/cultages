@@ -1,8 +1,0 @@
-.reward {
-  width: 100%;
-
-  & figure,
-  & span {
-    width: 100%;
-  }
-}

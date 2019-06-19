@@ -1,2 +1,0 @@
-class GameMap < ApplicationRecord
-end

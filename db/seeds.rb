@@ -20,9 +20,3 @@
 #     CreateGridMap.call data: layout.data
 #   end
 # end
-
-10.times do
-  layout = GenerateGridLayout.call cols: 6, rows: 8
-  CreateGridMap.call data: layout.data
-end
-
