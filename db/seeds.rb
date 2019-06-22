@@ -20,3 +20,7 @@
 #     CreateGridMap.call data: layout.data
 #   end
 # end
+
+5.times do
+  CreateGame.call
+end
