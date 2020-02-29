@@ -161,7 +161,7 @@ GEM
       method_source (~> 0.9.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    puma (3.12.1)
+    puma (3.12.3)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
     rack (2.0.7)
@@ -269,7 +269,7 @@ DEPENDENCIES
   perlin
   pg (>= 0.18, < 2.0)
   pry-rails
-  puma (~> 3.11)
+  puma (~> 3.12)
   pundit
   rails (~> 6.0.0.rc1)
   rails_warden
